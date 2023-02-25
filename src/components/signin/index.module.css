@@ -1,0 +1,48 @@
+.signin {
+	background-color: var(--card-bg);
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.signin form {
+	width: 100%;
+	max-width: 420px;
+	border-radius: var(--border-radius);
+	padding-top: 32px;
+	padding-bottom: 32px;
+}
+.forgetCard {
+	gap: 0;
+	text-align: right;
+}
+
+.forgetCard legend {
+	margin: 0;
+	margin-top: 24px;
+	padding-bottom: 2px;
+	width: 100%;
+	font-size: 0.87rem;
+	color: var(--legend-color);
+}
+
+.forgetCard small {
+	width: fit-content;
+	margin-left: auto;
+	color: var(--btn-bg);
+	cursor: pointer;
+}
+
+@media (hover: hover) {
+	.forgetCard small:hover {
+		text-decoration: underline;
+	}
+}
+@media screen and (min-width: 420px) {
+	.signin {
+		background-color: var(--main-bg);
+	}
+	.signin form {
+		border: var(--border);
+	}
+}
