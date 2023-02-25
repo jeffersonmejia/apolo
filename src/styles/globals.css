@@ -1,6 +1,7 @@
 :root {
 	--main-bg: rgb(245, 245, 245);
 	--card-bg: rgb(255, 255, 255);
+	--font-family: "Source Sans Pro", sans-serif;
 
 	--border-color: rgb(220, 220, 220);
 	--border: 1px solid var(--border-color);
@@ -20,6 +21,10 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+html {
+	font-family: var(--font-family);
 }
 
 html,
@@ -63,20 +68,23 @@ input {
 	transition: background-color 0.3s ease-in-out;
 }
 
-@media (hover: hover) {
-	input:hover {
-		background-color: var(--input-hover);
-	}
+input:hover {
+	background-color: var(--input-hover);
 }
 
 button {
 	border: none;
 	background-color: var(--btn-bg);
 	color: var(--btn-fg);
-	transition: background-color 0.3s ease-in-out;
+	transition-property: background-color, transform;
+	-webkit-transition-property: transform;
+	transition: 0.3s ease-in-out;
+	-webkit-transition: 0.3s ease-in-out;
+	-webkit-tap-highlight-color: transparent;
 }
-@media (hover: hover) {
-	button:hover {
-		background-color: var(--btn-hover);
-	}
+button:hover {
+	background-color: var(--btn-hover);
+}
+button:active {
+	transform: scale(0.9);
 }
