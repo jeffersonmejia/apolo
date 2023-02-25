@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { Signin } from "@/components/signin";
-import { useState } from "react";
+import { SigninContext, SigninProvider } from "@/context/Signin";
+import { useContext } from "react";
 
 export default function Home() {
-	const [isSignin, setIsSignin] = useState(false);
-
+	const isSignin = useContext(SigninContext);
 	return (
 		<>
 			<Head>
@@ -22,7 +22,9 @@ export default function Home() {
 					rel="stylesheet"
 				/>
 			</Head>
-			<main>{!isSignin && <Signin />}</main>
+			<SigninProvider>
+				<main>{!isSignin && <Signin />}</main>
+			</SigninProvider>
 		</>
 	);
 }

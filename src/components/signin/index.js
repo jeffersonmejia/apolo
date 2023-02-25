@@ -1,7 +1,9 @@
 import styles from "./index.module.css";
-import { authUser } from "./authUser";
+import { SigninContext } from "@/context/Signin";
+import { useContext } from "react";
 
 export function Signin() {
+	const { handleAuth } = useContext(SigninContext);
 	return (
 		<div className={styles.signin}>
 			<form>
@@ -13,7 +15,7 @@ export function Signin() {
 					<input type="text" placeholder="Ingresa tu usuario" maxLength={10} />
 					<input type="password" placeholder="Ingresa tu contraseña" maxLength={64} />
 				</fieldset>
-				<button onClick={authUser}>Ingresar</button>
+				<button onClick={handleAuth}>Ingresar</button>
 				<fieldset className={styles.forgetCard}>
 					<legend>Opciones de recuperacion</legend>
 					<small>Recuperar mi usuario</small>

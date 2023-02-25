@@ -1,3 +1,4 @@
-export function authUser(e) {
-	console.log("clicked");
-}
+import { SigninContext } from "@/context/Signin";
+import { useContext } from "react";
+
+export function authUser(e) {}

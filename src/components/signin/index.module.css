@@ -31,7 +31,6 @@
 	color: var(--btn-bg);
 	cursor: pointer;
 }
-
 @media (hover: hover) {
 	.forgetCard small:hover {
 		text-decoration: underline;
