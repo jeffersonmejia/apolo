@@ -6,6 +6,7 @@ import { Signin } from "../signin";
 import { PanelTicket } from "../panel_ticket";
 import { PanelNavbar } from "../panel_navbar";
 import { PanelAside } from "../panel_aside";
+import { PanelResumen } from "../panel_resumen";
 
 export default function Main() {
 	const { isSignin } = useContext(SigninContext);
@@ -31,6 +32,7 @@ export default function Main() {
 			<main className={styles.main}>
 				{isAsideActive && <PanelAside />}
 				<PanelTicket />
+				<PanelResumen />
 			</main>
 		</>
 	);

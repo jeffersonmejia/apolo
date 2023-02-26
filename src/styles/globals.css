@@ -105,3 +105,18 @@ button:hover {
 button:active {
 	transform: scale(0.9);
 }
+
+table {
+	height: fit-content;
+}
+table,
+caption,
+td,
+th {
+	border: var(--border);
+	border-collapse: collapse;
+}
+
+caption {
+	border-bottom: none;
+}

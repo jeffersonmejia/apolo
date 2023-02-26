@@ -1,0 +1,30 @@
+.resume {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+.resumenTable {
+	width: 100%;
+	margin: auto;
+	margin-bottom: 24px;
+	color: var(--legend-color);
+	font-size: 0.9rem;
+}
+.resumenTable th {
+	padding: 2px 8px;
+}
+.resumenTable td {
+	padding: 2px;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+.resumenTable caption {
+	padding: 4px;
+}
+@media screen and (min-width: 850px) {
+	.resumenTable {
+		width: 100%;
+		width: 350px;
+		margin: 0;
+	}
+}

@@ -1,14 +1,16 @@
 .panelTicket {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	gap: 12px;
 }
 @media screen and (min-width: 600px) {
 	.panelTicket {
 		width: 100%;
+		max-width: none;
 		flex-direction: row;
+		gap: 24px;
 		flex-wrap: wrap;
 		margin-left: 190px;
+		align-items: center;
+		justify-content: center;
 	}
 }
