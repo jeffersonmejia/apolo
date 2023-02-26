@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
+	text-align: right;
 }
 .resumenTable {
 	width: 100%;
@@ -20,6 +21,18 @@
 }
 .resumenTable caption {
 	padding: 4px;
+}
+.groupBtn {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+.groupBtn small {
+	width: fit-content;
+	text-align: center;
+	margin: auto;
+	color: var(--btn-bg);
+	cursor: pointer;
 }
 @media screen and (min-width: 850px) {
 	.resumenTable {
