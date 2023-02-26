@@ -71,7 +71,8 @@ legend {
 	margin-bottom: 12px;
 }
 input,
-button {
+button,
+select {
 	border: var(--border);
 	border-radius: var(--border-radius);
 	height: var(--height-btn);

@@ -24,13 +24,13 @@ export default function Main() {
 			window.removeEventListener("resize", handleResize);
 		};
 	}, []);
+	if (!isSignin) return <Signin />;
 	return (
 		<>
-			{!isSignin && <Signin />}
-			{isSignin && <PanelNavbar />}
+			<PanelNavbar />
 			<main className={styles.main}>
-				{isSignin && isAsideActive && <PanelAside />}
-				{isSignin && <PanelTicket />}
+				{isAsideActive && <PanelAside />}
+				<PanelTicket />
 			</main>
 		</>
 	);

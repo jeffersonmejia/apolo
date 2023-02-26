@@ -10,6 +10,8 @@
 .aside {
 	margin-bottom: 16px;
 	animation: opacity 0.3s ease-in-out;
+	height: 100%;
+	width: 100%;
 }
 .aside ul {
 	display: flex;
@@ -34,7 +36,11 @@ aside .asideActive {
 }
 @media screen and (min-width: 600px) {
 	.aside {
-		flex-basis: 25%;
+		flex-basis: 36%;
 		max-width: 160px;
+		margin: 0;
+		margin-right: 12px;
+		height: 100vh;
+		position: fixed;
 	}
 }

@@ -5,6 +5,9 @@
 	padding: 12px 0;
 	padding-left: 12px;
 	position: fixed;
+	width: 100%;
+	background-color: var(--main-bg);
+	z-index: 998;
 }
 
 .burger {
