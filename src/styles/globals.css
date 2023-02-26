@@ -16,6 +16,10 @@
 
 	--height-btn: 40px;
 	--legend-color: #6e6e73;
+
+	--aside-color: #6e6e73;
+	--aside-active: #b7dbff;
+	--aside-active-color: #135da7;
 }
 * {
 	margin: 0;

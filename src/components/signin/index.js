@@ -1,9 +1,10 @@
 import styles from "./index.module.css";
-import { SigninContext } from "@/context/Signin";
+import { SigninContext } from "../../context/Signin";
 import { useContext } from "react";
 
 export function Signin() {
-	const { handleAuth } = useContext(SigninContext);
+	const { handleAuth, isSignin } = useContext(SigninContext);
+	console.log("isSignin en componente Signin: ", isSignin);
 	return (
 		<div className={styles.signin}>
 			<form>

@@ -1,10 +1,9 @@
 import Head from "next/head";
-import { Signin } from "@/components/signin";
-import { SigninContext, SigninProvider } from "@/context/Signin";
-import { useContext } from "react";
+import { SigninProvider } from "../context/Signin";
+import { PanelAsideProvider } from "@/context/panel_aside";
+import Main from "@/components/main";
 
 export default function Home() {
-	const isSignin = useContext(SigninContext);
 	return (
 		<>
 			<Head>
@@ -21,9 +20,15 @@ export default function Home() {
 					href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap"
 					rel="stylesheet"
 				/>
+				<link
+					rel="stylesheet"
+					href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+				/>
 			</Head>
 			<SigninProvider>
-				<main>{!isSignin && <Signin />}</main>
+				<PanelAsideProvider>
+					<Main></Main>
+				</PanelAsideProvider>
 			</SigninProvider>
 		</>
 	);

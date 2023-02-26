@@ -4,6 +4,7 @@ const SigninContext = createContext();
 
 const SigninProvider = ({ children }) => {
 	const [isSignin, setSignin] = useState(false);
+
 	const handleAuth = (e) => setSignin(true);
 	const data = { isSignin, handleAuth };
 
