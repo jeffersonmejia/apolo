@@ -20,6 +20,8 @@
 	--aside-color: #6e6e73;
 	--aside-active: #b7dbff;
 	--aside-active-color: #135da7;
+
+	--navbar-height: 48px;
 }
 * {
 	margin: 0;

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { SigninContext } from "@/context/Signin";
 import { PanelAsideContext } from "@/context/panel_aside";
+import styles from "./index.module.css";
 import { Signin } from "../signin";
 import { PanelTicket } from "../panel_ticket";
 import { PanelNavbar } from "../panel_navbar";
@@ -11,11 +12,13 @@ export default function Main() {
 	const { isAsideActive } = useContext(PanelAsideContext);
 
 	return (
-		<main>
+		<>
 			{!isSignin && <Signin />}
 			{isSignin && <PanelNavbar />}
-			{isSignin && isAsideActive && <PanelAside />}
-			{isSignin && <PanelTicket />}
-		</main>
+			<main className={styles.main}>
+				{isSignin && isAsideActive && <PanelAside />}
+				{isSignin && <PanelTicket />}
+			</main>
+		</>
 	);
 }
