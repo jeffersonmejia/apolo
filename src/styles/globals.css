@@ -22,6 +22,9 @@
 	--aside-active-color: #135da7;
 
 	--navbar-height: 48px;
+
+	--seat-bg: hsl(210, 100%, 85%);
+	--seat-fg: hsl(210, 100%, 45%);
 }
 * {
 	margin: 0;

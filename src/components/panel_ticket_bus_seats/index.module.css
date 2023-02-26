@@ -1,0 +1,15 @@
+.seats {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 12px;
+}
+
+.seats span {
+	background-color: var(--seat-bg);
+	color: var(--seat-fg);
+	font-weight: bold;
+	border-radius: var(--border-radius);
+	text-align: center;
+	padding: 4px 0;
+	cursor: pointer;
+}

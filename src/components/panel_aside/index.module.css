@@ -1,11 +1,33 @@
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.aside {
+	margin-bottom: 16px;
+	animation: opacity 0.3s ease-in-out;
+}
+.aside ul {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
 .aside li {
 	list-style: none;
 	font-weight: bold;
 	border-radius: var(--border-radius);
 	color: var(--aside-color);
 	padding: 12px;
+	transition: background-color 0.3s ease-in-out;
+	cursor: pointer;
 }
-
+.aside li:hover {
+	background-color: var(--aside-active);
+}
 aside .asideActive {
 	background-color: var(--aside-active);
 	color: var(--aside-active-color);
