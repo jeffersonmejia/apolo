@@ -1,0 +1,32 @@
+.busDescription span {
+	margin-left: 26px;
+	color: var(--legend-color);
+}
+
+.avaliable::before {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: var(--seat-bg);
+	transform: translate(-14px, 5px);
+	border-radius: 2px;
+}
+.unavaliable::before {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: var(--seat-unavaliable);
+	transform: translate(-14px, 5px);
+	border-radius: 2px;
+}
+.reserved::before {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: var(--seat-reserved);
+	transform: translate(-15px, 6px);
+	border-radius: 2px;
+}

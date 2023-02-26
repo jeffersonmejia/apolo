@@ -1,5 +1,12 @@
 .main {
 	padding: var(--navbar-height) 16px 0 16px;
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+@media screen and (min-width: 600px) {
+	.main {
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
 }

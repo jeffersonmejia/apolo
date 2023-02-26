@@ -32,3 +32,9 @@ aside .asideActive {
 	background-color: var(--aside-active);
 	color: var(--aside-active-color);
 }
+@media screen and (min-width: 600px) {
+	.aside {
+		flex-basis: 25%;
+		max-width: 160px;
+	}
+}

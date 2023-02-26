@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import { PanelAsideContext } from "@/context/panel_aside";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export function PanelNavbar() {
 	const { handleAside } = useContext(PanelAsideContext);

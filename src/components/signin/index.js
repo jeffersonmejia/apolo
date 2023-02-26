@@ -1,10 +1,11 @@
 import styles from "./index.module.css";
 import { SigninContext } from "../../context/Signin";
+import { PanelAsideContext } from "@/context/panel_aside";
 import { useContext } from "react";
 
 export function Signin() {
 	const { handleAuth, isSignin } = useContext(SigninContext);
-	console.log("isSignin en componente Signin: ", isSignin);
+	const { setAsideActive } = useContext(PanelAsideContext);
 	return (
 		<div className={styles.signin}>
 			<form>
@@ -16,7 +17,16 @@ export function Signin() {
 					<input type="text" placeholder="Ingresa tu usuario" maxLength={10} />
 					<input type="password" placeholder="Ingresa tu contraseña" maxLength={64} />
 				</fieldset>
-				<button onClick={handleAuth}>Ingresar</button>
+				<button
+					onClick={() => {
+						handleAuth();
+						if (window.innerWidth >= 600) {
+							setAsideActive(true);
+						}
+					}}
+				>
+					Ingresar
+				</button>
 				<fieldset className={styles.forgetCard}>
 					<legend>Opciones de recuperacion</legend>
 					<small>Recuperar mi usuario</small>

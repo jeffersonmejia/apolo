@@ -13,3 +13,16 @@
 	padding: 4px 0;
 	cursor: pointer;
 }
+.seats span:hover {
+	background-color: var(--seat-hover);
+}
+.seats span:nth-child(3n + 2) {
+	background-color: var(--seat-unavaliable);
+	color: var(--seat-unavaliable-fg);
+	cursor: not-allowed;
+}
+.seats span:nth-child(4n + 1) {
+	background-color: var(--seat-reserved);
+	color: var(--seat-reserved-fg);
+	cursor: not-allowed;
+}

@@ -24,7 +24,14 @@
 	--navbar-height: 48px;
 
 	--seat-bg: hsl(210, 100%, 85%);
-	--seat-fg: hsl(210, 100%, 45%);
+	--seat-fg: hsl(210, 100%, 55%);
+	--seat-hover: hsl(210, 100%, 80%);
+
+	--seat-unavaliable: hsl(78, 100%, 85%);
+	--seat-unavaliable-fg: hsl(61, 100%, 40%);
+
+	--seat-reserved: hsl(0, 0%, 90%);
+	--seat-reserved-fg: hsl(0, 0%, 70%);
 }
 * {
 	margin: 0;
