@@ -1,3 +1,40 @@
 .report {
+	display: flex;
+	gap: 24px;
 	margin-left: 190px;
+	width: 100%;
+}
+.report form {
+	border-radius: var(--border-radius);
+	width: 100%;
+	height: fit-content;
+}
+.report h3 {
+	margin-bottom: 2px;
+}
+.report :is(small, label, input[type="date"]) {
+	color: var(--legend-color);
+}
+
+@media screen and (min-width: 700px) {
+	.report {
+		width: 100%;
+		align-items: center;
+	}
+	.report form {
+		max-width: 400px;
+		padding: 32px;
+		padding-top: 20px;
+		padding-bottom: 40px;
+		border: var(--border);
+	}
+	.report form:nth-child(1) {
+		margin-left: auto;
+	}
+}
+@media screen and (min-width: 1080px) {
+	.report {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
