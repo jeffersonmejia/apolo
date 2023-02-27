@@ -40,6 +40,15 @@
 .groupBtn small:hover {
 	color: var(--btn-bg);
 }
+.listTravel {
+	width: 80%;
+	max-width: 400px;
+	border-radius: var(--border-radius);
+	padding: 32px;
+}
+.listTravel .groupBtn {
+	margin-top: 2px;
+}
 @media screen and (min-width: 850px) {
 	.resumenTable {
 		width: 100%;

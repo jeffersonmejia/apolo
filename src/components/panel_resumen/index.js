@@ -1,5 +1,20 @@
 import styles from "./index.module.css";
+import { Modal } from "../modal";
+import { useState } from "react";
+
 export function PanelResumen() {
+	const [isModalActive, setModal] = useState(false);
+	const handleModal = () => {
+		setModal(true);
+	};
+
+	const cancelChangeTravel = () => {
+		setModal(false);
+	};
+
+	const changeTravel = () => {
+		setModal(false);
+	};
 	return (
 		<div className={styles.resume}>
 			<table className={styles.resumenTable}>
@@ -55,8 +70,34 @@ export function PanelResumen() {
 			</table>
 			<div className={styles.groupBtn}>
 				<button>Cerrar viaje</button>
-				<small>Cambiar viaje</small>
+				<small onClick={handleModal}>Cambiar viaje</small>
 			</div>
+			{isModalActive && (
+				<Modal>
+					<form className={styles.listTravel}>
+						<fieldset>
+							<legend>Listado de viajes creados</legend>
+							<select>
+								<option>Selecciona un viaje</option>
+								<option>Santo Domingo - Manta</option>
+								<option>Quito - Manta</option>
+								<option>Santo Domingo - Coca</option>
+							</select>
+							<select>
+								<option>Selecciona un bus</option>
+								<option>1</option>
+								<option>78</option>
+								<option>64</option>
+								<option>32</option>
+							</select>
+						</fieldset>
+						<div className={styles.groupBtn}>
+							<button onClick={changeTravel}>Cambiar viaje actual</button>
+							<small onClick={cancelChangeTravel}>Cancelar</small>
+						</div>
+					</form>
+				</Modal>
+			)}
 		</div>
 	);
 }
