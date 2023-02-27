@@ -31,8 +31,12 @@
 	width: fit-content;
 	text-align: center;
 	margin: auto;
-	color: var(--btn-bg);
+	color: var(--legend-color);
 	cursor: pointer;
+	transition: color 0.3s ease-in-out;
+}
+.groupBtn small:hover {
+	color: var(--btn-bg);
 }
 @media screen and (min-width: 850px) {
 	.resumenTable {

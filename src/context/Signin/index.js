@@ -8,7 +8,7 @@ const SigninProvider = ({ children }) => {
 	const handleAuth = (e) => {
 		setSignin(true);
 	};
-	const data = { isSignin, handleAuth };
+	const data = { isSignin, handleAuth, setSignin };
 
 	return <SigninContext.Provider value={data}>{children}</SigninContext.Provider>;
 };

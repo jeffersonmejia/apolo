@@ -28,7 +28,7 @@
 	--seat-hover: hsl(210, 100%, 80%);
 
 	--seat-unavaliable: hsl(78, 100%, 85%);
-	--seat-unavaliable-fg: hsl(61, 100%, 40%);
+	--seat-unavaliable-fg: hsl(78, 100%, 40%);
 
 	--seat-reserved: hsl(0, 0%, 90%);
 	--seat-reserved-fg: hsl(0, 0%, 70%);
@@ -78,6 +78,9 @@ select {
 	height: var(--height-btn);
 	padding: 8px;
 	cursor: pointer;
+}
+select {
+	color: var(--legend-color);
 }
 input {
 	padding-left: 12px;

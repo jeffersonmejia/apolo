@@ -12,6 +12,7 @@
 	flex-basis: 100%;
 	max-width: 400px;
 	margin: auto;
+	color: var(--legend-color);
 }
 .clientForm :is(input, select) {
 	animation: opacity 0.3s ease-in-out;
@@ -19,8 +20,12 @@
 .print {
 	margin: auto;
 	margin-top: 12px;
-	color: var(--btn-bg);
+	color: var(--legend-color);
 	cursor: pointer;
+	transition: color 0.3s ease-in-out;
+}
+.print:hover {
+	color: var(--btn-bg);
 }
 @media screen and (min-width: 600px) {
 	.clientForm {

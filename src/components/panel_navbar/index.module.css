@@ -18,6 +18,10 @@
 	margin-right: 12px;
 	color: var(--legend-color);
 	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
+.logout:hover {
+	color: var(--btn-bg);
 }
 @media screen and (min-width: 600px) {
 	.burger {

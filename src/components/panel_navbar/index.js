@@ -1,9 +1,15 @@
 import styles from "./index.module.css";
 import { PanelAsideContext } from "@/context/panel_aside";
-import { useContext, useEffect, useState } from "react";
+import { SigninContext } from "@/context/Signin";
+import { useContext } from "react";
 
 export function PanelNavbar() {
 	const { handleAside } = useContext(PanelAsideContext);
+	const { setSignin } = useContext(SigninContext);
+
+	const handleLogout = () => {
+		setSignin(false);
+	};
 
 	return (
 		<nav className={styles.navbar}>
@@ -14,7 +20,12 @@ export function PanelNavbar() {
 				menu
 			</span>
 			<h4>APOLO</h4>
-			<span className={`material-symbols-outlined ${styles.logout}`}>logout</span>
+			<span
+				className={`material-symbols-outlined ${styles.logout}`}
+				onClick={handleLogout}
+			>
+				logout
+			</span>
 		</nav>
 	);
 }

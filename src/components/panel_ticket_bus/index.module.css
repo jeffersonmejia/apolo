@@ -18,9 +18,13 @@
 }
 .bus small {
 	margin: auto;
-	color: var(--btn-bg);
+	color: var(--legend-color);
 	grid-column: 1/-1;
 	cursor: pointer;
+	transition: color 0.3s ease-in-out;
+}
+.bus small:hover {
+	color: var(--btn-bg);
 }
 @media screen and (min-width: 600px) {
 	.bus > div:first-child {
