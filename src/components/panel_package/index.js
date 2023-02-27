@@ -5,11 +5,15 @@ import { useState } from "react";
 export function PanelPackage() {
 	const [isSenderCompleted, setSender] = useState(false);
 
+	const handleSender = () => {
+		setSender(true);
+	};
+
 	return (
-		<div className={`${styles.package} ${isSenderCompleted ? "packageGrid" : ""}`}>
+		<div className={`${styles.package} ${isSenderCompleted ? styles.packageGrid : ""}`}>
 			<form>
 				<PanelPackageData person="Remitente" />
-				<button>Continuar</button>
+				<button onClick={handleSender}>Continuar</button>
 			</form>
 			{isSenderCompleted && (
 				<form>

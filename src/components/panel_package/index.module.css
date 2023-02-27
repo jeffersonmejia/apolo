@@ -21,13 +21,13 @@
 		width: 60%;
 		border-radius: var(--border-radius);
 		padding: 32px;
+		border: var(--border);
 	}
 	.packageGrid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(380px, auto));
+		grid-template-columns: repeat(2, 1fr);
 		gap: 16px;
-		place-items: center;
-		place-content: center;
+		height: 100%;
 	}
 	.packageGrid form {
 		width: 100%;
