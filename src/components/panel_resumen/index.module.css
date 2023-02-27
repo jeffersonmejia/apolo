@@ -1,8 +1,18 @@
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 .resume {
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
 	text-align: right;
+	animation: opacity 0.3s ease-in-out;
 }
 .resumenTable {
 	width: 100%;

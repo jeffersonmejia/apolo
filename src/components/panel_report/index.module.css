@@ -1,8 +1,17 @@
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
 .report {
 	display: flex;
 	gap: 24px;
 	margin-left: 190px;
 	width: 100%;
+	animation: opacity 0.3s ease-in;
 }
 .report form {
 	border-radius: var(--border-radius);
