@@ -12,12 +12,30 @@ export function PanelPackage() {
 	return (
 		<div className={`${styles.package} ${isSenderCompleted ? styles.packageGrid : ""}`}>
 			<form>
-				<PanelPackageData person="Remitente" />
+				<fieldset>
+					<PanelPackageData person="Remitente" />
+					<select>
+						<option>Selecciona el tipo </option>
+						<option>Sobre</option>
+						<option>Paquete</option>
+						<option>Saco</option>
+						<option>Cooler</option>
+					</select>
+				</fieldset>
 				<button onClick={handleSender}>Continuar</button>
 			</form>
 			{isSenderCompleted && (
 				<form>
-					<PanelPackageData person="Destinatario" />
+					<fieldset>
+						<PanelPackageData person="Destinatario" />
+						<select>
+							<option>Selecciona el destino</option>
+							<option>El Carmen</option>
+							<option>Flavio Alfaro</option>
+							<option>Chone</option>
+							<option>Tosagua</option>
+						</select>
+					</fieldset>
 					<button>Continuar</button>
 				</form>
 			)}
