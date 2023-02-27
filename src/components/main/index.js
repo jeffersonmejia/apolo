@@ -9,6 +9,7 @@ import { PanelPackage } from "../panel_package";
 import { PanelNavbar } from "../panel_navbar";
 import { PanelAside } from "../panel_aside";
 import { PanelResumen } from "../panel_resumen";
+import { PanelReport } from "../panel_report";
 
 export default function Main() {
 	const { isSignin } = useContext(SigninContext);
@@ -39,6 +40,7 @@ export default function Main() {
 				{isTicketActive && <PanelTicket />}
 				{isPackageActive && <PanelPackage />}
 				{!isReportActive && <PanelResumen />}
+				{isReportActive && <PanelReport></PanelReport>}
 			</main>
 		</>
 	);
