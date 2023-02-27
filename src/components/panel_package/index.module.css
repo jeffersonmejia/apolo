@@ -3,6 +3,51 @@
 	height: fit-content;
 	gap: 12px;
 }
+.groupBtn {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+.groupBtn small {
+	width: fit-content;
+	margin: auto;
+	color: var(--legend-color);
+	transition: color 0.3s ease-in-out;
+	cursor: pointer;
+}
+.groupBtn small:hover {
+	color: var(--btn-bg);
+}
+.detail {
+	width: 100%;
+	max-width: 300px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+.detail table {
+	width: 100%;
+	background-color: var(--card-bg);
+}
+.detail caption {
+	background-color: var(--card-bg);
+	padding: 4px 0;
+	font-size: 0.9rem;
+}
+.detail :is(th, td) {
+	text-align: right;
+	padding: 4px;
+	padding-right: 4px;
+	padding-left: 0;
+
+	font-size: 0.9rem;
+}
+.detail .groupBtn {
+	margin-top: 4px;
+}
+.message {
+	color: var(--legend-color);
+}
 @media screen and (min-width: 600px) {
 	.package {
 		margin-left: 190px;
@@ -20,16 +65,7 @@
 	.package form {
 		width: 60%;
 		border-radius: var(--border-radius);
-		padding: 32px;
+		padding: 24px 32px;
 		border: var(--border);
-	}
-	.packageGrid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 16px;
-		height: 100%;
-	}
-	.packageGrid form {
-		width: 100%;
 	}
 }

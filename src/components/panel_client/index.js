@@ -1,6 +1,7 @@
 import styles from "./index.module.css";
 import { PanelClientData } from "../panel_client_data";
 import { PanelClientTravel } from "../panel_client_travel";
+import { Loader } from "../loader";
 import { Modal } from "../modal";
 import { useState } from "react";
 
@@ -81,15 +82,10 @@ export function PanelClient() {
 							</table>
 						)}
 						{isPrintedTicket && (
-							<small className={styles.printMessage}>Impriendo pasaje...</small>
-						)}
-						{isPrintedTicket && (
-							<div className={styles.loader}>
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
-							</div>
+							<>
+								<small className={styles.printMessage}>Impriendo pasaje...</small>
+								<Loader />
+							</>
 						)}
 						<div className={styles.groupBtn}>
 							{!isPrintedTicket && <button onClick={printTicket}>Imprimir</button>}
