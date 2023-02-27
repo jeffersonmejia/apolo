@@ -1,10 +1,16 @@
 import styles from "./index.module.css";
 import PanelReportQuery from "../panel_report_query";
 import { useState } from "react";
+import { Modal } from "../modal";
 
 export function PanelReport() {
 	const [travelDescription, setTravelDescription] = useState("");
 	const [travelSelected, setTravelSelected] = useState("");
+	const [isTravelQuery, setTravelQuery] = useState(false);
+	const [isTravelActive, setTravelActive] = useState(false);
+	const [isPackageActive, setPackageActive] = useState(false);
+	const [isReportQuery, setReportQuery] = useState(false);
+	const [isModalActive, setModalActive] = useState(false);
 
 	const changeTravelDescription = (e) => {
 		setTravelSelected(e.target.value);
@@ -12,15 +18,30 @@ export function PanelReport() {
 			setTravelDescription(
 				"Aquí puedes consultar salidas, viajes cerrados y el valor recaudado"
 			);
+			setTravelActive(true);
+			setPackageActive(false);
 		} else if (e.target.value === "package") {
 			setTravelDescription(
 				"Aquí puedes consultar el envío y recepción de encomiendas de cualquier matriz"
 			);
+			setTravelActive(false);
+			setPackageActive(true);
 		} else {
 			setTravelDescription("");
+			setTravelActive(false);
+			setPackageActive(false);
 		}
 	};
 
+	const handleTravel = () => {
+		setModalActive(isModalActive ? false : true);
+		setTravelQuery(isTravelQuery ? false : true);
+	};
+
+	const handleReport = () => {
+		setModalActive(isModalActive ? false : true);
+		setReportQuery(isReportQuery ? false : true);
+	};
 	return (
 		<div className={styles.report}>
 			<form>
@@ -36,7 +57,7 @@ export function PanelReport() {
 					</select>
 					<PanelReportQuery />
 				</fieldset>
-				<button>Consultar</button>
+				<button onClick={handleTravel}>Consultar</button>
 			</form>
 			<form>
 				<fieldset>
@@ -55,8 +76,52 @@ export function PanelReport() {
 					<label>Fecha de inicio</label>
 					<input type="date" />
 				</fieldset>
-				<button>Consultar</button>
+				<button onClick={handleReport}>Consultar</button>
 			</form>
+			{isModalActive && (
+				<Modal>
+					<div className={styles.modalContent}>
+						{isTravelQuery && (isPackageActive || isTravelActive) && (
+							<>
+								<table>
+									<caption>
+										Resumen - {isTravelActive ? "Boleteria" : "Encomienda"}
+									</caption>
+									<tr>
+										<th>Bus</th>
+										<td>78</td>
+									</tr>
+									<tr>
+										<th>Ruta</th>
+										<td>Santo Domingo - Manta</td>
+									</tr>
+									<tr>
+										<th>Fecha & hora</th>
+										<td>15/01/2023 - 15:00</td>
+									</tr>
+									<tr>
+										<th>Recaudado</th>
+										<td>$40.00</td>
+									</tr>
+									<tr>
+										<th>Ahorrado</th>
+										<td>--</td>
+									</tr>
+									{!isTravelActive && (
+										<>
+											<tr>
+												<th>Encomienda</th>
+												<td>1 Paquete</td>
+											</tr>
+										</>
+									)}
+								</table>
+								<button onClick={handleTravel}>Cerrar</button>
+							</>
+						)}
+					</div>
+				</Modal>
+			)}
 		</div>
 	);
 }

@@ -24,7 +24,31 @@
 .report :is(small, label, input[type="date"]) {
 	color: var(--legend-color);
 }
-
+.modalContent {
+	width: 100%;
+	max-width: 500px;
+	background-color: var(--card-bg);
+	border-radius: var(--border-radius);
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+}
+.modalContent table {
+	width: 100%;
+	font-size: 0.9rem;
+}
+.modalContent :is(td, th) {
+	text-align: right;
+	padding: 4px;
+	padding-left: 2px;
+}
+.modalContent caption {
+	padding: 4px;
+	padding-left: 2px;
+}
+.modalContent button {
+	margin-top: 16px;
+}
 @media screen and (min-width: 700px) {
 	.report {
 		width: 100%;
