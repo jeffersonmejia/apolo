@@ -1,0 +1,36 @@
+.package {
+	width: 100%;
+	height: fit-content;
+	gap: 12px;
+}
+@media screen and (min-width: 600px) {
+	.package {
+		margin-left: 190px;
+	}
+}
+@media screen and (min-width: 1080px) {
+	.package {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		height: 60vh;
+	}
+	.package form {
+		width: 60%;
+		border-radius: var(--border-radius);
+		padding: 32px;
+	}
+	.packageGrid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(380px, auto));
+		gap: 16px;
+		place-items: center;
+		place-content: center;
+	}
+	.packageGrid form {
+		width: 100%;
+		height: 100%;
+	}
+}

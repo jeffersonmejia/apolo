@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { SigninProvider } from "../context/Signin";
 import { PanelAsideProvider } from "@/context/panel_aside";
+import { PanelSectionProvider } from "@/context/panel_section";
 import Main from "@/components/main";
 
 export default function Home() {
@@ -27,7 +28,9 @@ export default function Home() {
 			</Head>
 			<PanelAsideProvider>
 				<SigninProvider>
-					<Main></Main>
+					<PanelSectionProvider>
+						<Main></Main>
+					</PanelSectionProvider>
 				</SigninProvider>
 			</PanelAsideProvider>
 		</>
