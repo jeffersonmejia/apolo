@@ -32,6 +32,10 @@
 
 	--seat-reserved: hsl(0, 0%, 90%);
 	--seat-reserved-fg: hsl(0, 0%, 70%);
+
+	--modal-bg: rgba(0, 0, 0, 0.5);
+
+	--color-success: hsl(0, 0%, 70%);
 }
 * {
 	margin: 0;
@@ -111,6 +115,7 @@ button:active {
 
 table {
 	height: fit-content;
+	color: var(--legend-color);
 }
 table,
 caption,

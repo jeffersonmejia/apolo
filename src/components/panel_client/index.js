@@ -1,33 +1,103 @@
 import styles from "./index.module.css";
 import { PanelClientData } from "../panel_client_data";
 import { PanelClientTravel } from "../panel_client_travel";
+import { Modal } from "../modal";
 import { useState } from "react";
 
 export function PanelClient() {
 	const [isLastForm, setLastForm] = useState(false);
+	const [isModalActive, setModal] = useState(false);
+	const [isPrintedTicket, setPrinted] = useState(false);
 
 	const printClientData = () => {
 		if (!isLastForm) {
 			setLastForm(true);
 		} else {
-			console.log("printing...");
+			setModal(true);
 		}
 	};
+
+	const printTicket = () => {
+		setPrinted(true);
+		setTimeout(() => {
+			setPrinted(false);
+			setModal(false);
+		}, 2000);
+	};
+
+	const CancelPrint = () => {
+		setModal(false);
+	};
+
 	const handleClick = () => {
 		setLastForm(!isLastForm ? true : false);
 	};
 
 	return (
-		<form className={styles.clientForm}>
-			<legend>{!isLastForm ? "Datos del cliente" : "Datos del viaje"}</legend>
-			<fieldset>
-				{!isLastForm && <PanelClientData />}
-				{isLastForm && <PanelClientTravel />}
-			</fieldset>
-			<button onClick={printClientData}>{!isLastForm ? "Siguiente" : "Imprimir"}</button>
-			<small className={styles.print} onClick={handleClick}>
-				{isLastForm ? " Agregar más" : ""}
-			</small>
-		</form>
+		<>
+			<form className={styles.clientForm}>
+				<legend>{!isLastForm ? "Datos del cliente" : "Datos del viaje"}</legend>
+				<fieldset>
+					{!isLastForm && <PanelClientData />}
+					{isLastForm && <PanelClientTravel />}
+				</fieldset>
+				<button onClick={printClientData}>
+					{!isLastForm ? "Siguiente" : "Imprimir"}
+				</button>
+				<small className={styles.print} onClick={handleClick}>
+					{isLastForm ? " Agregar más" : ""}
+				</small>
+			</form>
+			{isModalActive && (
+				<Modal>
+					<div className={styles.modalContent}>
+						{!isPrintedTicket && (
+							<table>
+								<caption>Datos del cliente</caption>
+								<tr>
+									<th>Cliente</th>
+									<td>Jefferson Mejia</td>
+								</tr>
+								<tr>
+									<th>Asientos</th>
+									<td>24, 25, 26</td>
+								</tr>
+								<tr>
+									<th>Tipo de pasaje</th>
+									<td>Especial</td>
+								</tr>
+								<tr>
+									<th>Costo unitario</th>
+									<td>$18.00</td>
+								</tr>
+								<tr>
+									<th>Descuento</th>
+									<td>$2.00</td>
+								</tr>
+								<tr>
+									<th>Total</th>
+									<td>$16.00</td>
+								</tr>
+							</table>
+						)}
+						{isPrintedTicket && (
+							<small className={styles.printMessage}>Impriendo pasaje...</small>
+						)}
+						{isPrintedTicket && (
+							<div className={styles.loader}>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+						)}
+						<div className={styles.groupBtn}>
+							{!isPrintedTicket && <button onClick={printTicket}>Imprimir</button>}
+							{!isPrintedTicket && <small onClick={CancelPrint}>Cancelar</small>}
+						</div>
+					</div>
+				</Modal>
+			)}
+		</>
 	);
 }
