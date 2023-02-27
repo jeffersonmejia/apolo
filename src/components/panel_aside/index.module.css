@@ -20,7 +20,6 @@
 }
 .aside li {
 	list-style: none;
-	font-weight: bold;
 	border-radius: var(--border-radius);
 	color: var(--aside-color);
 	padding: 12px;

@@ -10,6 +10,7 @@
 	margin-bottom: 24px;
 	color: var(--legend-color);
 	font-size: 0.9rem;
+	background-color: var(--card-bg);
 }
 .resumenTable th {
 	padding: 2px 8px;
@@ -21,6 +22,7 @@
 }
 .resumenTable caption {
 	padding: 4px;
+	background-color: var(--card-bg);
 }
 .groupBtn {
 	display: flex;
