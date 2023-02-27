@@ -13,7 +13,8 @@ import { PanelResumen } from "../panel_resumen";
 export default function Main() {
 	const { isSignin } = useContext(SigninContext);
 	const { isAsideActive, setAsideActive } = useContext(PanelAsideContext);
-	const { isTicketActive, isPackageActive } = useContext(PanelSectionContext);
+	const { isTicketActive, isPackageActive, isReportActive } =
+		useContext(PanelSectionContext);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -37,7 +38,7 @@ export default function Main() {
 				{isAsideActive && <PanelAside />}
 				{isTicketActive && <PanelTicket />}
 				{isPackageActive && <PanelPackage />}
-				<PanelResumen />
+				{!isReportActive && <PanelResumen />}
 			</main>
 		</>
 	);
