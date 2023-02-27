@@ -1,9 +1,15 @@
 import styles from "./index.module.css";
 import { Modal } from "../modal";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { PanelSectionContext } from "@/context/panel_section";
 
 export function PanelResumen() {
 	const [isModalActive, setModal] = useState(false);
+	const [sellContent, setSell] = useState("");
+	const [cancelContent, setCancel] = useState("");
+	const [sectionContent, setSection] = useState("");
+	const { isTicketActive } = useContext(PanelSectionContext);
+
 	const handleModal = () => {
 		setModal(true);
 	};
@@ -15,6 +21,19 @@ export function PanelResumen() {
 	const changeTravel = () => {
 		setModal(false);
 	};
+
+	useEffect(() => {
+		if (isTicketActive) {
+			setSection("Boletos");
+			setSell("Vendidos");
+			setCancel("Anulados");
+		} else {
+			setSection("Encomiendas");
+			setSell("Vendidas");
+			setCancel("Anuladas");
+		}
+	}, [isTicketActive]);
+
 	return (
 		<div className={styles.resume}>
 			<table className={styles.resumenTable}>
@@ -35,14 +54,14 @@ export function PanelResumen() {
 				</thead>
 			</table>
 			<table className={styles.resumenTable}>
-				<caption>Boletos</caption>
+				<caption>{sectionContent}</caption>
 				<thead>
 					<tr>
-						<th>Vendidos</th>
+						<th>{sellContent}</th>
 						<td>23</td>
 					</tr>
 					<tr>
-						<th>anulados</th>
+						<th>{cancelContent}</th>
 						<td>2</td>
 					</tr>
 					<tr>
