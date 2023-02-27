@@ -6,6 +6,13 @@ import { useState } from "react";
 export function PanelClient() {
 	const [isLastForm, setLastForm] = useState(false);
 
+	const printClientData = () => {
+		if (!isLastForm) {
+			setLastForm(true);
+		} else {
+			console.log("printing...");
+		}
+	};
 	const handleClick = () => {
 		setLastForm(!isLastForm ? true : false);
 	};
@@ -17,7 +24,10 @@ export function PanelClient() {
 				{!isLastForm && <PanelClientData />}
 				{isLastForm && <PanelClientTravel />}
 			</fieldset>
-			<button onClick={handleClick}>{!isLastForm ? "Siguiente" : "Guardar"}</button>
+			<button onClick={printClientData}>{!isLastForm ? "Siguiente" : "Imprimir"}</button>
+			<small className={styles.print} onClick={handleClick}>
+				{isLastForm ? " Agregar más" : ""}
+			</small>
 		</form>
 	);
 }

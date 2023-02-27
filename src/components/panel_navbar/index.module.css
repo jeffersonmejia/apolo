@@ -13,6 +13,12 @@
 .burger {
 	cursor: pointer;
 }
+.logout {
+	margin-left: auto;
+	margin-right: 12px;
+	color: var(--legend-color);
+	cursor: pointer;
+}
 @media screen and (min-width: 600px) {
 	.burger {
 		display: none;

@@ -12,6 +12,7 @@ export function PanelTicketBus() {
 			</div>
 			<PanelTicketBusSeats />
 			<PanelTicketBusSeats />
+			<small>Reservar asiento</small>
 		</div>
 	);
 }

@@ -14,6 +14,7 @@ export function PanelNavbar() {
 				menu
 			</span>
 			<h4>APOLO</h4>
+			<span className={`material-symbols-outlined ${styles.logout}`}>logout</span>
 		</nav>
 	);
 }

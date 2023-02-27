@@ -19,10 +19,10 @@
 .seats span:nth-child(3n + 2) {
 	background-color: var(--seat-unavaliable);
 	color: var(--seat-unavaliable-fg);
-	cursor: not-allowed;
+	cursor: pointer;
 }
 .seats span:nth-child(4n + 1) {
 	background-color: var(--seat-reserved);
 	color: var(--seat-reserved-fg);
-	cursor: not-allowed;
+	cursor: pointer;
 }

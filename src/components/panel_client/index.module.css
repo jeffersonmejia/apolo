@@ -16,6 +16,12 @@
 .clientForm :is(input, select) {
 	animation: opacity 0.3s ease-in-out;
 }
+.print {
+	margin: auto;
+	margin-top: 12px;
+	color: var(--btn-bg);
+	cursor: pointer;
+}
 @media screen and (min-width: 600px) {
 	.clientForm {
 		width: 100%;
