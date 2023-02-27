@@ -1,9 +1,18 @@
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
 .signin {
 	background-color: var(--card-bg);
 	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	animation: opacity 0.3s ease-in-out;
 }
 .signin form {
 	width: 100%;
@@ -17,24 +26,23 @@
 	text-align: right;
 }
 
-.forgetCard legend {
+.forgetCard {
 	margin: 0;
 	padding-top: 20px;
+	padding-bottom: 10px;
 	width: 100%;
-	font-size: 0.85rem;
+	font-size: 1rem;
 	color: var(--legend-color);
 }
 
 .forgetCard small {
 	width: fit-content;
 	margin-left: auto;
-	color: var(--btn-bg);
 	cursor: pointer;
+	transition: color 0.3s ease-in-out;
 }
-@media (hover: hover) {
-	.forgetCard small:hover {
-		text-decoration: underline;
-	}
+.forgetCard small:hover {
+	color: var(--btn-bg);
 }
 @media screen and (min-width: 420px) {
 	.signin {

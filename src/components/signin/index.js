@@ -28,7 +28,6 @@ export function Signin() {
 					Ingresar
 				</button>
 				<fieldset className={styles.forgetCard}>
-					<legend>Opciones de recuperacion</legend>
 					<small>Recuperar mi usuario</small>
 					<small>Recuperar mi clave</small>
 				</fieldset>
