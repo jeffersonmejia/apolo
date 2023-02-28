@@ -119,6 +119,26 @@ export function PanelReport() {
 								<button onClick={handleTravel}>Cerrar</button>
 							</>
 						)}
+						{isReportQuery && (
+							<>
+								<table>
+									<caption>Reporte diario - Boletería</caption>
+									<tr>
+										<th>Desde</th>
+										<td>27/02/2023 - 00:00</td>
+									</tr>
+									<tr>
+										<th>Hasta</th>
+										<td>28/02/2023 - 14:00</td>
+									</tr>
+									<tr>
+										<th>Recaudado</th>
+										<td>$300.00</td>
+									</tr>
+								</table>
+								<button onClick={handleReport}>Cerrar</button>
+							</>
+						)}
 					</div>
 				</Modal>
 			)}
