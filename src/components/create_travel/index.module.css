@@ -1,0 +1,54 @@
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+.createForm {
+	width: 80%;
+	max-width: 400px;
+	border-radius: var(--border-radius);
+	padding: 16px 32px;
+}
+.createForm :is(input, select) {
+	animation: opacity 0.3s ease-in-out;
+}
+.formDate {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.formDate label {
+	font-size: 0.9rem;
+}
+.createForm button {
+	width: 100%;
+	margin: auto;
+}
+.groupBtn {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+.groupBtn small {
+	color: var(--legend-color);
+	margin: auto;
+	cursor: pointer;
+}
+.groupBtn small:hover {
+	color: var(--btn-bg);
+}
+.loaderTravel {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 32px;
+	font-weight: bold;
+	animation: opacity 0.3s ease-in-out;
+}
+.loaderTravel small {
+	color: var(--legend-color);
+}
