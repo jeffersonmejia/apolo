@@ -123,12 +123,11 @@ export function PanelAside() {
 							</tbody>
 						</table>
 						<div className={styles.createFormPages}>
-							{/* <span class="material-symbols-outlined">navigate_before</span> */}
-							<small>Anterior</small>
+							<button>Anterior</button>
 							<small>1 ... 7</small>
-							<small>Siguiente</small>
+							<button>Siguiente</button>
 						</div>
-						<button>Cerrar</button>
+						<small className={styles.closeBtn}>Cerrar</small>
 					</fieldset>
 				</form>
 			</Modal>

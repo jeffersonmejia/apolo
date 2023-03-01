@@ -103,7 +103,7 @@ aside li.create {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 8px;
+	gap: 16px;
 }
 
 .createFormPages span {
@@ -120,12 +120,19 @@ aside li.create {
 .createFormPages span::active {
 	transform: scale(0.9%);
 }
-.createForm button {
-	width: 100%;
-	max-width: 250px;
-	margin: auto;
+.createFormPages button {
+	width: 110px;
 }
-
+.createForm .closeBtn {
+	margin: auto;
+	color: var(--legend-color);
+	cursor: pointer;
+	transition: color 0.3s ease-in-out;
+	margin-top: 12px;
+}
+.createForm .closeBtn:hover {
+	color: var(--btn-bg);
+}
 @media screen and (min-width: 600px) {
 	.aside {
 		flex-basis: 36%;
