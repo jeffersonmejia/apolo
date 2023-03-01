@@ -23,7 +23,7 @@ export function PanelAside() {
 		<>
 			<aside className={styles.aside}>
 				<ul>
-					<li className={styles.create}>
+					<li className={styles.create} onClick={handleCreateTravel}>
 						Crear viaje <span class="material-symbols-outlined">add_circle</span>
 					</li>
 					<li
@@ -46,91 +46,95 @@ export function PanelAside() {
 					</li>
 				</ul>
 			</aside>
-			<Modal>
-				<form className={styles.createForm}>
-					<fieldset>
-						<legend>
-							<h3>Crear viaje</h3>
-							<small>Aquí puedes consultar las frecuencia disponibles</small>
-						</legend>
-						<select>
-							<option>Selecciona una opción</option>
-							<option>Boleteria</option>
-							<option>Encomienda</option>
-						</select>
-						<div className={styles.formDate}>
-							<label>Fecha</label>
-							<input type="date" />
-						</div>
-						<table>
-							<thead>
-								<tr>
-									<th>Bus</th>
-									<th>Ruta</th>
-									<th>hora</th>
-									<th>Crear</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Santo Domingo - El Carmen</td>
-									<td>14:00</td>
-									<td>
-										<span class="material-symbols-outlined">add_circle</span>
-									</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Santo Domingo - El Carmen</td>
-									<td>14:00</td>
-									<td>
-										<span class="material-symbols-outlined">add_circle</span>
-									</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Santo Domingo - El Carmen</td>
-									<td>14:00</td>
-									<td>
-										<span class="material-symbols-outlined">add_circle</span>
-									</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Santo Domingo - El Carmen</td>
-									<td>14:00</td>
-									<td>
-										<span class="material-symbols-outlined">add_circle</span>
-									</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Santo Domingo - El Carmen</td>
-									<td>14:00</td>
-									<td>
-										<span class="material-symbols-outlined">add_circle</span>
-									</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Santo Domingo - El Carmen</td>
-									<td>14:00</td>
-									<td>
-										<span class="material-symbols-outlined">add_circle</span>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<div className={styles.createFormPages}>
-							<button>Anterior</button>
-							<small>1 ... 7</small>
-							<button>Siguiente</button>
-						</div>
-						<small className={styles.closeBtn}>Cerrar</small>
-					</fieldset>
-				</form>
-			</Modal>
+			{isModalActive && (
+				<Modal>
+					<form className={styles.createForm}>
+						<fieldset>
+							<legend>
+								<h3>Crear viaje</h3>
+								<small>Aquí puedes consultar las frecuencia disponibles</small>
+							</legend>
+							<select>
+								<option>Selecciona una opción</option>
+								<option>Boleteria</option>
+								<option>Encomienda</option>
+							</select>
+							<div className={styles.formDate}>
+								<label>Fecha</label>
+								<input type="date" />
+							</div>
+							<table>
+								<thead>
+									<tr>
+										<th>Bus</th>
+										<th>Ruta</th>
+										<th>hora</th>
+										<th>Crear</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Santo Domingo - El Carmen</td>
+										<td>14:00</td>
+										<td>
+											<span class="material-symbols-outlined">add_circle</span>
+										</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Santo Domingo - El Carmen</td>
+										<td>14:00</td>
+										<td>
+											<span class="material-symbols-outlined">add_circle</span>
+										</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Santo Domingo - El Carmen</td>
+										<td>14:00</td>
+										<td>
+											<span class="material-symbols-outlined">add_circle</span>
+										</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Santo Domingo - El Carmen</td>
+										<td>14:00</td>
+										<td>
+											<span class="material-symbols-outlined">add_circle</span>
+										</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Santo Domingo - El Carmen</td>
+										<td>14:00</td>
+										<td>
+											<span class="material-symbols-outlined">add_circle</span>
+										</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Santo Domingo - El Carmen</td>
+										<td>14:00</td>
+										<td>
+											<span class="material-symbols-outlined">add_circle</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div className={styles.createFormPages}>
+								<button>Anterior</button>
+								<small>1 ... 7</small>
+								<button>Siguiente</button>
+							</div>
+							<small className={styles.closeBtn} onClick={handleCreateTravel}>
+								Cerrar
+							</small>
+						</fieldset>
+					</form>
+				</Modal>
+			)}
 		</>
 	);
 }

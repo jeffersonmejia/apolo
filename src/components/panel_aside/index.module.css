@@ -68,7 +68,9 @@ aside li.create {
 	flex-direction: column;
 	gap: 4px;
 }
-
+.formDate label {
+	font-size: 0.9rem;
+}
 .createForm td {
 	padding: 4px 0;
 }
@@ -104,6 +106,7 @@ aside li.create {
 	justify-content: center;
 	align-items: center;
 	gap: 16px;
+	margin-top: 12px;
 }
 
 .createFormPages span {
@@ -128,7 +131,7 @@ aside li.create {
 	color: var(--legend-color);
 	cursor: pointer;
 	transition: color 0.3s ease-in-out;
-	margin-top: 12px;
+	margin-top: 4px;
 }
 .createForm .closeBtn:hover {
 	color: var(--btn-bg);
