@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import { PanelAsideContext } from "@/context/panel_aside";
-import { SigninContext } from "@/context/Signin";
+import { SigninContext } from "@/context/signin";
 import { useContext } from "react";
 
 export function PanelNavbar() {
