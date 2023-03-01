@@ -59,6 +59,13 @@ export function PanelAside() {
 								<option>Boleteria</option>
 								<option>Encomienda</option>
 							</select>
+							<select>
+								<option>Selecciona una ruta</option>
+								<option>Santo Domingo Manta</option>
+								<option>Santo Domingo Puerto López</option>
+								<option>Santo Domingo Guayaquil</option>
+								<option>Santo Domingo Quito</option>
+							</select>
 							<div className={styles.formDate}>
 								<label>Fecha</label>
 								<input type="date" />
@@ -67,7 +74,6 @@ export function PanelAside() {
 								<thead>
 									<tr>
 										<th>Bus</th>
-										<th>Ruta</th>
 										<th>hora</th>
 										<th>Crear</th>
 									</tr>
@@ -75,7 +81,6 @@ export function PanelAside() {
 								<tbody>
 									<tr>
 										<td>1</td>
-										<td>Santo Domingo - El Carmen</td>
 										<td>14:00</td>
 										<td>
 											<span class="material-symbols-outlined">add_circle</span>
@@ -83,7 +88,20 @@ export function PanelAside() {
 									</tr>
 									<tr>
 										<td>1</td>
-										<td>Santo Domingo - El Carmen</td>
+										<td>10:00</td>
+										<td>
+											<span class="material-symbols-outlined">add_circle</span>
+										</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>13:00</td>
+										<td>
+											<span class="material-symbols-outlined">add_circle</span>
+										</td>
+									</tr>
+									<tr>
+										<td>1</td>
 										<td>14:00</td>
 										<td>
 											<span class="material-symbols-outlined">add_circle</span>
@@ -91,7 +109,6 @@ export function PanelAside() {
 									</tr>
 									<tr>
 										<td>1</td>
-										<td>Santo Domingo - El Carmen</td>
 										<td>14:00</td>
 										<td>
 											<span class="material-symbols-outlined">add_circle</span>
@@ -99,23 +116,6 @@ export function PanelAside() {
 									</tr>
 									<tr>
 										<td>1</td>
-										<td>Santo Domingo - El Carmen</td>
-										<td>14:00</td>
-										<td>
-											<span class="material-symbols-outlined">add_circle</span>
-										</td>
-									</tr>
-									<tr>
-										<td>1</td>
-										<td>Santo Domingo - El Carmen</td>
-										<td>14:00</td>
-										<td>
-											<span class="material-symbols-outlined">add_circle</span>
-										</td>
-									</tr>
-									<tr>
-										<td>1</td>
-										<td>Santo Domingo - El Carmen</td>
 										<td>14:00</td>
 										<td>
 											<span class="material-symbols-outlined">add_circle</span>
@@ -123,14 +123,7 @@ export function PanelAside() {
 									</tr>
 								</tbody>
 							</table>
-							<div className={styles.createFormPages}>
-								<button>Anterior</button>
-								<small>1 ... 7</small>
-								<button>Siguiente</button>
-							</div>
-							<small className={styles.closeBtn} onClick={handleCreateTravel}>
-								Cerrar
-							</small>
+							<button onClick={handleCreateTravel}>Cerrar</button>
 						</fieldset>
 					</form>
 				</Modal>

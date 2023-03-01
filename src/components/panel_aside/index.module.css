@@ -59,7 +59,7 @@ aside li.create {
 }
 .createForm {
 	width: 80%;
-	max-width: 600px;
+	max-width: 550px;
 	border-radius: var(--border-radius);
 }
 
@@ -101,40 +101,10 @@ aside li.create {
 .createForm td span:last-child {
 	font-size: 1.3rem;
 }
-.createFormPages {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 16px;
-	margin-top: 12px;
-}
-
-.createFormPages span {
-	color: var(--legend-color);
-	transition-property: color transform;
-	transition: 0.3s ease-in-out;
-	cursor: pointer;
-	font-weight: bold;
-	font-size: 2rem;
-}
-.createFormPages span:hover {
-	color: var(--btn-bg);
-}
-.createFormPages span::active {
-	transform: scale(0.9%);
-}
-.createFormPages button {
-	width: 110px;
-}
-.createForm .closeBtn {
+.createForm button {
+	width: 300px;
 	margin: auto;
-	color: var(--legend-color);
-	cursor: pointer;
-	transition: color 0.3s ease-in-out;
-	margin-top: 4px;
-}
-.createForm .closeBtn:hover {
-	color: var(--btn-bg);
+	margin-top: 8px;
 }
 @media screen and (min-width: 600px) {
 	.aside {
