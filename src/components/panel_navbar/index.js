@@ -20,12 +20,13 @@ export function PanelNavbar() {
 				menu
 			</span>
 			<h4>APOLO</h4>
-			<span
-				className={`material-symbols-outlined ${styles.logout}`}
-				onClick={handleLogout}
-			>
-				logout
-			</span>
+			<div className={styles.navButtons}>
+				<span className="material-symbols-outlined">dark_mode</span>
+
+				<span className="material-symbols-outlined" onClick={handleLogout}>
+					account_circle
+				</span>
+			</div>
 		</nav>
 	);
 }

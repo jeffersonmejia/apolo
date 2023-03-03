@@ -24,6 +24,7 @@
 }
 .resumenTable th {
 	padding: 2px 8px;
+	width: 50%;
 }
 .resumenTable td {
 	padding: 2px;

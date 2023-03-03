@@ -22,6 +22,9 @@
 	--aside-active-color: #135da7;
 
 	--navbar-height: 64px;
+	--navbtn-bg: hsl(0, 0%, 90%);
+	--navbtn-hover: hsl(0, 0%, 85%);
+	--navbtn-active: hsl(0, 0%, 80%);
 
 	--seat-bg: hsl(210, 100%, 85%);
 	--seat-fg: hsl(210, 100%, 55%);
