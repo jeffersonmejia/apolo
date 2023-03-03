@@ -1,3 +1,11 @@
+@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
 .navbar {
 	display: flex;
 	align-items: center;
@@ -25,24 +33,68 @@
 	cursor: pointer;
 	transition: background-color 0.3s ease-in-out;
 }
-.navButtons span:nth-child(1) {
+.navButtons span {
 	background-color: var(--navbtn-bg);
 	border-radius: 50%;
 	padding: 8px;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 	transition-property: background-color;
 	transition: 0.3s ease-in-out;
 }
-.navButtons span:nth-child(1):hover {
+.navButtons span:hover {
 	background-color: var(--navbtn-hover);
 }
-.navButtons span:nth-child(1):active {
+.navButtons span:active {
 	background-color: var(--navbtn-active);
 }
-
-.navButtons span:nth-child(2):hover {
-	color: var(--btn-bg);
+.account {
+	width: 50%;
+	max-width: 300px;
+	background-color: var(--card-bg);
+	border-radius: var(--border-radius);
+	position: fixed;
+	top: var(--navbar-height);
+	right: 16px;
+	padding: 12px;
+	box-shadow: 1px 1px 2px 1px rgb(215, 215, 215);
+	animation: opacity 0.3s ease-in-out;
 }
-
+.account h4 {
+	text-align: center;
+	margin-top: 4px;
+	color: black;
+}
+.account figure {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	align-items: center;
+	margin-top: 6px;
+}
+.account img {
+	width: 48px;
+	border-radius: 50%;
+}
+.account ul {
+	margin: 12px 6px 6px 6px;
+}
+.account li {
+	list-style: none;
+	background-color: rgb(240, 240, 240);
+	transition: background-color 0.3s ease-in-out;
+	padding: 12px;
+	border-radius: var(--border-radius);
+	font-size: 0.9rem;
+	cursor: pointer;
+}
+.account li:hover {
+	background-color: rgb(235 235 235);
+}
+.account li:active {
+	background-color: rgb(225 225 225);
+}
 @media screen and (min-width: 600px) {
 	.burger {
 		display: none;
