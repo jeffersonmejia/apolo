@@ -21,6 +21,12 @@
 	padding-top: 32px;
 	padding-bottom: 16px;
 }
+.signin h1 {
+	color: var(--title-color);
+}
+.signin small {
+	color: var(--legend-color);
+}
 .forgetCard {
 	gap: 0;
 	text-align: right;

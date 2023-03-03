@@ -4,6 +4,7 @@ import { PanelAsideProvider } from "@/context/panel_aside";
 import { PanelSectionProvider } from "@/context/panel_section";
 import { CreateTravelProvider } from "@/context/create_travel";
 import Main from "@/components/main";
+import { DarkModeProvider } from "@/context/dark_mode";
 
 export default function Home() {
 	return (
@@ -17,15 +18,17 @@ export default function Home() {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<PanelAsideProvider>
-				<SigninProvider>
-					<PanelSectionProvider>
-						<CreateTravelProvider>
-							<Main></Main>
-						</CreateTravelProvider>
-					</PanelSectionProvider>
-				</SigninProvider>
-			</PanelAsideProvider>
+			<DarkModeProvider>
+				<PanelAsideProvider>
+					<SigninProvider>
+						<PanelSectionProvider>
+							<CreateTravelProvider>
+								<Main></Main>
+							</CreateTravelProvider>
+						</PanelSectionProvider>
+					</SigninProvider>
+				</PanelAsideProvider>
+			</DarkModeProvider>
 		</>
 	);
 }

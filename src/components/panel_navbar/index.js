@@ -2,11 +2,13 @@ import styles from "./index.module.css";
 import { PanelAsideContext } from "@/context/panel_aside";
 import { SigninContext } from "@/context/signin";
 import { useContext, useState } from "react";
+import { DarkModeContext } from "@/context/dark_mode";
 
 export function PanelNavbar() {
 	const { handleAside } = useContext(PanelAsideContext);
 	const { setSignin } = useContext(SigninContext);
 	const [isAccount, setAccount] = useState(false);
+	const { handleDarkMode, isDarkMode } = useContext(DarkModeContext);
 
 	const handleLogout = () => {
 		setSignin(false);
@@ -15,7 +17,7 @@ export function PanelNavbar() {
 		setAccount(isAccount ? false : true);
 	};
 	return (
-		<nav className={styles.navbar}>
+		<nav className={`${styles.navbar} ${isDarkMode ? "dark" : ""}`}>
 			<span
 				className={`material-symbols-outlined ${styles.burger}`}
 				onClick={handleAside}
@@ -24,7 +26,9 @@ export function PanelNavbar() {
 			</span>
 			<h4>APOLO</h4>
 			<div className={styles.navButtons}>
-				<span className="material-symbols-outlined">dark_mode</span>
+				<span className="material-symbols-outlined" onClick={handleDarkMode}>
+					dark_mode
+				</span>
 
 				<span className="material-symbols-outlined" onClick={handleAccount}>
 					account_circle

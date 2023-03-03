@@ -12,6 +12,12 @@
 	border-radius: var(--border-radius);
 	padding: 16px 32px;
 }
+.createForm h3 {
+	color: var(--title-color);
+}
+.createForm small {
+	color: var(--legend-color);
+}
 .createForm :is(input, select) {
 	animation: opacity 0.3s ease-in-out;
 }
@@ -22,6 +28,7 @@
 }
 .formDate label {
 	font-size: 0.9rem;
+	color: var(--legend-color);
 }
 .createForm button {
 	width: 100%;

@@ -10,8 +10,10 @@ import { PanelNavbar } from "../panel_navbar";
 import { PanelAside } from "../panel_aside";
 import { PanelResumen } from "../panel_resumen";
 import { PanelReport } from "../panel_report";
+import { DarkModeContext } from "@/context/dark_mode";
 
 export default function Main() {
+	const { isDarkMode } = useContext(DarkModeContext);
 	const { isSignin } = useContext(SigninContext);
 	const { isAsideActive, setAsideActive } = useContext(PanelAsideContext);
 	const { isTicketActive, isPackageActive, isReportActive } =
@@ -35,7 +37,7 @@ export default function Main() {
 	return (
 		<>
 			<PanelNavbar />
-			<main className={styles.main}>
+			<main className={`${styles.main} ${isDarkMode ? "dark" : ""}`}>
 				{isAsideActive && <PanelAside />}
 				{isTicketActive && <PanelTicket />}
 				{isPackageActive && <PanelPackage />}

@@ -17,7 +17,9 @@
 	background-color: var(--main-bg);
 	z-index: 998;
 }
-
+.navbar > h4 {
+	color: var(--title-color);
+}
 .burger {
 	cursor: pointer;
 }
@@ -58,13 +60,13 @@
 	top: var(--navbar-height);
 	right: 16px;
 	padding: 12px;
-	box-shadow: 1px 1px 2px 1px rgb(215, 215, 215);
+	box-shadow: var(--box-shadow);
 	animation: opacity 0.3s ease-in-out;
 }
 .account h4 {
 	text-align: center;
 	margin-top: 4px;
-	color: black;
+	color: var(--title-color);
 }
 .account figure {
 	display: flex;
@@ -82,7 +84,7 @@
 }
 .account li {
 	list-style: none;
-	background-color: rgb(240, 240, 240);
+	background-color: var(--drop-menu-bg);
 	transition: background-color 0.3s ease-in-out;
 	padding: 12px;
 	border-radius: var(--border-radius);
@@ -90,10 +92,10 @@
 	cursor: pointer;
 }
 .account li:hover {
-	background-color: rgb(235 235 235);
+	background-color: var(--drop-menu-hover);
 }
 .account li:active {
-	background-color: rgb(225 225 225);
+	background-color: var(--drop-menu-active);
 }
 @media screen and (min-width: 600px) {
 	.burger {

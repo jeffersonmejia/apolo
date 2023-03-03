@@ -39,6 +39,12 @@
 	--modal-bg: rgba(0, 0, 0, 0.5);
 
 	--color-success: hsl(0, 0%, 70%);
+	--title-color: black;
+	--box-shadow: 1px 1px 2px 1px rgb(215, 215, 215);
+
+	--drop-menu-bg: rgb(240, 240, 240);
+	--drop-menu-hover: rgb(235 235 235);
+	--drop-menu-active: rgb(225 225 225);
 }
 * {
 	margin: 0;
@@ -46,15 +52,13 @@
 	box-sizing: border-box;
 }
 
-html {
-	font-family: var(--font-family);
-}
-
 html,
 main {
 	background-color: var(--main-bg);
 }
-
+body {
+	height: 100vh;
+}
 img {
 	width: 100%;
 }
@@ -157,6 +161,38 @@ caption {
 }
 .loader div:nth-child(3) {
 	animation-delay: -0.15s;
+}
+.dark {
+	--main-bg: rgb(12, 12, 12);
+	--card-bg: rgb(28, 28, 28);
+	--border: 1px solid rgb(48, 48, 48);
+	--title-color: white;
+	--navbtn-bg: hsl(0, 0%, 15%);
+	--navbtn-hover: hsl(0, 0%, 20%);
+	--navbtn-active: hsl(0, 0%, 10%);
+	--btn-bg: rgba(0, 113, 227, 0.5);
+	--btn-hover: rgba(0, 119, 237, 0.5);
+	--box-shadow: 1px 1px 2px 1px rgb(0 0 0);
+	--drop-menu-bg: rgb(50, 50, 50);
+	--drop-menu-hover: rgb(54 54 54);
+	--drop-menu-active: rgb(60 60 60);
+
+	--seat-bg: hsl(210, 69%, 32%);
+	--seat-fg: hsl(210, 46%, 52%);
+	--seat-hover: hsl(210, 69%, 40%);
+
+	--seat-unavaliable: hsl(78, 75%, 30%);
+	--seat-unavaliable-fg: hsl(78, 82%, 47%);
+
+	--seat-reserved: hsl(0, 0%, 15%);
+	--seat-reserved-fg: hsl(0, 1%, 34%);
+	--aside-color: rgba(110, 110, 115, 0.5);
+	--aside-active: rgba(59, 93, 128, 0.5);
+	--aside-active-color: #ffffff;
+}
+.dark :is(input, select) {
+	background-color: var(--main-bg);
+	color: var(--border-color);
 }
 @keyframes loader {
 	0% {
