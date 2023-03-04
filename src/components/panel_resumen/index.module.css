@@ -35,22 +35,6 @@
 	padding: 4px;
 	background-color: var(--card-bg);
 }
-.groupBtn {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-}
-.groupBtn small {
-	width: fit-content;
-	text-align: center;
-	margin: auto;
-	color: var(--legend-color);
-	cursor: pointer;
-	transition: color 0.3s ease-in-out;
-}
-.groupBtn small:hover {
-	color: var(--btn-bg);
-}
 .listTravel {
 	width: 80%;
 	max-width: 400px;

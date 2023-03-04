@@ -1,0 +1,16 @@
+.group {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+.group small {
+	width: fit-content;
+	text-align: center;
+	margin: auto;
+	color: var(--legend-color);
+	cursor: pointer;
+	transition: color 0.3s ease-in-out;
+}
+.group small:hover {
+	color: var(--btn-bg);
+}

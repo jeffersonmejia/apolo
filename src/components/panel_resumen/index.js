@@ -1,20 +1,42 @@
 import styles from "./index.module.css";
 import { Modal } from "../modal";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useRef, useState } from "react";
 import { PanelSectionContext } from "@/context/panel_section";
 import { SigninContext } from "@/context/signin";
 
+import { PanelResumeData } from "../panel_resume_data";
+import { GroupBtn } from "../group_btn";
 export function PanelResumen() {
-	const [isModalActive, setModal] = useState(false);
+	const [travel, dispatch] = useReducer((state = [], action) => {
+		switch (action.type) {
+			case "show_modal": {
+				return [...state, { modal: true }];
+			}
+			case "hidde_modal": {
+				return [...state, { modal: false }];
+			}
+			default: {
+				return state;
+			}
+		}
+	});
+	const operations = useRef(null);
+	const handleClick = ({ currentTarget }) => {
+		console.log(currentTarget === operations);
+	};
+
+	const [isModalOpen, setModal] = useState(false);
+
 	const [sellContent, setSell] = useState("");
 	const [cancelContent, setCancel] = useState("");
 	const [sectionContent, setSection] = useState("");
-	const { isTicketActive } = useContext(PanelSectionContext);
+
 	const [busNumber, setBusNumber] = useState("--");
 	const [itinerary, setItinerary] = useState("--");
 	const [departure, setDeparture] = useState("--");
 
 	const { data } = useContext(SigninContext);
+	const { isTicketActive } = useContext(PanelSectionContext);
 
 	const getTravelInfo = () => {
 		if (data) {
@@ -54,61 +76,43 @@ export function PanelResumen() {
 	return (
 		<div className={styles.resume}>
 			<table className={styles.resumenTable}>
-				<caption>Información del viaje</caption>
-				<thead>
-					<tr>
-						<th>Número de bus</th>
-						<td>{busNumber}</td>
-					</tr>
-					<tr>
-						<th>Viaje actual</th>
-						<td>{itinerary}</td>
-					</tr>
-					<tr>
-						<th>Salida</th>
-						<td>{departure}</td>
-					</tr>
-				</thead>
+				<PanelResumeData
+					caption="Información del viaje"
+					title_1="Número de bus"
+					content_1={busNumber}
+					title_2="Viaje actual"
+					content_2={itinerary}
+					title_3="Salida"
+					content_3={departure}
+				/>
 			</table>
 			<table className={styles.resumenTable}>
-				<caption>{sectionContent}</caption>
-				<thead>
-					<tr>
-						<th>{sellContent}</th>
-						<td>23</td>
-					</tr>
-					<tr>
-						<th>{cancelContent}</th>
-						<td>2</td>
-					</tr>
-					<tr>
-						<th>Disponibles</th>
-						<td>17</td>
-					</tr>
-				</thead>
+				<PanelResumeData
+					caption={sectionContent}
+					title_1={sellContent}
+					content_1="23"
+					title_2={cancelContent}
+					content_2="12"
+					title_3="Disponibles"
+					content_3="21"
+				/>
 			</table>
 			<table className={styles.resumenTable}>
-				<caption>Ventas</caption>
-				<thead>
-					<tr>
-						<th>Recaudado</th>
-						<td>$20.00</td>
-					</tr>
-					<tr>
-						<th>Ahorrado</th>
-						<td>--</td>
-					</tr>
-					<tr>
-						<th>Total</th>
-						<td>$20.00</td>
-					</tr>
-				</thead>
+				<PanelResumeData
+					caption="Ventas"
+					title_1="Recaudado"
+					content_1="$20.00"
+					title_2="Ahorrado"
+					content_2="--"
+					title_3="Total"
+					content_3="$20.00"
+				/>
 			</table>
-			<div className={styles.groupBtn}>
+			<GroupBtn>
 				<button>Cerrar viaje</button>
-				<small onClick={handleModal}>Cambiar viaje</small>
-			</div>
-			{isModalActive && (
+				<small onClick={handleClick}>Cambiar viaje</small>
+			</GroupBtn>
+			{isModalOpen && (
 				<Modal>
 					<form className={styles.listTravel}>
 						<fieldset>
@@ -127,9 +131,9 @@ export function PanelResumen() {
 								<option>32</option>
 							</select>
 						</fieldset>
-						<div className={styles.groupBtn}>
-							<button onClick={changeTravel}>Cambiar viaje actual</button>
-							<small onClick={cancelChangeTravel}>Cancelar</small>
+						<div className={styles.groupBtn} ref={operations} onClick={handleClick}>
+							<button>Cambiar viaje actual</button>
+							<small>Cancelar</small>
 						</div>
 					</form>
 				</Modal>
