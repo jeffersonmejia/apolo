@@ -2,6 +2,7 @@ import styles from "./index.module.css";
 import { Modal } from "../modal";
 import { useContext, useEffect, useState } from "react";
 import { PanelSectionContext } from "@/context/panel_section";
+import { SigninContext } from "@/context/signin";
 
 export function PanelResumen() {
 	const [isModalActive, setModal] = useState(false);
@@ -9,6 +10,22 @@ export function PanelResumen() {
 	const [cancelContent, setCancel] = useState("");
 	const [sectionContent, setSection] = useState("");
 	const { isTicketActive } = useContext(PanelSectionContext);
+	const [busNumber, setBusNumber] = useState("--");
+	const [itinerary, setItinerary] = useState("--");
+	const [departure, setDeparture] = useState("--");
+
+	const { data } = useContext(SigninContext);
+
+	const getTravelInfo = () => {
+		if (data) {
+			setBusNumber(data[0].bus);
+			setItinerary(data[0].itinerary);
+			setDeparture(data[0].departure);
+		}
+	};
+	useEffect(() => {
+		getTravelInfo();
+	}, [data]);
 
 	const handleModal = () => {
 		setModal(true);
@@ -41,15 +58,15 @@ export function PanelResumen() {
 				<thead>
 					<tr>
 						<th>Número de bus</th>
-						<td>78</td>
+						<td>{busNumber}</td>
 					</tr>
 					<tr>
 						<th>Viaje actual</th>
-						<td>Santo Domingo - Manta</td>
+						<td>{itinerary}</td>
 					</tr>
 					<tr>
 						<th>Salida</th>
-						<td>10:00</td>
+						<td>{departure}</td>
 					</tr>
 				</thead>
 			</table>

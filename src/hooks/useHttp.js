@@ -15,12 +15,12 @@ export function useHttp(url) {
 						statusText: res.statusText || "We have troubles, Come back later again",
 					};
 
-				let data = await res.json();
-				setData(data);
+				let response = await res.json();
+				setData(response);
 				setPending(false);
-				setError({ error: false });
+				setError({ flag: false });
 			} catch (error) {
-				setError(error);
+				setError({ error });
 				setPending(false);
 			}
 		};
