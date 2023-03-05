@@ -35,19 +35,16 @@
 	padding: 4px;
 	background-color: var(--card-bg);
 }
-.listTravel {
-	width: 80%;
-	max-width: 400px;
-	border-radius: var(--border-radius);
-	padding: 32px;
-}
-.listTravel .groupBtn {
-	margin-top: 2px;
-}
 @media screen and (min-width: 850px) {
-	.resumenTable {
+	.resume {
 		width: 100%;
-		width: 350px;
+		max-width: 350px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.resumenTable {
 		margin: 0;
 	}
 }

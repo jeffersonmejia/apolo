@@ -1,0 +1,11 @@
+.listTravel {
+	width: 80%;
+	max-width: 400px;
+	border-radius: var(--border-radius);
+	padding: 32px;
+}
+.date {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}

@@ -135,14 +135,20 @@ th {
 caption {
 	border-bottom: none;
 }
-.loader {
+.loader-loop {
 	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	align-items: center;
 	justify-content: center;
-	position: relative;
-	width: auto;
-	margin-top: 12px;
 }
-.loader div {
+.loader-loop small {
+	display: block;
+	text-align: center;
+	color: var(--legend-color);
+}
+
+.loader-loop div {
 	box-sizing: border-box;
 	display: block;
 	position: absolute;
@@ -152,14 +158,15 @@ caption {
 	border-radius: 50%;
 	animation: loader 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 	border-color: var(--btn-bg) transparent transparent transparent;
+	margin-bottom: 54px;
 }
-.loader div:nth-child(1) {
+.loader-loop div:nth-child(1) {
 	animation-delay: -0.45s;
 }
-.loader div:nth-child(2) {
+.loader-loop div:nth-child(2) {
 	animation-delay: -0.3s;
 }
-.loader div:nth-child(3) {
+.loader-loop div:nth-child(3) {
 	animation-delay: -0.15s;
 }
 .dark {

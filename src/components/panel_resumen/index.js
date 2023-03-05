@@ -1,143 +1,91 @@
 import styles from "./index.module.css";
-import { Modal } from "../modal";
 import { useContext, useEffect, useReducer, useRef, useState } from "react";
 import { PanelSectionContext } from "@/context/panel_section";
 import { SigninContext } from "@/context/signin";
-
 import { PanelResumeData } from "../panel_resume_data";
 import { GroupBtn } from "../group_btn";
+import { ChangeTravel } from "../change_travel";
+import { Loader } from "../loader";
+
 export function PanelResumen() {
-	const [travel, dispatch] = useReducer((state = [], action) => {
-		switch (action.type) {
-			case "show_modal": {
-				return [...state, { modal: true }];
-			}
-			case "hidde_modal": {
-				return [...state, { modal: false }];
-			}
-			default: {
-				return state;
-			}
-		}
-	});
-	const operations = useRef(null);
-	const handleClick = ({ currentTarget }) => {
-		console.log(currentTarget === operations);
-	};
-
+	const [isLoader, setLoader] = useState(false);
 	const [isModalOpen, setModal] = useState(false);
-
-	const [sellContent, setSell] = useState("");
-	const [cancelContent, setCancel] = useState("");
-	const [sectionContent, setSection] = useState("");
-
-	const [busNumber, setBusNumber] = useState("--");
-	const [itinerary, setItinerary] = useState("--");
-	const [departure, setDeparture] = useState("--");
-
 	const { data } = useContext(SigninContext);
 	const { isTicketActive } = useContext(PanelSectionContext);
 
-	const getTravelInfo = () => {
-		if (data) {
-			setBusNumber(data[0].bus);
-			setItinerary(data[0].itinerary);
-			setDeparture(data[0].departure);
-		}
+	const initialTravel = {
+		bus: "--",
+		itinerary: "--",
+		departure: "--",
+		selled: "--",
+		cancelled: "--",
+		reserved: "--",
+		available: "--",
+		collected: "--",
+		saved: "--",
+		total: "--",
+		total_seats: "--",
 	};
-	useEffect(() => {
-		getTravelInfo();
-	}, [data]);
+	const [travelData, setTravelData] = useState(initialTravel);
 
-	const handleModal = () => {
-		setModal(true);
-	};
-
-	const cancelChangeTravel = () => {
-		setModal(false);
-	};
-
-	const changeTravel = () => {
-		setModal(false);
-	};
-
-	useEffect(() => {
-		if (isTicketActive) {
-			setSection("Boletos");
-			setSell("Vendidos");
-			setCancel("Anulados");
+	const handleClick = ({ currentTarget }) => {
+		if (currentTarget.matches("button")) {
+			setLoader(true);
+			setTimeout(() => {
+				setLoader(false);
+			}, 2000);
 		} else {
-			setSection("Encomiendas");
-			setSell("Vendidas");
-			setCancel("Anuladas");
+			setModal(true);
 		}
-	}, [isTicketActive]);
+	};
 
+	useEffect(() => {
+		if (data) {
+			setTravelData(data[0]);
+		}
+	});
 	return (
 		<div className={styles.resume}>
-			<table className={styles.resumenTable}>
-				<PanelResumeData
-					caption="Información del viaje"
-					title_1="Número de bus"
-					content_1={busNumber}
-					title_2="Viaje actual"
-					content_2={itinerary}
-					title_3="Salida"
-					content_3={departure}
-				/>
-			</table>
-			<table className={styles.resumenTable}>
-				<PanelResumeData
-					caption={sectionContent}
-					title_1={sellContent}
-					content_1="23"
-					title_2={cancelContent}
-					content_2="12"
-					title_3="Disponibles"
-					content_3="21"
-				/>
-			</table>
-			<table className={styles.resumenTable}>
-				<PanelResumeData
-					caption="Ventas"
-					title_1="Recaudado"
-					content_1="$20.00"
-					title_2="Ahorrado"
-					content_2="--"
-					title_3="Total"
-					content_3="$20.00"
-				/>
-			</table>
-			<GroupBtn>
-				<button>Cerrar viaje</button>
-				<small onClick={handleClick}>Cambiar viaje</small>
-			</GroupBtn>
-			{isModalOpen && (
-				<Modal>
-					<form className={styles.listTravel}>
-						<fieldset>
-							<legend>Listado de viajes creados</legend>
-							<select>
-								<option>Selecciona un viaje</option>
-								<option>Santo Domingo - Manta</option>
-								<option>Quito - Manta</option>
-								<option>Santo Domingo - Coca</option>
-							</select>
-							<select>
-								<option>Selecciona un bus</option>
-								<option>1</option>
-								<option>78</option>
-								<option>64</option>
-								<option>32</option>
-							</select>
-						</fieldset>
-						<div className={styles.groupBtn} ref={operations} onClick={handleClick}>
-							<button>Cambiar viaje actual</button>
-							<small>Cancelar</small>
-						</div>
-					</form>
-				</Modal>
+			{isLoader && <Loader message="Cerrando viaje..." />}
+			{!isLoader && (
+				<>
+					<table className={styles.resumenTable}>
+						<PanelResumeData
+							caption="Información del viaje"
+							title_1="Número de bus"
+							content_1={travelData.bus}
+							title_2="Viaje actual"
+							content_2={travelData.itinerary}
+							title_3="Salida"
+							content_3={travelData.departure}
+						/>
+					</table>
+					<table className={styles.resumenTable}>
+						<PanelResumeData
+							caption={isTicketActive ? "Boletería" : "Encomiendas"}
+							title_1="Vendidos/as"
+							content_1={travelData.selled}
+							title_2="Anulados/as"
+							content_2={travelData.cancelled}
+							title_3="Disponibles"
+							content_3={isTicketActive ? travelData.available : "--"}
+						/>
+					</table>
+					<table className={styles.resumenTable}>
+						<PanelResumeData
+							caption="Ventas"
+							title_1="Recaudado"
+							content_1={travelData.collected}
+							title_2="Ahorrado"
+							content_2={travelData.saved}
+							title_3="Total"
+							content_3={travelData.total}
+						/>
+					</table>
+					<GroupBtn btn_1="Cerrar viaje" btn_2="Cambiar viaje" MyClick={handleClick} />
+				</>
 			)}
+			{isModalOpen && <ChangeTravel setModal={setModal} />}
 		</div>
 	);
 }

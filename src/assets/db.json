@@ -9,16 +9,35 @@
 	"travel": [
 		{
 			"bus": "1",
-			"itinerary": "Santo Domingo - El Carmen",
+			"itinerary": "Santo Domingo - Manta",
 			"departure": "07:00",
 			"selled": "10",
 			"cancelled": "10",
 			"reserved": "5",
-			"available": "10",
 			"collected": "$30.00",
 			"saved": "$20.00",
 			"total": "$10.00",
 			"total_seats": "35"
+		}
+	],
+	"travelList": [
+		{
+			"itinerary": "Santo Domingo - Manta",
+			"date": "04/03/2023",
+			"hour": "19:00",
+			"bus": "1"
+		},
+		{
+			"itinerary": "Manta - Coca",
+			"date": "05/03/2023",
+			"hour": "18:30",
+			"bus": "78"
+		},
+		{
+			"itinerary": "Quito - Manta",
+			"date": "15/03/2023",
+			"hour": "22:00",
+			"bus": "25"
 		}
 	],
 	"seats_list": [
