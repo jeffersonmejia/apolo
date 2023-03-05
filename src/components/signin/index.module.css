@@ -27,6 +27,15 @@
 .signin small {
 	color: var(--legend-color);
 }
+.error {
+	margin: auto;
+	margin-top: 12px;
+	text-align: center;
+	width: 90%;
+}
+.error small {
+	color: rgb(219, 70, 70);
+}
 .forgetCard {
 	gap: 0;
 	text-align: right;

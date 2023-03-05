@@ -2,50 +2,63 @@ import styles from "./index.module.css";
 import { PanelAsideContext } from "@/context/panel_aside";
 import { SigninContext } from "@/context/signin";
 import { useContext, useState } from "react";
-import { DarkModeContext } from "@/assets/dark_mode";
+import { DarkModeContext } from "@/context/dark_mode";
 
 export function PanelNavbar() {
 	const { handleAside } = useContext(PanelAsideContext);
-	const { setSignin } = useContext(SigninContext);
+	const { setSignin, isSignin } = useContext(SigninContext);
 	const [isAccount, setAccount] = useState(false);
 	const { handleDarkMode, isDarkMode } = useContext(DarkModeContext);
 
 	const handleLogout = () => {
 		setSignin(false);
+		setAccount(false);
 	};
 	const handleAccount = () => {
 		setAccount(isAccount ? false : true);
 	};
 	return (
-		<nav className={`${styles.navbar} ${isDarkMode ? "dark" : ""}`}>
-			<span
-				className={`material-symbols-outlined ${styles.burger}`}
-				onClick={handleAside}
-			>
-				menu
-			</span>
-			<h4>APOLO</h4>
+		<nav
+			className={`${styles.navbar} ${isDarkMode ? "dark" : ""} ${
+				!isSignin ? styles.logout : ""
+			}`}
+		>
+			{isSignin && (
+				<>
+					<span
+						className={`material-symbols-outlined ${styles.burger}`}
+						onClick={handleAside}
+					>
+						menu
+					</span>
+					<h4>APOLO</h4>
+				</>
+			)}
 			<div className={styles.navButtons}>
 				<span className="material-symbols-outlined" onClick={handleDarkMode}>
 					dark_mode
 				</span>
 
-				<span className="material-symbols-outlined" onClick={handleAccount}>
-					account_circle
-				</span>
-				{isAccount && (
-					<div className={styles.account}>
-						<h4>Mi cuenta</h4>
-						<figure>
-							<img src="/profile.jpg" alt="profile" />
-							<figcaption>
-								<small>Jefferson Mejía</small>
-							</figcaption>
-						</figure>
-						<ul>
-							<li onClick={handleLogout}>Salir</li>
-						</ul>
-					</div>
+				{isSignin && (
+					<>
+						<span className="material-symbols-outlined" onClick={handleAccount}>
+							account_circle
+						</span>
+						{isAccount && (
+							<div className={styles.account}>
+								<h4>Mi cuenta</h4>
+								<figure>
+									<img src="/profile.jpg" alt="profile" />
+									<figcaption>
+										<small>Jefferson Mejía</small>
+									</figcaption>
+								</figure>
+								<ul>
+									<li onClick={handleLogout}>Salir</li>
+								</ul>
+							</div>
+						)}
+					</>
 				)}
 			</div>
 		</nav>

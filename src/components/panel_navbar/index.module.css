@@ -17,6 +17,7 @@
 	background-color: var(--main-bg);
 	z-index: 998;
 }
+
 .navbar > h4 {
 	color: var(--title-color);
 }
@@ -97,8 +98,14 @@
 .account li:active {
 	background-color: var(--drop-menu-active);
 }
+.logout {
+	background-color: var(--card-bg);
+}
 @media screen and (min-width: 600px) {
 	.burger {
 		display: none;
+	}
+	.logout {
+		background-color: var(--main-bg);
 	}
 }

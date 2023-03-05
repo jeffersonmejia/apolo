@@ -10,11 +10,11 @@ import { PanelNavbar } from "../panel_navbar";
 import { PanelAside } from "../panel_aside";
 import { PanelResumen } from "../panel_resumen";
 import { PanelReport } from "../panel_report";
-import { DarkModeContext } from "@/assets/dark_mode";
-
+import { DarkModeContext } from "@/context/dark_mode";
 export default function Main() {
 	const { isDarkMode } = useContext(DarkModeContext);
-	const { isSignin } = useContext(SigninContext);
+	const { isSignin, isDataError } = useContext(SigninContext);
+
 	const { isAsideActive, setAsideActive } = useContext(PanelAsideContext);
 	const { isTicketActive, isPackageActive, isReportActive } =
 		useContext(PanelSectionContext);
@@ -33,17 +33,19 @@ export default function Main() {
 			window.removeEventListener("resize", handleResize);
 		};
 	}, []);
-	if (!isSignin) return <Signin />;
 	return (
 		<>
 			<PanelNavbar />
-			<main className={`${styles.main} ${isDarkMode ? "dark" : ""}`}>
-				{isAsideActive && <PanelAside />}
-				{isTicketActive && <PanelTicket />}
-				{isPackageActive && <PanelPackage />}
-				{!isReportActive && <PanelResumen />}
-				{isReportActive && <PanelReport></PanelReport>}
-			</main>
+			{!isSignin && <Signin />}
+			{!isDataError && (
+				<main className={`${styles.main} ${isDarkMode ? "dark" : ""}`}>
+					{isAsideActive && <PanelAside />}
+					{isTicketActive && <PanelTicket />}
+					{isPackageActive && <PanelPackage />}
+					{!isReportActive && <PanelResumen />}
+					{isReportActive && <PanelReport></PanelReport>}
+				</main>
+			)}
 		</>
 	);
 }

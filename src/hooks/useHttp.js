@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getHttpStatus } from "@/utils/httpStatus";
 
 export function useHttp(url) {
 	const [data, setData] = useState(null);
@@ -18,14 +19,14 @@ export function useHttp(url) {
 				let response = await res.json();
 				setData(response);
 				setPending(false);
-				setError({ flag: false });
+				setError(null);
 			} catch (error) {
+				error.statusText = getHttpStatus(error.status);
 				setError({ error });
 				setPending(false);
 			}
 		};
 		getData();
 	}, [url]);
-
-	return { data, error, isPending };
+	return [data, error, isPending];
 }

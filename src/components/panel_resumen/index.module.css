@@ -6,7 +6,13 @@
 		opacity: 1;
 	}
 }
-
+.no_data {
+	color: var(--legend-color);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+}
 .resume {
 	display: flex;
 	flex-direction: column;
