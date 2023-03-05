@@ -44,7 +44,7 @@ export function ChangeTravel({ setModal, listTravel }) {
 										<td>{date}</td>
 										<td>{hour}</td>
 										<td>
-											<span class="material-symbols-outlined" onClick={changeTravel}>
+											<span className="material-symbols-outlined" onClick={changeTravel}>
 												add_circle
 											</span>
 										</td>
