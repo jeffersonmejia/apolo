@@ -1,11 +1,68 @@
 .listTravel {
-	width: 80%;
-	max-width: 400px;
+	width: 90%;
+	max-width: 700px;
 	border-radius: var(--border-radius);
 	padding: 32px;
+	background-color: var(--card-bg);
+	overflow: hidden;
 }
-.date {
-	display: flex;
-	flex-direction: column;
-	text-align: left;
+.listTravel button {
+	display: block;
+	width: 100%;
+	max-width: 250px;
+	margin-top: 20px;
+	margin-bottom: 12px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.listTravel table {
+	width: 100%;
+	margin-top: 12px;
+}
+.listTravel caption {
+	padding: 6px 0;
+}
+.listTravel :is(td, th) {
+	width: 100%;
+	padding: 6px 0;
+	padding-right: 8px;
+	padding-left: 8px;
+	font-size: 0.9rem;
+	text-align: right;
+}
+.listTravel th:last-child {
+	padding-left: 0;
+	padding-right: 0;
+
+	text-align: center;
+}
+.listTravel td:last-child {
+	text-align: center;
+	padding-right: 0;
+	padding-left: 0;
+	padding-top: 8px;
+	font-size: 0.1rem;
+}
+.listTravel span:last-child {
+	cursor: pointer;
+}
+.listTravel span:last-child:hover {
+	color: var(--btn-bg);
+}
+.listTravel span:last-child:active {
+	transform: scale(0.9);
+}
+.hasTravelCreated {
+	color: var(--legend-color);
+	display: block;
+	text-align: center;
+}
+@media screen and (min-width: 600px) {
+	.listTravel :is(th, td) {
+		padding-left: 45px;
+	}
+
+	.listTravel :is(th, td):last-child {
+		padding: 0 20px;
+	}
 }

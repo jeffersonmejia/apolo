@@ -2,7 +2,7 @@ import styles from "./index.module.css";
 import { SigninContext } from "../../context/signin";
 import { PanelAsideContext } from "@/context/panel_aside";
 import { useContext } from "react";
-import { DarkModeContext } from "@/context/dark_mode";
+import { DarkModeContext } from "@/assets/dark_mode";
 
 export function Signin() {
 	const { handleAuth, isSignin } = useContext(SigninContext);

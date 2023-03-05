@@ -1,49 +1,61 @@
+import { useEffect, useState } from "react";
 import { Modal } from "../modal";
 import styles from "./index.module.css";
-import { GroupBtn } from "../group_btn";
 
-export function ChangeTravel({ setModal }) {
-	const handleClick = ({ currentTarget }) => {
-		if (currentTarget.matches("button")) {
-			setModal(false);
-		} else {
-			setModal(false);
-		}
+export function ChangeTravel({ setModal, listTravel }) {
+	const handleClick = () => {
+		setModal(false);
 	};
 
+	const [travels, setTravels] = useState(listTravel);
+	const changeTravel = () => {
+		console.log("changing...");
+		setTimeout(() => {
+			setModal(false);
+		}, 400);
+	};
 	return (
 		<Modal>
-			<form className={styles.listTravel}>
-				<fieldset>
-					<legend>Listado de viajes creados</legend>
-					<div className={styles.date}>
-						<label>
-							<small>Fecha</small>
-						</label>
-						<input type="date" />
-					</div>
-					<select>
-						<option>Selecciona la hora</option>
-						<option>15:00</option>
-						<option>15:00</option>
-						<option>15:00</option>
-					</select>
-					<select>
-						<option>Selecciona un viaje</option>
-						<option>Santo Domingo - Manta</option>
-						<option>Quito - Manta</option>
-						<option>Manta - Coca</option>
-					</select>
-					<select>
-						<option>Selecciona un bus</option>
-						<option>1</option>
-						<option>78</option>
-						<option>64</option>
-						<option>32</option>
-					</select>
-				</fieldset>
-				<GroupBtn btn_1="Cambiar viaje actual" btn_2="Cancelar" MyClick={handleClick} />
-			</form>
+			<div className={styles.listTravel}>
+				{!travels.length > 0 && (
+					<small className={styles.hasTravelCreated}>No tienes viajes crados</small>
+				)}
+
+				{travels.length > 0 && (
+					<table>
+						<caption>Viajes creados</caption>
+						<thead>
+							<tr>
+								<th>Ruta</th>
+								<th>Bus</th>
+								<th>Fecha</th>
+								<th>Hora</th>
+								<th>Agregar</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							{travels.map((travel) => {
+								let { itinerary, bus, date, hour } = travel;
+								return (
+									<tr key={bus}>
+										<td>{itinerary}</td>
+										<td>{bus}</td>
+										<td>{date}</td>
+										<td>{hour}</td>
+										<td>
+											<span class="material-symbols-outlined" onClick={changeTravel}>
+												add_circle
+											</span>
+										</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
+				)}
+				<button onClick={handleClick}>Cerrar</button>
+			</div>
 		</Modal>
 	);
 }

@@ -1,18 +1,14 @@
 import styles from "./index.module.css";
-import { useContext, useEffect, useReducer, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PanelSectionContext } from "@/context/panel_section";
 import { SigninContext } from "@/context/signin";
 import { PanelResumeData } from "../panel_resume_data";
 import { GroupBtn } from "../group_btn";
 import { ChangeTravel } from "../change_travel";
 import { Loader } from "../loader";
+import { useHttp } from "@/hooks/useHttp";
 
 export function PanelResumen() {
-	const [isLoader, setLoader] = useState(false);
-	const [isModalOpen, setModal] = useState(false);
-	const { data } = useContext(SigninContext);
-	const { isTicketActive } = useContext(PanelSectionContext);
-
 	const initialTravel = {
 		bus: "--",
 		itinerary: "--",
@@ -26,7 +22,20 @@ export function PanelResumen() {
 		total: "--",
 		total_seats: "--",
 	};
+
+	const { data } = useHttp("http://localhost:3001/travelList");
+
+	const [isLoader, setLoader] = useState(false);
+	const [isModalOpen, setModal] = useState(false);
 	const [travelData, setTravelData] = useState(initialTravel);
+	const [listTravel, setListTravel] = useState([]);
+	const { currentTravel } = useContext(SigninContext);
+	const { isTicketActive } = useContext(PanelSectionContext);
+	useEffect(() => {
+		if (data && data.length > 0) {
+			setListTravel(data);
+		}
+	}, [data]);
 
 	const handleClick = ({ currentTarget }) => {
 		if (currentTarget.matches("button")) {
@@ -40,8 +49,8 @@ export function PanelResumen() {
 	};
 
 	useEffect(() => {
-		if (data) {
-			setTravelData(data[0]);
+		if (currentTravel) {
+			setTravelData(currentTravel[0]);
 		}
 	});
 	return (
@@ -68,7 +77,7 @@ export function PanelResumen() {
 							title_2="Anulados/as"
 							content_2={travelData.cancelled}
 							title_3="Disponibles"
-							content_3={isTicketActive ? travelData.available : "--"}
+							content_3={isTicketActive ? currentTravel.available : "--"}
 						/>
 					</table>
 					<table className={styles.resumenTable}>
@@ -85,7 +94,7 @@ export function PanelResumen() {
 					<GroupBtn btn_1="Cerrar viaje" btn_2="Cambiar viaje" MyClick={handleClick} />
 				</>
 			)}
-			{isModalOpen && <ChangeTravel setModal={setModal} />}
+			{isModalOpen && <ChangeTravel setModal={setModal} listTravel={listTravel} />}
 		</div>
 	);
 }

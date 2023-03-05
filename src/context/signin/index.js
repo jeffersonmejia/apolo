@@ -16,7 +16,7 @@ const SigninProvider = ({ children }) => {
 		verifyCredentials();
 	};
 	const state = { isSignin, handleAuth, setSignin };
-	state.data = isSignin ? data : null;
+	state.currentTravel = isSignin ? data : null;
 
 	return <SigninContext.Provider value={state}>{children}</SigninContext.Provider>;
 };

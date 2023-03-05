@@ -2,7 +2,7 @@ import styles from "./index.module.css";
 import { PanelAsideContext } from "@/context/panel_aside";
 import { SigninContext } from "@/context/signin";
 import { useContext, useState } from "react";
-import { DarkModeContext } from "@/context/dark_mode";
+import { DarkModeContext } from "@/assets/dark_mode";
 
 export function PanelNavbar() {
 	const { handleAside } = useContext(PanelAsideContext);

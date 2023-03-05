@@ -45,6 +45,8 @@
 	--drop-menu-bg: rgb(240, 240, 240);
 	--drop-menu-hover: rgb(235 235 235);
 	--drop-menu-active: rgb(225 225 225);
+	--table-content-bg: rgb(156, 154, 154);
+	--table-border: 1px solid var(--border-color);
 }
 * {
 	margin: 0;
@@ -128,8 +130,9 @@ table,
 caption,
 td,
 th {
-	border: var(--border);
+	border: var(--table-border);
 	border-collapse: collapse;
+	color: var(--table-content-bg);
 }
 
 caption {
@@ -170,30 +173,33 @@ caption {
 	animation-delay: -0.15s;
 }
 .dark {
-	--main-bg: rgb(12, 12, 12);
-	--card-bg: rgb(28, 28, 28);
-	--border: 1px solid rgb(48, 48, 48);
+	--main-bg: hsl(235, 11%, 23%);
+	--card-bg: hsl(235, 11%, 25%);
+	--border: 1px solid hsla(236, 14%, 22%, 0);
+	--table-content-bg: rgb(153, 153, 153);
+	--table-border: 1px solid hsl(235, 11%, 30%);
+	--legend-color: rgb(153, 153, 153);
 	--title-color: white;
-	--navbtn-bg: hsl(0, 0%, 15%);
-	--navbtn-hover: hsl(0, 0%, 20%);
-	--navbtn-active: hsl(0, 0%, 10%);
+	--navbtn-bg: hsl(235, 11%, 25%);
+	--navbtn-hover: hsl(235, 11%, 30%);
+	--navbtn-active: hsl(235, 11%, 35%);
 	--btn-bg: rgba(0, 113, 227, 0.5);
 	--btn-hover: rgba(0, 119, 237, 0.5);
-	--box-shadow: 1px 1px 2px 1px rgb(0 0 0);
-	--drop-menu-bg: rgb(50, 50, 50);
-	--drop-menu-hover: rgb(54 54 54);
-	--drop-menu-active: rgb(60 60 60);
+	--box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+	--drop-menu-bg: hsl(235, 11%, 28%);
+	--drop-menu-hover: hsl(235, 11%, 30%);
+	--drop-menu-active: hsl(235, 11%, 35%);
 
-	--seat-bg: hsl(210, 69%, 32%);
-	--seat-fg: hsl(210, 46%, 52%);
-	--seat-hover: hsl(210, 69%, 40%);
+	--seat-bg: hsl(210, 69%, 24%);
+	--seat-fg: hsl(210, 46%, 40%);
+	--seat-hover: hsl(210, 69%, 28%);
 
-	--seat-unavaliable: hsl(78, 75%, 30%);
-	--seat-unavaliable-fg: hsl(78, 82%, 47%);
+	--seat-unavaliable: hsl(78, 75%, 24%);
+	--seat-unavaliable-fg: hsl(78, 82%, 40%);
 
-	--seat-reserved: hsl(0, 0%, 15%);
-	--seat-reserved-fg: hsl(0, 1%, 34%);
-	--aside-color: rgba(110, 110, 115, 0.5);
+	--seat-reserved: hsl(235, 11%, 32%);
+	--seat-reserved-fg: hsl(235, 11%, 45%);
+	--aside-color: rgba(192, 192, 192, 0.5);
 	--aside-active: rgba(59, 93, 128, 0.5);
 	--aside-active-color: #ffffff;
 }

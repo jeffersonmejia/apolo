@@ -10,7 +10,7 @@ import { PanelNavbar } from "../panel_navbar";
 import { PanelAside } from "../panel_aside";
 import { PanelResumen } from "../panel_resumen";
 import { PanelReport } from "../panel_report";
-import { DarkModeContext } from "@/context/dark_mode";
+import { DarkModeContext } from "@/assets/dark_mode";
 
 export default function Main() {
 	const { isDarkMode } = useContext(DarkModeContext);
