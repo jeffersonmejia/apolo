@@ -23,6 +23,7 @@
 }
 .burger {
 	cursor: pointer;
+	color: var(--title-color);
 }
 .navButtons {
 	display: flex;
@@ -81,7 +82,10 @@
 	border-radius: 50%;
 }
 .account ul {
-	margin: 12px 6px 6px 6px;
+	margin: 12px 6px 12px 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 }
 .account li {
 	list-style: none;
@@ -91,12 +95,59 @@
 	border-radius: var(--border-radius);
 	font-size: 0.9rem;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+.account span {
+	font-size: 1.2rem;
+	background-color: transparent;
 }
 .account li:hover {
 	background-color: var(--drop-menu-hover);
 }
 .account li:active {
 	background-color: var(--drop-menu-active);
+}
+.my_profile {
+	width: 80%;
+	max-width: 400px;
+	background-color: var(--card-bg);
+	border-radius: var(--border-radius);
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.my_profile figure {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.my_profile img {
+	width: 80%;
+	max-width: 200px;
+	border-radius: 50%;
+	margin-bottom: 12px;
+}
+.contact_profile {
+	width: 100%;
+	text-align: center;
+	margin-top: 24px;
+}
+.contact_profile div {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin-top: 8px;
+}
+
+.my_profile button {
+	width: 100%;
+	max-width: 250px;
+	margin-top: 20px;
 }
 .logout {
 	background-color: var(--card-bg);

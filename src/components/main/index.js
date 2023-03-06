@@ -37,7 +37,7 @@ export default function Main() {
 		<>
 			<PanelNavbar />
 			{!isSignin && <Signin />}
-			{!isDataError && (
+			{!isDataError && isSignin && (
 				<main className={`${styles.main} ${isDarkMode ? "dark" : ""}`}>
 					{isAsideActive && <PanelAside />}
 					{isTicketActive && <PanelTicket />}

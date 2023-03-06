@@ -99,6 +99,7 @@ input {
 	padding-left: 12px;
 	outline: none;
 	transition: background-color 0.3s ease-in-out;
+	border: var(--table-border);
 }
 
 input:hover {
@@ -175,7 +176,7 @@ caption {
 .dark {
 	--main-bg: hsl(235, 11%, 23%);
 	--card-bg: hsl(235, 11%, 25%);
-	--border: 1px solid hsla(236, 14%, 22%, 0);
+	--border: none;
 	--table-content-bg: rgb(153, 153, 153);
 	--table-border: 1px solid hsl(235, 11%, 30%);
 	--legend-color: rgb(153, 153, 153);
@@ -185,7 +186,7 @@ caption {
 	--navbtn-active: hsl(235, 11%, 35%);
 	--btn-bg: rgba(0, 113, 227, 0.5);
 	--btn-hover: rgba(0, 119, 237, 0.5);
-	--box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+	--box-shadow: 3px 3px 32px 16px rgba(0, 0, 0, 0.1);
 	--drop-menu-bg: hsl(235, 11%, 28%);
 	--drop-menu-hover: hsl(235, 11%, 30%);
 	--drop-menu-active: hsl(235, 11%, 35%);
