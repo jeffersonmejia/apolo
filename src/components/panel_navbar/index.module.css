@@ -54,7 +54,7 @@
 	background-color: var(--navbtn-active);
 }
 .account {
-	width: 50%;
+	width: 100%;
 	max-width: 300px;
 	background-color: var(--card-bg);
 	border-radius: var(--border-radius);
@@ -107,66 +107,6 @@
 }
 .account li:active {
 	background-color: var(--drop-menu-active);
-}
-.my_profile {
-	width: 80%;
-	max-width: 400px;
-	background-color: var(--card-bg);
-	border-radius: var(--border-radius);
-	padding: 32px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.my_profile figure {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-}
-
-.my_profile img {
-	width: 80%;
-	max-width: 200px;
-	border-radius: 50%;
-}
-.my_profile figcaption {
-	margin-top: 12px;
-}
-.role_profile {
-	width: 100%;
-	text-align: center;
-	margin-top: 28px;
-	margin-bottom: 8px;
-}
-.role_profile h5 {
-	margin-bottom: 12px;
-}
-.role_profile div {
-	width: 90%;
-	display: grid;
-	grid-template-columns: 20% 80%;
-	text-align: left;
-	margin: auto;
-}
-.role_profile span {
-	font-size: 1rem;
-	height: fit-content;
-}
-.role_profile small:nth-child(1) {
-	display: flex;
-	align-items: center;
-	gap: 2px;
-}
-.role_profile small:nth-child(2) {
-	text-align: right;
-}
-.my_profile button {
-	width: 100%;
-	max-width: 250px;
-	margin-top: 20px;
-	margin-bottom: 8px;
 }
 .logout {
 	background-color: var(--card-bg);

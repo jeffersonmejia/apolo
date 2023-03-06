@@ -47,6 +47,8 @@
 	--drop-menu-active: rgb(225 225 225);
 	--table-content-bg: rgb(156, 154, 154);
 	--table-border: 1px solid var(--border-color);
+	--pending-support: orange;
+	--answered-support: rgb(9, 155, 9);
 }
 * {
 	margin: 0;
@@ -205,6 +207,8 @@ caption {
 	--aside-color: rgba(192, 192, 192, 0.5);
 	--aside-active: rgba(59, 93, 128, 0.5);
 	--aside-active-color: #178db3;
+	--pending-support: orange;
+	--answered-support: rgb(59, 196, 59);
 }
 .dark :is(input, select) {
 	background-color: var(--main-bg);

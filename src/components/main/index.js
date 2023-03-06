@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
+import styles from "./index.module.css";
 import { SigninContext } from "@/context/signin";
 import { PanelAsideContext } from "@/context/panel_aside";
 import { PanelSectionContext } from "@/context/panel_section";
-import styles from "./index.module.css";
+import { DarkModeContext } from "@/context/dark_mode";
 import { Signin } from "../signin";
 import { PanelTicket } from "../panel_ticket";
 import { PanelPackage } from "../panel_package";
@@ -10,7 +11,8 @@ import { PanelNavbar } from "../panel_navbar";
 import { PanelAside } from "../panel_aside";
 import { PanelResumen } from "../panel_resumen";
 import { PanelReport } from "../panel_report";
-import { DarkModeContext } from "@/context/dark_mode";
+import SystemSupport from "../system_support";
+
 export default function Main() {
 	const { isDarkMode } = useContext(DarkModeContext);
 	const { isSignin, data, error } = useContext(SigninContext);
@@ -43,19 +45,7 @@ export default function Main() {
 				>
 					{isAsideActive && <PanelAside />}
 					{data && isTicketActive && <PanelTicket />}
-					{!data && isTicketActive && (
-						<div className={styles.error_travel}>
-							<div>
-								<h3>No se han podido cargar los viajes...</h3>
-								{error && (
-									<small>
-										Error {error.status}: {error.statusText}
-									</small>
-								)}
-							</div>
-							<button>Contacta a un administrador</button>
-						</div>
-					)}
+					{!data && isTicketActive && <SystemSupport />}
 					{isPackageActive && <PanelPackage />}
 					{!isReportActive && <PanelResumen />}
 					{isReportActive && <PanelReport></PanelReport>}

@@ -1,0 +1,39 @@
+.error_travel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	height: 80vh;
+}
+.error_travel button {
+	width: 100%;
+	max-width: 250px;
+}
+.error_travel h3 {
+	color: var(--title-color);
+}
+.error_travel > div {
+	text-align: center;
+}
+.error_travel small {
+	color: var(--legend-color);
+}
+
+@media screen and (min-width: 600px) {
+	.error_travel,
+	.pending {
+		width: 100%;
+		margin-left: 190px;
+	}
+	.pending {
+		background-color: var(--card-bg);
+		border-radius: var(--border-radius);
+		padding-left: 32px;
+	}
+}
+@media screen and (min-width: 800px) {
+	.pending {
+		padding: 0;
+	}
+}

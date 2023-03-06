@@ -3,13 +3,15 @@ import { PanelAsideContext } from "@/context/panel_aside";
 import { SigninContext } from "@/context/signin";
 import { useContext, useState } from "react";
 import { DarkModeContext } from "@/context/dark_mode";
-import { Modal } from "../modal";
+import { UserProfile } from "../user_profile";
+import { SupportContext } from "@/context/support";
 
 export function PanelNavbar() {
 	const { handleAside } = useContext(PanelAsideContext);
 	const { setSignin, isSignin } = useContext(SigninContext);
 	const [isAccount, setAccount] = useState(false);
 	const { handleDarkMode, isDarkMode } = useContext(DarkModeContext);
+	const { isSupport } = useContext(SupportContext);
 	const [isModalActive, setModalActive] = useState(false);
 
 	const handleLogout = () => {
@@ -41,6 +43,7 @@ export function PanelNavbar() {
 				</>
 			)}
 			<div className={styles.navButtons}>
+				{isSupport && <span className="material-symbols-outlined">notifications</span>}
 				<span className="material-symbols-outlined" onClick={handleDarkMode}>
 					{isDarkMode ? "light_mode" : "dark_mode"}
 				</span>
@@ -73,43 +76,7 @@ export function PanelNavbar() {
 						)}
 					</>
 				)}
-				{isModalActive && (
-					<Modal>
-						<div className={styles.my_profile}>
-							<figure>
-								<img src="profile.jpg" alt="" />
-								<figcaption>
-									<h3>Jefferson Mejía</h3>
-								</figcaption>
-							</figure>
-							<div className={styles.role_profile}>
-								<h5>Información laboral</h5>
-								<div>
-									<small>
-										<span class="material-symbols-outlined">groups</span>
-										Rol
-									</small>
-									<small>Adm. Oficina</small>
-								</div>
-								<div>
-									<small>
-										<span class="material-symbols-outlined">group_work</span>
-										Área
-									</small>
-									<small>Boletería & encomiendas</small>
-								</div>
-								<div>
-									<small>
-										<span class="material-symbols-outlined">apartment</span>
-										Matriz
-									</small>
-									<small>Santo Domingo, Ecuador</small>
-								</div>
-							</div>
-							<button onClick={handleModal}>Cerrar</button>
-						</div>
-					</Modal>
-				)}
+				{isModalActive && <UserProfile handleClick={handleModal} />}
 			</div>
 		</nav>
 	);

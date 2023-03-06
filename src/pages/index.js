@@ -5,6 +5,7 @@ import { PanelSectionProvider } from "@/context/panel_section";
 import { CreateTravelProvider } from "@/context/create_travel";
 import Main from "@/components/main";
 import { DarkModeProvider } from "@/context/dark_mode";
+import { SupportProvider } from "@/context/support";
 
 export default function Home() {
 	return (
@@ -23,7 +24,9 @@ export default function Home() {
 					<SigninProvider>
 						<PanelSectionProvider>
 							<CreateTravelProvider>
-								<Main></Main>
+								<SupportProvider>
+									<Main></Main>
+								</SupportProvider>
 							</CreateTravelProvider>
 						</PanelSectionProvider>
 					</SigninProvider>
