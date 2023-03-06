@@ -25,7 +25,8 @@
 	padding: 12px;
 	transition: background-color 0.3s ease-in-out;
 	cursor: pointer;
-	font-size: 0.9rem;
+	font-size: 0.85rem;
+	font-weight: 500;
 }
 .aside li:hover {
 	background-color: var(--aside-active);

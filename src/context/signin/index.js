@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { useHttp } from "@/hooks/useHttp";
 import services from "@/services";
 
 const SigninContext = createContext();
@@ -7,20 +6,39 @@ const SigninContext = createContext();
 const SigninProvider = ({ children }) => {
 	const { ticket_travel } = services;
 	const [isSignin, setSignin] = useState(false);
-	//bug here, request has send before the user get  sign in
-	const [data, error] = useHttp(ticket_travel);
-	const [isDataError, setDataError] = useState(null);
+	const [data, setData] = useState(null);
+	const [error, setError] = useState(null);
+	let contextState = {};
+
 	const handleAuth = (e) => {
-		if (!isDataError) {
+		const getTravels = async () => {
+			try {
+				const res = await fetch(ticket_travel);
+				if (!res.ok) {
+					throw { status: res.status, statusText: res.statusText };
+				}
+				const json = await res.json();
+				setData(json);
+				setError(null);
+				contextState = { ...contextState, data };
+			} catch (error) {
+				setData(null);
+				setError(error);
+			}
+		};
+		getTravels();
+		if (!error) {
 			setSignin(true);
 		}
 	};
-	useEffect(() => setDataError(data ? null : error));
-	const state = { isSignin, isDataError, handleAuth, setSignin };
-
-	state.currentTravel = isSignin ? data : null;
-
-	return <SigninContext.Provider value={state}>{children}</SigninContext.Provider>;
+	contextState = {
+		...contextState,
+		handleAuth,
+		isSignin,
+		setSignin,
+		data: data ? data[0] : null,
+	};
+	return <SigninContext.Provider value={contextState}>{children}</SigninContext.Provider>;
 };
 
 export { SigninContext, SigninProvider };

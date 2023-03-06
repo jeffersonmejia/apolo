@@ -8,10 +8,10 @@ import { ChangeTravel } from "../change_travel";
 import { Loader } from "../loader";
 
 export function PanelResumen() {
-	const { currentTravel } = useContext(SigninContext);
+	const { data } = useContext(SigninContext);
 	const [isLoader, setLoader] = useState(false);
 	const [isModalOpen, setModal] = useState(false);
-	const [travelData] = useState(currentTravel[0]);
+	const [travelData] = useState(data);
 	const { isTicketActive } = useContext(PanelSectionContext);
 
 	const handleClick = ({ currentTarget }) => {
@@ -24,7 +24,6 @@ export function PanelResumen() {
 			setModal(true);
 		}
 	};
-	console.log(travelData);
 	return (
 		<div className={styles.resume}>
 			{isLoader && <Loader message="Cerrando viaje..." />}

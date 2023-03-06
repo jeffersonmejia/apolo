@@ -94,6 +94,8 @@ select {
 }
 select {
 	color: var(--legend-color);
+	border: var(--table-border);
+	background-color: var(--main-bg);
 }
 input {
 	padding-left: 12px;
@@ -202,7 +204,7 @@ caption {
 	--seat-reserved-fg: hsl(235, 11%, 45%);
 	--aside-color: rgba(192, 192, 192, 0.5);
 	--aside-active: rgba(59, 93, 128, 0.5);
-	--aside-active-color: #ffffff;
+	--aside-active-color: #178db3;
 }
 .dark :is(input, select) {
 	background-color: var(--main-bg);

@@ -61,11 +61,11 @@ export function PanelNavbar() {
 								</figure>
 								<ul>
 									<li onClick={handleModal}>
-										<span class="material-symbols-outlined">account_circle</span>
+										<span className="material-symbols-outlined">account_circle</span>
 										<small>Gestionar mi cuenta</small>
 									</li>
 									<li onClick={handleLogout}>
-										<span class="material-symbols-outlined">logout</span>
+										<span className="material-symbols-outlined">logout</span>
 										<small>Salir</small>
 									</li>
 								</ul>
@@ -73,7 +73,7 @@ export function PanelNavbar() {
 						)}
 					</>
 				)}
-				{!isModalActive && (
+				{isModalActive && (
 					<Modal>
 						<div className={styles.my_profile}>
 							<figure>
