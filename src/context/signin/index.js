@@ -15,21 +15,29 @@ const SigninProvider = ({ children }) => {
 			try {
 				const res = await fetch(ticket_travel);
 				if (!res.ok) {
-					throw { status: res.status, statusText: res.statusText };
+					throw {
+						status: res.status || 0,
+						statusText: res.statusText || "Error Desconocido",
+					};
 				}
 				const json = await res.json();
 				setData(json);
 				setError(null);
 				contextState = { ...contextState, data };
-			} catch (error) {
+			} catch (fetchError) {
+				let fetchErrorDefault =
+					"TypeError: NetworkError when attempting to fetch resource.";
+
+				if (fetchError != fetchErrorDefault) {
+					setError(fetchError);
+				} else {
+					setError({ status: 0, statusText: "Servidor no disponible" });
+				}
 				setData(null);
-				setError(error);
 			}
 		};
 		getTravels();
-		if (!error) {
-			setSignin(true);
-		}
+		setSignin(true);
 	};
 	contextState = {
 		...contextState,
@@ -37,6 +45,7 @@ const SigninProvider = ({ children }) => {
 		isSignin,
 		setSignin,
 		data: data ? data[0] : null,
+		error: error,
 	};
 	return <SigninContext.Provider value={contextState}>{children}</SigninContext.Provider>;
 };

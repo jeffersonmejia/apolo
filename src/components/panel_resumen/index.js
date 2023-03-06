@@ -27,45 +27,53 @@ export function PanelResumen() {
 	return (
 		<div className={styles.resume}>
 			{isLoader && <Loader message="Cerrando viaje..." />}
-			{!isLoader && (
+			{travelData && (
 				<>
-					<table className={styles.resumenTable}>
-						<PanelResumeData
-							caption="Información del viaje"
-							title_1="Número de bus"
-							content_1={travelData.current.bus}
-							title_2="Viaje actual"
-							content_2={travelData.current.itinerary}
-							title_3="Salida"
-							content_3={travelData.current.departure}
-						/>
-					</table>
-					<table className={styles.resumenTable}>
-						<PanelResumeData
-							caption={isTicketActive ? "Boletería" : "Encomiendas"}
-							title_1="Vendidos/as"
-							content_1={travelData.current.selled}
-							title_2="Anulados/as"
-							content_2={travelData.current.cancelled}
-							title_3="Disponibles"
-							content_3="--"
-						/>
-					</table>
-					<table className={styles.resumenTable}>
-						<PanelResumeData
-							caption="Ventas"
-							title_1="Recaudado"
-							content_1={travelData.current.collected}
-							title_2="Ahorrado"
-							content_2={travelData.current.saved}
-							title_3="Total"
-							content_3={travelData.current.total}
-						/>
-					</table>
-					<GroupBtn btn_1="Cerrar viaje" btn_2="Cambiar viaje" MyClick={handleClick} />
+					{!isLoader && (
+						<>
+							<table className={styles.resumenTable}>
+								<PanelResumeData
+									caption="Información del viaje"
+									title_1="Número de bus"
+									content_1={travelData.current.bus}
+									title_2="Viaje actual"
+									content_2={travelData.current.itinerary}
+									title_3="Salida"
+									content_3={travelData.current.departure}
+								/>
+							</table>
+							<table className={styles.resumenTable}>
+								<PanelResumeData
+									caption={isTicketActive ? "Boletería" : "Encomiendas"}
+									title_1="Vendidos/as"
+									content_1={travelData.current.selled}
+									title_2="Anulados/as"
+									content_2={travelData.current.cancelled}
+									title_3="Disponibles"
+									content_3="--"
+								/>
+							</table>
+							<table className={styles.resumenTable}>
+								<PanelResumeData
+									caption="Ventas"
+									title_1="Recaudado"
+									content_1={travelData.current.collected}
+									title_2="Ahorrado"
+									content_2={travelData.current.saved}
+									title_3="Total"
+									content_3={travelData.current.total}
+								/>
+							</table>
+							<GroupBtn
+								btn_1="Cerrar viaje"
+								btn_2="Cambiar viaje"
+								MyClick={handleClick}
+							/>
+						</>
+					)}
+					{isModalOpen && <ChangeTravel setModal={setModal} listTravel={listTravel} />}
 				</>
 			)}
-			{isModalOpen && <ChangeTravel setModal={setModal} listTravel={listTravel} />}
 		</div>
 	);
 }

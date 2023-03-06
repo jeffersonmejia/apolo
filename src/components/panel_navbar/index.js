@@ -80,19 +80,30 @@ export function PanelNavbar() {
 								<img src="profile.jpg" alt="" />
 								<figcaption>
 									<h3>Jefferson Mejía</h3>
-									<small>Adm. Oficina</small>
-									<h5>Santo Domingo</h5>
 								</figcaption>
 							</figure>
-							<div className={styles.contact_profile}>
-								<h4>Datos de contacto</h4>
+							<div className={styles.role_profile}>
+								<h5>Información laboral</h5>
 								<div>
-									<small>Teléfono</small>
-									<small>0987091528</small>
+									<small>
+										<span class="material-symbols-outlined">groups</span>
+										Rol
+									</small>
+									<small>Adm. Oficina</small>
 								</div>
 								<div>
-									<small>Correo electrónico</small>
-									<small>jeff@gmail.com</small>
+									<small>
+										<span class="material-symbols-outlined">group_work</span>
+										Área
+									</small>
+									<small>Boletería & encomiendas</small>
+								</div>
+								<div>
+									<small>
+										<span class="material-symbols-outlined">apartment</span>
+										Matriz
+									</small>
+									<small>Santo Domingo, Ecuador</small>
 								</div>
 							</div>
 							<button onClick={handleModal}>Cerrar</button>

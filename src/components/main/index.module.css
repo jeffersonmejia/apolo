@@ -5,9 +5,35 @@
 	flex-wrap: wrap;
 	gap: 16px;
 }
+.error_travel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	height: 80vh;
+}
+.error_travel button {
+	width: 100%;
+	max-width: 250px;
+}
+.error_travel h3 {
+	color: var(--title-color);
+}
+.error_travel > div {
+	text-align: center;
+}
+.error_travel small {
+	color: var(--legend-color);
+}
+
 @media screen and (min-width: 600px) {
 	.main {
 		flex-direction: row;
+	}
+	.error_travel {
+		width: 100%;
+		margin-left: 190px;
 	}
 }
 
@@ -20,5 +46,8 @@
 	.main {
 		height: 100vh;
 		flex-wrap: nowrap;
+	}
+	.main_expanded {
+		flex-wrap: wrap;
 	}
 }
