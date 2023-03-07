@@ -12,7 +12,6 @@
 	overflow: hidden;
 	font-size: 0.85rem;
 }
-
 .loaderButton p {
 	margin: 0;
 	display: inline-block;
@@ -37,4 +36,19 @@
 	to {
 		transform: rotate(360deg);
 	}
+}
+.button {
+	color: var(--btn-fg);
+}
+.dark {
+	background-color: var(--dark-btn);
+}
+.dark:hover {
+	background-color: var(--dark-btn-hover);
+}
+.light {
+	background-color: var(--light-btn);
+}
+.light:hover {
+	background-color: var(--light-btn-hover);
 }

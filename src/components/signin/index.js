@@ -1,7 +1,7 @@
 import styles from "./index.module.css";
 import { SigninContext } from "../../context/signin";
 import { PanelAsideContext } from "@/context/panel_aside";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DarkModeContext } from "@/context/dark_mode";
 import { LoaderButton } from "../loaderButton";
 
@@ -10,17 +10,20 @@ export function Signin() {
 	const { setAsideActive } = useContext(PanelAsideContext);
 	const [isLoading, setLoading] = useState(false);
 	const { isDarkMode } = useContext(DarkModeContext);
+	const [isDesktop, setDesktop] = useState(false);
+
 	const handleLoading = () => {
 		setLoading(true);
 		setTimeout(() => {
 			handleAuth();
-			if (window.innerWidth >= 600) {
-				setAsideActive(true);
-			}
+			setAsideActive(window.innerWidth >= 600);
 		}, 2000);
 	};
+	useEffect(() => {
+		setDesktop(window.innerWidth >= 500);
+	}, []);
 	return (
-		<div className={`${styles.signin} ${isDarkMode ? "dark" : ""}`}>
+		<div className={`${styles.signin} ${!isDarkMode ? styles.light : styles.dark}`}>
 			<form>
 				<fieldset>
 					<legend>
@@ -37,18 +40,24 @@ export function Signin() {
 					MyClick={handleLoading}
 				></LoaderButton>
 				{isDataError && (
-					<div className={styles.error}>
+					<div>
 						<small>
 							Lo sentimos. Error {isDataError.error.status}:{" "}
 							{isDataError.error.statusText}
 						</small>
 					</div>
 				)}
-				<fieldset className={styles.forgetCard}>
+				<fieldset>
 					<small>Recuperar mi usuario</small>
 					<small>Recuperar mi clave</small>
 				</fieldset>
 			</form>
+			{isDesktop && (
+				<footer>
+					<small>Apolo 2023 ©</small>
+					<small>Desarrollado por Jefferson Mejía</small>
+				</footer>
+			)}
 		</div>
 	);
 }

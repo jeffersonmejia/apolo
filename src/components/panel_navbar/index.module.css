@@ -1,11 +1,3 @@
-@keyframes opacity {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
 .navbar {
 	display: flex;
 	align-items: center;
@@ -14,7 +6,6 @@
 	padding-left: 12px;
 	position: fixed;
 	width: 100%;
-	background-color: var(--main-bg);
 	z-index: 998;
 }
 
@@ -38,7 +29,6 @@
 	transition: background-color 0.3s ease-in-out;
 }
 .navButtons span {
-	background-color: var(--navbtn-bg);
 	border-radius: 50%;
 	padding: 8px;
 	user-select: none;
@@ -89,7 +79,6 @@
 }
 .account li {
 	list-style: none;
-	background-color: var(--drop-menu-bg);
 	transition: background-color 0.3s ease-in-out;
 	padding: 6px 12px;
 	border-radius: var(--border-radius);
@@ -100,22 +89,29 @@
 }
 .account span {
 	font-size: 1.2rem;
-	background-color: transparent;
 }
-.account li:hover {
-	background-color: var(--drop-menu-hover);
+.light {
+	background-color: var(--light-bg);
 }
-.account li:active {
-	background-color: var(--drop-menu-active);
+.light span {
+	background-color: var(--light-navbar-btn);
 }
-.logout {
-	background-color: var(--card-bg);
+.light span:hover {
+	background-color: var(--light-navbar-btn-hover);
+}
+.dark span {
+	background-color: var(--dark-navbar-btn);
+}
+.dark span:hover {
+	background-color: var(--dark-navbar-btn-hover);
+}
+@media screen and (min-width: 500px) {
+	.light {
+		background-color: var(--light-card-bg);
+	}
 }
 @media screen and (min-width: 600px) {
 	.burger {
 		display: none;
-	}
-	.logout {
-		background-color: var(--main-bg);
 	}
 }

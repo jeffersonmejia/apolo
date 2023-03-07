@@ -3,9 +3,9 @@ import { SigninProvider } from "../context/signin";
 import { PanelAsideProvider } from "@/context/panel_aside";
 import { PanelSectionProvider } from "@/context/panel_section";
 import { CreateTravelProvider } from "@/context/create_travel";
-import Main from "@/components/main";
 import { DarkModeProvider } from "@/context/dark_mode";
 import { SupportProvider } from "@/context/support";
+import Main from "@/components/main";
 
 export default function Home() {
 	return (

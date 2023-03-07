@@ -1,4 +1,34 @@
 :root {
+	--light-bg: #fff;
+	--light-card: #f1f1f1;
+	--light-title: #000;
+	--light-text: #7c7c7c;
+	--light-btn: #0071e3;
+	--light-btn-hover: #0077ed;
+	--light-input: rgb(248 248 248);
+	--light-input-hover: hsl(0, 0%, 94%);
+	--light-input-fg: rgb(50, 50, 50);
+	--light-border-color: rgb(224, 224, 224);
+	--light-border: 1px solid var(--light-border-color);
+	--light-btn-secondary: hsl(0, 0%, 36%);
+	--light-navbar-btn: hsl(0, 0%, 90%);
+	--light-navbar-btn-hover: hsl(0, 0%, 87%);
+
+	--dark-bg: hsl(235, 11%, 23%);
+	--dark-card: hsl(235, 11%, 25%);
+	--dark-title: #ffffff;
+	--dark-text: #a7a7a7;
+	--dark-btn: rgba(0, 113, 227, 0.5);
+	--dark-btn-hover: rgba(0, 119, 237, 0.5);
+	--dark-input: hsl(235, 11%, 25%);
+	--dark-input-hover: hsl(235, 11%, 22%);
+	--dark-input-fg: white;
+	--dark-btn-secondary: #d3d3d3;
+	--dark-navbar-btn: hsl(235, 11%, 26%);
+	--dark-navbar-btn-hover: hsl(235, 11%, 28%);
+
+	--btn-fg: #fff;
+
 	--main-bg: rgb(245, 245, 245);
 	--card-bg: rgb(255, 255, 255);
 	--font-family: "Source Sans Pro", sans-serif;
@@ -53,16 +83,50 @@
 	--loader: rgb(210 210 210);
 	--loader-bg: #4e9dec;
 }
+.dark {
+	--main-bg: hsl(235, 11%, 23%);
+	--card-bg: hsl(235, 11%, 25%);
+	--border: none;
+	--table-content-bg: rgb(153, 153, 153);
+	--table-border: 1px solid hsl(235, 11%, 30%);
+	--legend-color: rgb(153, 153, 153);
+	--title-color: white;
+	--navbtn-bg: hsl(235, 11%, 25%);
+	--navbtn-hover: hsl(235, 11%, 30%);
+	--navbtn-active: hsl(235, 11%, 35%);
+	--btn-bg: rgba(0, 113, 227, 0.5);
+	--btn-hover: rgba(0, 119, 237, 0.5);
+	--box-shadow: 3px 3px 32px 16px rgba(0, 0, 0, 0.1);
+	--drop-menu-bg: hsl(235, 11%, 28%);
+	--drop-menu-hover: hsl(235, 11%, 30%);
+	--drop-menu-active: hsl(235, 11%, 35%);
+
+	--seat-bg: hsl(210, 69%, 24%);
+	--seat-fg: hsl(210, 46%, 40%);
+	--seat-hover: hsl(210, 69%, 28%);
+
+	--seat-unavaliable: hsl(78, 75%, 24%);
+	--seat-unavaliable-fg: hsl(78, 82%, 40%);
+
+	--seat-reserved: hsl(235, 11%, 32%);
+	--seat-reserved-fg: hsl(235, 11%, 45%);
+	--aside-color: rgba(192, 192, 192, 0.5);
+	--aside-active: rgba(59, 93, 128, 0.5);
+	--aside-active-color: #178db3;
+	--pending-support: orange;
+	--answered-support: rgb(59, 196, 59);
+
+	--loader: hsl(235, 11%, 20%);
+	--loader-bg: hsl(210, 81%, 40%);
+	--input-transition: none;
+}
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-html,
-main {
-	background-color: var(--main-bg);
-}
 body {
 	height: 100vh;
 }
@@ -71,7 +135,7 @@ img {
 }
 
 form {
-	background-color: var(--card-bg);
+	/* background-color: var(--card-bg); */
 	display: flex;
 	flex-direction: column;
 	padding: 16px 32px;
@@ -91,41 +155,34 @@ legend {
 input,
 button,
 select {
-	border: var(--border);
 	border-radius: var(--border-radius);
 	height: var(--height-btn);
 	padding: 8px;
 	cursor: pointer;
 }
 select {
-	color: var(--legend-color);
 	border: var(--table-border);
-	background-color: var(--main-bg);
 }
 input {
 	padding-left: 12px;
 	outline: none;
 	/* transition: background-color .3s ease-in-out; */
-	border: var(--table-border);
-}
-
-input:hover {
-	background-color: var(--input-hover);
+	border: none;
 }
 
 button {
 	border: none;
-	background-color: var(--btn-bg);
-	color: var(--btn-fg);
-	transition-property: background-color, transform;
-	-webkit-transition-property: transform;
-	transition: 0.3s ease-in-out;
-	-webkit-transition: 0.3s ease-in-out;
-	-webkit-tap-highlight-color: transparent;
+	/* background-color: var(--btn-bg); */
+	/* color: var(--btn-fg); */
+	/* transition-property: background-color, transform; */
+	/* -webkit-transition-property: transform; */
+	/* transition: 0.3s ease-in-out; */
+	/* -webkit-transition: 0.3s ease-in-out; */
+	/* -webkit-tap-highlight-color: transparent; */
 }
-button:hover {
+/* button:hover {
 	background-color: var(--btn-hover);
-}
+} */
 button:active {
 	transform: scale(0.9);
 }
@@ -174,46 +231,4 @@ caption {
 	100% {
 		transform: rotate(360deg);
 	}
-}
-
-.dark {
-	--main-bg: hsl(235, 11%, 23%);
-	--card-bg: hsl(235, 11%, 25%);
-	--border: none;
-	--table-content-bg: rgb(153, 153, 153);
-	--table-border: 1px solid hsl(235, 11%, 30%);
-	--legend-color: rgb(153, 153, 153);
-	--title-color: white;
-	--navbtn-bg: hsl(235, 11%, 25%);
-	--navbtn-hover: hsl(235, 11%, 30%);
-	--navbtn-active: hsl(235, 11%, 35%);
-	--btn-bg: rgba(0, 113, 227, 0.5);
-	--btn-hover: rgba(0, 119, 237, 0.5);
-	--box-shadow: 3px 3px 32px 16px rgba(0, 0, 0, 0.1);
-	--drop-menu-bg: hsl(235, 11%, 28%);
-	--drop-menu-hover: hsl(235, 11%, 30%);
-	--drop-menu-active: hsl(235, 11%, 35%);
-
-	--seat-bg: hsl(210, 69%, 24%);
-	--seat-fg: hsl(210, 46%, 40%);
-	--seat-hover: hsl(210, 69%, 28%);
-
-	--seat-unavaliable: hsl(78, 75%, 24%);
-	--seat-unavaliable-fg: hsl(78, 82%, 40%);
-
-	--seat-reserved: hsl(235, 11%, 32%);
-	--seat-reserved-fg: hsl(235, 11%, 45%);
-	--aside-color: rgba(192, 192, 192, 0.5);
-	--aside-active: rgba(59, 93, 128, 0.5);
-	--aside-active-color: #178db3;
-	--pending-support: orange;
-	--answered-support: rgb(59, 196, 59);
-
-	--loader: hsl(235, 11%, 20%);
-	--loader-bg: hsl(210, 81%, 40%);
-	--input-transition: none;
-}
-.dark :is(input, select) {
-	background-color: var(--main-bg);
-	color: var(--border-color);
 }

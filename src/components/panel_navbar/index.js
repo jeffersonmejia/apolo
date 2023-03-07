@@ -27,7 +27,7 @@ export function PanelNavbar() {
 	};
 	return (
 		<nav
-			className={`${styles.navbar} ${isDarkMode ? "dark" : ""} ${
+			className={`${styles.navbar} ${!isDarkMode ? styles.light : styles.dark} ${
 				!isSignin ? styles.logout : ""
 			}`}
 		>
