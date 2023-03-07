@@ -3,13 +3,14 @@ import { PanelClientData } from "../panel_client_data";
 import { PanelClientTravel } from "../panel_client_travel";
 import { Loader } from "../loader";
 import { Modal } from "../modal";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DarkModeContext } from "@/context/dark_mode";
 
 export function PanelClient() {
 	const [isLastForm, setLastForm] = useState(false);
 	const [isModalActive, setModal] = useState(false);
 	const [isPrintedTicket, setPrinted] = useState(false);
-
+	const { isDarkMode } = useContext(DarkModeContext);
 	const printClientData = () => {
 		if (!isLastForm) {
 			setLastForm(true);
@@ -36,7 +37,9 @@ export function PanelClient() {
 
 	return (
 		<>
-			<form className={styles.clientForm}>
+			<form
+				className={`${styles.clientForm} ${!isDarkMode ? styles.light : styles.dark}`}
+			>
 				<legend>{!isLastForm ? "Datos del cliente" : "Datos del viaje"}</legend>
 				<fieldset>
 					{!isLastForm && <PanelClientData />}

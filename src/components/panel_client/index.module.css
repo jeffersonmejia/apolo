@@ -8,11 +8,9 @@
 }
 .clientForm {
 	width: 100%;
-	background-color: var(--main-bg);
 	flex-basis: 100%;
 	max-width: 400px;
 	margin: auto;
-	color: var(--legend-color);
 	border-radius: var(--border-radius);
 	animation: opacity 0.3s ease-in-out;
 }
@@ -22,7 +20,6 @@
 .print {
 	margin: auto;
 	margin-top: 12px;
-	color: var(--legend-color);
 	cursor: pointer;
 	transition: color 0.3s ease-in-out;
 }
@@ -32,7 +29,6 @@
 .modalContent {
 	width: 80%;
 	max-width: 400px;
-	background-color: var(--card-bg);
 	border-radius: var(--border-radius);
 	padding: 32px;
 }
@@ -63,7 +59,6 @@
 }
 .groupBtn small {
 	width: fit-content;
-	color: var(--legend-color);
 	cursor: pointer;
 	transition: color 0.3s ease-in-out;
 }
@@ -74,10 +69,36 @@
 .printMessage {
 	display: block;
 	text-align: center;
-	color: var(--color-success);
 	font-weight: bold;
 }
-
+.dark {
+	background-color: var(--dark-card);
+}
+.dark legend {
+	color: var(--dark-title);
+}
+.dark form {
+	border: none;
+}
+.dark select {
+	background-color: var(--dark-bg);
+	color: var(--dark-input-fg);
+	border: none;
+}
+.dark input {
+	background-color: var(--dark-input);
+	color: var(--dark-input-fg);
+}
+.dark button {
+	background-color: var(--dark-btn);
+	color: var(--btn-fg);
+}
+.dark button + small {
+	color: var(--dark-text);
+}
+.dark button + small:hover {
+	color: var(--dark-btn-secondary);
+}
 @media screen and (min-width: 600px) {
 	.clientForm {
 		width: 100%;
@@ -85,15 +106,12 @@
 		padding-top: 32px;
 		padding-bottom: 28px;
 		margin-left: 20px;
-		border: var(--border);
-		background-color: var(--card-bg);
+	}
+	.dark input {
+		background-color: var(--dark-bg);
 	}
 	.clientForm legend {
 		font-weight: bold;
 		font-size: 1.2rem;
-		color: var(--title-color);
-	}
-	.clientForm select {
-		background-color: var(--card-bg);
 	}
 }

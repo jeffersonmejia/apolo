@@ -5,7 +5,12 @@
 	flex-wrap: wrap;
 	gap: 16px;
 }
-
+.dark {
+	background-color: var(--dark-bg);
+}
+.light {
+	background-color: var(--light-bg);
+}
 @media screen and (min-width: 600px) {
 	.main {
 		flex-direction: row;

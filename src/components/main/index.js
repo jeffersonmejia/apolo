@@ -41,7 +41,7 @@ export default function Main() {
 			{!isSignin && <Signin />}
 			{isSignin && (
 				<main
-					className={`${styles.main} ${isDarkMode ? "dark" : ""} ${
+					className={`${styles.main} ${!isDarkMode ? styles.light : styles.dark} ${
 						error ? styles.main_expanded : ""
 					}`}
 				>

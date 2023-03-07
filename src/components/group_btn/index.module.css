@@ -8,10 +8,14 @@
 	width: fit-content;
 	text-align: center;
 	margin: auto;
-	color: var(--legend-color);
 	cursor: pointer;
 	transition: color 0.3s ease-in-out;
 }
-.group small:hover {
-	color: var(--btn-bg);
+
+.dark button {
+	background-color: var(--dark-btn);
+	color: var(--btn-fg);
+}
+.dark small {
+	color: var(--dark-text);
 }

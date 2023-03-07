@@ -99,6 +99,12 @@
 .light span:hover {
 	background-color: var(--light-navbar-btn-hover);
 }
+.dark {
+	background-color: var(--dark-bg);
+}
+.dark h4 {
+	color: var(--dark-title);
+}
 .dark span {
 	background-color: var(--dark-navbar-btn);
 }

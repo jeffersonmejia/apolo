@@ -1,7 +1,10 @@
 import "@/styles/globals.css";
 import { useEffect } from "react";
-
-export default function App({ Component, pageProps }) {
+import dynamic from "next/dynamic";
+export default dynamic(() => Promise.resolve(App), {
+	ssr: false,
+});
+export function App({ Component, pageProps }) {
 	const handleSubmit = (e) => e.preventDefault();
 
 	useEffect(() => {
