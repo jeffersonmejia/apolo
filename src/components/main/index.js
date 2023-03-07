@@ -15,12 +15,13 @@ import SystemSupport from "../system_support";
 import { Loader } from "../loader";
 
 export default function Main() {
-	const { isDarkMode } = useContext(DarkModeContext);
+	const { isDarkMode, setDarkMode } = useContext(DarkModeContext);
 	const { isSignin, data, error } = useContext(SigninContext);
 	const { isAsideActive, setAsideActive } = useContext(PanelAsideContext);
 	const { isTicketActive, isPackageActive, isReportActive } =
 		useContext(PanelSectionContext);
 	useEffect(() => {
+		setDarkMode(Boolean(JSON.parse(localStorage.getItem("dark"))));
 		const handleResize = () => {
 			if (window.innerWidth >= 600) {
 				setAsideActive(true);

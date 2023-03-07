@@ -105,7 +105,7 @@ select {
 input {
 	padding-left: 12px;
 	outline: none;
-	transition: background-color 0.3s ease-in-out;
+	/* transition: background-color .3s ease-in-out; */
 	border: var(--table-border);
 }
 
@@ -152,6 +152,9 @@ caption {
 	gap: 2px;
 	align-items: center;
 	justify-content: center;
+}
+.loader-box small {
+	color: var(--legend-color);
 }
 .loader {
 	width: 48px;
@@ -205,6 +208,10 @@ caption {
 	--aside-active-color: #178db3;
 	--pending-support: orange;
 	--answered-support: rgb(59, 196, 59);
+
+	--loader: hsl(235, 11%, 20%);
+	--loader-bg: hsl(210, 81%, 40%);
+	--input-transition: none;
 }
 .dark :is(input, select) {
 	background-color: var(--main-bg);

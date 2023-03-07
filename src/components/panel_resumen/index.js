@@ -71,7 +71,7 @@ export function PanelResumen() {
 							/>
 						</>
 					)}
-					{isModalOpen && <ChangeTravel setModal={setModal} listTravel={listTravel} />}
+					{isModalOpen && <ChangeTravel setModal={setModal} listTravel={data} />}
 				</>
 			)}
 		</div>
