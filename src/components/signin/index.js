@@ -1,13 +1,24 @@
 import styles from "./index.module.css";
 import { SigninContext } from "../../context/signin";
 import { PanelAsideContext } from "@/context/panel_aside";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DarkModeContext } from "@/context/dark_mode";
+import { LoaderButton } from "../loaderButton";
 
 export function Signin() {
 	const { handleAuth, isDataError } = useContext(SigninContext);
 	const { setAsideActive } = useContext(PanelAsideContext);
+	const [isLoading, setLoading] = useState(false);
 	const { isDarkMode } = useContext(DarkModeContext);
+	const handleLoading = () => {
+		setLoading(true);
+		setTimeout(() => {
+			handleAuth();
+			if (window.innerWidth >= 600) {
+				setAsideActive(true);
+			}
+		}, 2000);
+	};
 	return (
 		<div className={`${styles.signin} ${isDarkMode ? "dark" : ""}`}>
 			<form>
@@ -19,16 +30,12 @@ export function Signin() {
 					<input type="text" placeholder="Ingresa tu usuario" maxLength={10} />
 					<input type="password" placeholder="Ingresa tu contraseña" maxLength={64} />
 				</fieldset>
-				<button
-					onClick={() => {
-						handleAuth();
-						if (window.innerWidth >= 600) {
-							setAsideActive(true);
-						}
-					}}
-				>
-					Ingresar
-				</button>
+				<LoaderButton
+					defaultBtn="Ingresar"
+					isLoading={isLoading}
+					loading="cargando"
+					MyClick={handleLoading}
+				></LoaderButton>
 				{isDataError && (
 					<div className={styles.error}>
 						<small>

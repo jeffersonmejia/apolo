@@ -12,6 +12,7 @@ import { PanelAside } from "../panel_aside";
 import { PanelResumen } from "../panel_resumen";
 import { PanelReport } from "../panel_report";
 import SystemSupport from "../system_support";
+import { Loader } from "../loader";
 
 export default function Main() {
 	const { isDarkMode } = useContext(DarkModeContext);

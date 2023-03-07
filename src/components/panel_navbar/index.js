@@ -43,7 +43,9 @@ export function PanelNavbar() {
 				</>
 			)}
 			<div className={styles.navButtons}>
-				{isSupport && <span className="material-symbols-outlined">notifications</span>}
+				{isSignin && isSupport && (
+					<span className="material-symbols-outlined">notifications</span>
+				)}
 				<span className="material-symbols-outlined" onClick={handleDarkMode}>
 					{isDarkMode ? "light_mode" : "dark_mode"}
 				</span>

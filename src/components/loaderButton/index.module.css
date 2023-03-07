@@ -1,0 +1,40 @@
+.loaderButton {
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 24px;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+	overflow: hidden;
+	font-size: 0.85rem;
+}
+
+.loaderButton p {
+	margin: 0;
+	display: inline-block;
+}
+
+.loaderButton i {
+	position: absolute;
+	left: 36%;
+	top: 35%;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	border: 2px solid white;
+	border-top-color: transparent;
+	animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
