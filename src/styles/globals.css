@@ -13,6 +13,8 @@
 	--light-btn-secondary: hsl(0, 0%, 36%);
 	--light-navbar-btn: hsl(0, 0%, 90%);
 	--light-navbar-btn-hover: hsl(0, 0%, 87%);
+	--light-loader: rgb(210 210 210);
+	--light-loader-spin: #4e9dec;
 
 	--dark-bg: hsl(235, 11%, 23%);
 	--dark-card: hsl(235, 11%, 25%);
@@ -26,6 +28,12 @@
 	--dark-btn-secondary: #d3d3d3;
 	--dark-navbar-btn: hsl(235, 11%, 26%);
 	--dark-navbar-btn-hover: hsl(235, 11%, 28%);
+	--dark-border-color: hsl(235, 11%, 28%);
+	--dark-border: 1px solid var(--dark-border-color);
+	--dark-shadow: 2px 2px 30px 2px rgb(40, 40, 40);
+	--dark-loader: hsl(235, 11%, 28%);
+	--dark-loader-spin: #3e7fc0;
+	--dark-loader-message: #fff;
 
 	--btn-fg: #fff;
 
@@ -79,46 +87,6 @@
 	--table-border: 1px solid var(--border-color);
 	--pending-support: orange;
 	--answered-support: rgb(9, 155, 9);
-
-	--loader: rgb(210 210 210);
-	--loader-bg: #4e9dec;
-}
-.dark {
-	--main-bg: hsl(235, 11%, 23%);
-	--card-bg: hsl(235, 11%, 25%);
-	--border: none;
-	--table-content-bg: rgb(153, 153, 153);
-	--table-border: 1px solid hsl(235, 11%, 30%);
-	--legend-color: rgb(153, 153, 153);
-	--title-color: white;
-	--navbtn-bg: hsl(235, 11%, 25%);
-	--navbtn-hover: hsl(235, 11%, 30%);
-	--navbtn-active: hsl(235, 11%, 35%);
-	--btn-bg: rgba(0, 113, 227, 0.5);
-	--btn-hover: rgba(0, 119, 237, 0.5);
-	--box-shadow: 3px 3px 32px 16px rgba(0, 0, 0, 0.1);
-	--drop-menu-bg: hsl(235, 11%, 28%);
-	--drop-menu-hover: hsl(235, 11%, 30%);
-	--drop-menu-active: hsl(235, 11%, 35%);
-
-	--seat-bg: hsl(210, 69%, 24%);
-	--seat-fg: hsl(210, 46%, 40%);
-	--seat-hover: hsl(210, 69%, 28%);
-
-	--seat-unavaliable: hsl(78, 75%, 24%);
-	--seat-unavaliable-fg: hsl(78, 82%, 40%);
-
-	--seat-reserved: hsl(235, 11%, 32%);
-	--seat-reserved-fg: hsl(235, 11%, 45%);
-	--aside-color: rgba(192, 192, 192, 0.5);
-	--aside-active: rgba(59, 93, 128, 0.5);
-	--aside-active-color: #178db3;
-	--pending-support: orange;
-	--answered-support: rgb(59, 196, 59);
-
-	--loader: hsl(235, 11%, 20%);
-	--loader-bg: hsl(210, 81%, 40%);
-	--input-transition: none;
 }
 
 * {
@@ -134,7 +102,6 @@ img {
 }
 
 form {
-	/* background-color: var(--card-bg); */
 	display: flex;
 	flex-direction: column;
 	padding: 16px 32px;
@@ -159,75 +126,25 @@ select {
 	padding: 8px;
 	cursor: pointer;
 }
-select {
-	border: var(--table-border);
-}
+
 input {
 	padding-left: 12px;
 	outline: none;
-	/* transition: background-color .3s ease-in-out; */
 	border: none;
 }
 
 button {
 	border: none;
-	/* background-color: var(--btn-bg); */
-	/* color: var(--btn-fg); */
-	/* transition-property: background-color, transform; */
-	/* -webkit-transition-property: transform; */
-	/* transition: 0.3s ease-in-out; */
-	/* -webkit-transition: 0.3s ease-in-out; */
-	/* -webkit-tap-highlight-color: transparent; */
 }
-/* button:hover {
-	background-color: var(--btn-hover);
-} */
 button:active {
 	transform: scale(0.9);
 }
 
 table {
 	height: fit-content;
-	color: var(--legend-color);
 }
 table,
-caption,
-td,
-th {
-	border: var(--table-border);
+table :is(tr, td, th) {
+	color: white;
 	border-collapse: collapse;
-	color: var(--table-content-bg);
-}
-
-caption {
-	border-bottom: none;
-}
-.loader-box {
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
-	align-items: center;
-	justify-content: center;
-}
-.loader-box small {
-	color: var(--legend-color);
-}
-.loader {
-	width: 48px;
-	height: 48px;
-	border: 5px solid var(--loader);
-	border-bottom-color: var(--loader-bg);
-	border-radius: 50%;
-	display: inline-block;
-	box-sizing: border-box;
-	animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
 }

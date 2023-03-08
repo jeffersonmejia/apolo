@@ -19,8 +19,7 @@
 
 .loaderButton i {
 	position: absolute;
-	left: 36%;
-	top: 35%;
+	margin-left: -122px;
 	width: 14px;
 	height: 14px;
 	border-radius: 50%;

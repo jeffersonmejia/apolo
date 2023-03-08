@@ -36,7 +36,7 @@ export function Signin() {
 				<LoaderButton
 					defaultBtn="Ingresar"
 					isLoading={isLoading}
-					loading="cargando"
+					loading="Autenticando..."
 					MyClick={handleLoading}
 				></LoaderButton>
 				{isDataError && (

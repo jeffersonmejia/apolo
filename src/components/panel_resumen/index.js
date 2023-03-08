@@ -6,13 +6,15 @@ import { PanelResumeData } from "../panel_resume_data";
 import { GroupBtn } from "../group_btn";
 import { ChangeTravel } from "../change_travel";
 import { Loader } from "../loader";
+import { DarkModeContext } from "@/context/dark_mode";
 
 export function PanelResumen() {
 	const { data } = useContext(SigninContext);
+	const { isTicketActive } = useContext(PanelSectionContext);
+	const { isDarkMode } = useContext(DarkModeContext);
 	const [isLoader, setLoader] = useState(false);
 	const [isModalOpen, setModal] = useState(false);
 	const [travelData] = useState(data);
-	const { isTicketActive } = useContext(PanelSectionContext);
 
 	const handleClick = ({ currentTarget }) => {
 		if (currentTarget.matches("button")) {
@@ -25,7 +27,7 @@ export function PanelResumen() {
 		}
 	};
 	return (
-		<div className={styles.resume}>
+		<div className={`${styles.resume} ${!isDarkMode ? styles.light : styles.dark}`}>
 			{isLoader && <Loader message="Cerrando viaje..." />}
 			{travelData && (
 				<>

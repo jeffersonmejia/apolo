@@ -1,0 +1,33 @@
+.loader {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	align-items: center;
+	justify-content: center;
+}
+.loader span {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+.loader small {
+	margin-top: 4px;
+}
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.dark span {
+	border: 5px solid var(--dark-loader);
+	border-bottom-color: var(--dark-loader-spin);
+}
+.dark small {
+	color: var(--dark-loader-message);
+}

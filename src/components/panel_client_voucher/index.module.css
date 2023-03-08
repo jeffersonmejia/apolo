@@ -1,0 +1,33 @@
+.modal {
+	width: 80%;
+	max-width: 500px;
+	border-radius: var(--border-radius);
+	padding: 32px 48px;
+}
+.modal table {
+	width: 100%;
+	margin: auto;
+	font-size: 0.9rem;
+	margin-bottom: 16px;
+}
+.modal caption {
+	padding: 4px;
+}
+.modal td {
+	padding: 4px;
+}
+.modal :is(td, th) {
+	padding-right: 6px;
+	text-align: right;
+}
+
+.dark {
+	background-color: var(--dark-bg);
+}
+.dark :is(table, td, tr, th, caption) {
+	border: var(--dark-border);
+}
+
+.dark caption {
+	border-bottom: 0;
+}
