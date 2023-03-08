@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./index.module.css";
+import { DarkModeContext } from "@/context/dark_mode";
 
 const MINUTES_IN_SECONDS = 60;
 
-export function SystemSupportWaiting({ isPending, setPending }) {
+export function SystemSupportWaiting({ setPending }) {
 	const [count, setCount] = useState(MINUTES_IN_SECONDS * 6);
+
+	const { isDarkMode } = useContext(DarkModeContext);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -21,8 +24,10 @@ export function SystemSupportWaiting({ isPending, setPending }) {
 	}, []);
 	const minutes = Math.floor(count / MINUTES_IN_SECONDS);
 	const seconds = count % MINUTES_IN_SECONDS;
+	const theme = !isDarkMode ? styles.light : styles.dark;
+
 	return (
-		<div className={styles.pending}>
+		<div className={`${styles.pending} ${theme}`}>
 			<div>
 				<h1>Tiempo estimado de respuesta</h1>
 				<h2>
@@ -39,7 +44,12 @@ export function SystemSupportWaiting({ isPending, setPending }) {
 					Puedes trabajar mientras esperas al administrador, las ventas se actualizarán
 					cuando el sistema se restablezca.
 				</small>
-				<button className={styles.cancel} onClick={() => setPending(false)}>
+				<button
+					className={styles.cancel}
+					onClick={() => {
+						setPending(false);
+					}}
+				>
 					Cancelar
 				</button>
 			</div>

@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 
 const DarkModeContext = createContext();
-
 const DarkModeProvider = ({ children }) => {
 	const [isDarkMode, setDarkMode] = useState(
 		JSON.parse(localStorage.getItem("dark")) || false
 	);
+
 	const handleDarkMode = () => {
 		setDarkMode(isDarkMode ? false : true);
 	};

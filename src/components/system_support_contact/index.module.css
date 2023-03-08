@@ -1,0 +1,38 @@
+.error_travel {
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	border-radius: var(--border-radius);
+}
+.error_travel button {
+	width: 100%;
+	max-width: 250px;
+}
+.error_travel h3 {
+	color: var(--title-color);
+}
+.error_travel > div {
+	text-align: center;
+}
+.error_travel small {
+	color: var(--legend-color);
+}
+.dark h3 {
+	color: var(--dark-title);
+}
+.dark button {
+	background-color: var(--dark-btn);
+	color: var(--btn-fg);
+}
+@media screen and (min-width: 600px) {
+	.error_travel {
+		width: 100%;
+		margin-left: 190px;
+	}
+	.dark {
+		background-color: var(--dark-card);
+	}
+}

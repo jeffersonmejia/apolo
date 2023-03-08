@@ -1,15 +1,5 @@
-@keyframes opacity {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
 .aside {
 	margin-bottom: 16px;
-	animation: opacity 0.3s ease-in-out;
 	height: 100%;
 	width: 100%;
 }
@@ -21,30 +11,17 @@
 .aside li {
 	list-style: none;
 	border-radius: var(--border-radius);
-	color: var(--aside-color);
 	padding: 12px;
 	transition: background-color 0.3s ease-in-out;
 	cursor: pointer;
 	font-size: 0.85rem;
 	font-weight: 500;
 }
-.aside li:hover {
-	background-color: var(--aside-active);
-}
-.create span {
-	font-size: 1rem;
-}
-aside .asideActive {
-	background-color: var(--aside-active);
-	color: var(--aside-active-color);
-}
-aside li.create {
+li.create {
 	display: flex;
 	gap: 4px;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--btn-bg);
-	color: var(--btn-fg);
 	text-align: center;
 	margin-bottom: 6px;
 	border-radius: 24px;
@@ -52,14 +29,26 @@ aside li.create {
 	transition-property: background-color, transform;
 	transition: 0.3s ease-in-out;
 }
-
-.aside .create:hover {
-	background-color: var(--btn-hover);
+.create span {
+	font-size: 1rem;
 }
 .create:active {
 	transform: scale(0.9);
 }
-
+.dark li {
+	color: var(--dark-aside-items-fg);
+}
+.dark li:hover {
+	background-color: var(--dark-aside-item-hover);
+}
+.dark li:first-child {
+	background-color: var(--dark-btn);
+	color: var(--btn-fg);
+}
+li.active {
+	background-color: var(--dark-aside-item-on);
+	color: var(--dark-aside-item-fg);
+}
 @media screen and (min-width: 600px) {
 	.aside {
 		flex-basis: 36%;

@@ -34,6 +34,12 @@
 	--dark-loader: hsl(235, 11%, 28%);
 	--dark-loader-spin: #3e7fc0;
 	--dark-loader-message: #fff;
+	--dark-support-pending: orange;
+	--dark-support-solving: green;
+	--dark-aside-item-on: rgba(4, 72, 139, 0.5);
+	--dark-aside-item-fg: white;
+	--dark-aside-items-fg: rgb(141, 140, 140);
+	--dark-aside-item-hover: rgba(4, 72, 139, 0.5);
 
 	--btn-fg: #fff;
 
