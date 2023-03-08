@@ -1,8 +1,8 @@
 import styles from "./index.module.css";
 import PanelReportQuery from "../panel_report_query";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Modal } from "../modal";
-
+import { DarkModeContext } from "@/context/dark_mode";
 export function PanelReport() {
 	const [travelDescription, setTravelDescription] = useState("");
 	const [travelSelected, setTravelSelected] = useState("");
@@ -11,7 +11,8 @@ export function PanelReport() {
 	const [isPackageActive, setPackageActive] = useState(false);
 	const [isReportQuery, setReportQuery] = useState(false);
 	const [isModalActive, setModalActive] = useState(false);
-
+	const { isDarkMode } = useContext(DarkModeContext);
+	const theme = !isDarkMode ? styles.light : styles.dark;
 	const changeTravelDescription = (e) => {
 		setTravelSelected(e.target.value);
 		if (e.target.value === "ticket") {
@@ -43,7 +44,7 @@ export function PanelReport() {
 		setReportQuery(isReportQuery ? false : true);
 	};
 	return (
-		<div className={styles.report}>
+		<div className={`${styles.report} ${theme}`}>
 			<form>
 				<legend>
 					<h3>Búsqueda por viajes</h3>

@@ -50,7 +50,34 @@
 .modalContent button {
 	margin-top: 16px;
 }
-@media screen and (min-width: 700px) {
+.report button {
+	color: var(--btn-fg);
+}
+.dark form {
+	background-color: var(--dark-card);
+	color: var(--dark-text);
+}
+.dark :is(input, select) {
+	background-color: var(--dark-bg);
+}
+.dark select {
+	color: var(--dark-text);
+}
+.dark button {
+	background-color: var(--dark-btn);
+}
+.dark :is(table, td, tr, th, caption) {
+	border: var(--dark-border);
+	color: var(--dark-text);
+	background-color: var(--dark-card);
+}
+.dark caption {
+	border-bottom: none;
+}
+.dark form + div > div {
+	background-color: var(--dark-bg);
+}
+@media screen and (min-width: 600px) {
 	.report {
 		width: 100%;
 		align-items: center;
@@ -64,6 +91,11 @@
 	}
 	.report form:nth-child(1) {
 		margin-left: auto;
+	}
+}
+@media screen and (min-width: 800px) {
+	.report {
+		align-items: normal;
 	}
 }
 @media screen and (min-width: 1080px) {

@@ -36,10 +36,10 @@
 	--dark-loader-message: #fff;
 	--dark-support-pending: orange;
 	--dark-support-solving: green;
-	--dark-aside-item-on: rgba(4, 72, 139, 0.5);
+	--dark-aside-item-on: rgba(43, 88, 133, 0.5);
 	--dark-aside-item-fg: white;
 	--dark-aside-items-fg: rgb(141, 140, 140);
-	--dark-aside-item-hover: rgba(4, 72, 139, 0.5);
+	--dark-aside-item-hover: rgba(43, 88, 133, 0.5);
 	--dark-avaliable-seat: rgba(0, 250, 217, 0.192);
 	--dark-available-seat-fg: rgba(0, 250, 217, 1);
 	--dark-unavaliable-seat: rgba(250, 133, 0, 0.192);
@@ -91,6 +91,7 @@ select {
 	height: var(--height-btn);
 	padding: 8px;
 	cursor: pointer;
+	border: none;
 }
 
 input {

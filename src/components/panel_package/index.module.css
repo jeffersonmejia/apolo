@@ -1,21 +1,22 @@
-@keyframes opacity {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
 .package {
 	width: 100%;
 	height: fit-content;
 	gap: 12px;
-	animation: opacity 0.3s ease-in-out;
+	border-radius: var(--border-radius);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.package form {
+	width: 100%;
+}
+.package button {
+	color: var(--btn-fg);
 }
 .package legend {
 	font-weight: bold;
 	font-size: 1.2rem;
-	color: var(--title-color);
 }
 .groupBtn {
 	display: flex;
@@ -25,12 +26,8 @@
 .groupBtn small {
 	width: fit-content;
 	margin: auto;
-	color: var(--legend-color);
 	transition: color 0.3s ease-in-out;
 	cursor: pointer;
-}
-.groupBtn small:hover {
-	color: var(--btn-bg);
 }
 .detail {
 	width: 100%;
@@ -41,10 +38,8 @@
 }
 .detail table {
 	width: 100%;
-	background-color: var(--card-bg);
 }
 .detail caption {
-	background-color: var(--card-bg);
 	padding: 4px 0;
 	font-size: 0.9rem;
 }
@@ -59,31 +54,54 @@
 .detail .groupBtn {
 	margin-top: 4px;
 }
-.message {
-	color: var(--legend-color);
+.dark {
+	color: var(--dark-text);
+}
+.dark button {
+	background-color: var(--dark-btn);
+}
+.dark :is(input, select) {
+	background-color: var(--dark-bg);
+	color: var(--dark-text);
+}
+.dark table {
+	background-color: var(--dark-card);
+	margin-top: 28px;
+}
+.dark :is(table, tr, td, th, caption) {
+	border: var(--dark-border);
+}
+.dark caption {
+	border-bottom: none;
 }
 @media screen and (min-width: 600px) {
 	.package {
 		margin-left: 190px;
+		max-width: 440px;
+	}
+	.package form {
+		padding: 0 40px;
+		padding-top: 32px;
+		padding-bottom: 40px;
+	}
+	.dark {
+		background-color: var(--dark-card);
 	}
 }
 @media screen and (min-width: 1080px) {
 	.package {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 12px;
 		height: 60vh;
-		max-width: 550px;
+		padding: 0;
 	}
 	.package form {
-		width: 80%;
+		width: 100%;
 		border-radius: var(--border-radius);
 		padding: 24px 32px;
 		padding-bottom: 36px;
-		border: var(--border);
 		margin-left: auto;
 		margin-right: 16px;
+	}
+	.package + div {
+		margin-bottom: auto;
 	}
 }

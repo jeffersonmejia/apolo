@@ -1,13 +1,16 @@
+import { useContext, useState } from "react";
 import styles from "./index.module.css";
 import { PanelPackageData } from "../panel_package_form";
 import { PanelPackageDetail } from "../panel_package_detail";
 import { Loader } from "../loader";
-import { useState } from "react";
+import { DarkModeContext } from "@/context/dark_mode";
 
 export function PanelPackage() {
 	const [isSenderCompleted, setSender] = useState(false);
 	const [isReceptCompleted, setRecept] = useState(false);
 	const [isVoucherPrinted, setVoucher] = useState(false);
+
+	const { isDarkMode } = useContext(DarkModeContext);
 
 	const handleSender = () => {
 		setSender(true);
@@ -32,9 +35,9 @@ export function PanelPackage() {
 			setSender(false);
 		}, 2000);
 	};
-
+	const theme = !isDarkMode ? styles.light : styles.dark;
 	return (
-		<div className={styles.package}>
+		<div className={`${styles.package} ${theme}`}>
 			{!isSenderCompleted && (
 				<form>
 					<fieldset>

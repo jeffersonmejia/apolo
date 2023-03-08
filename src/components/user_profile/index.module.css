@@ -1,6 +1,6 @@
 .my_profile {
 	width: 80%;
-	max-width: 400px;
+	max-width: 500px;
 	border-radius: var(--border-radius);
 	padding: 32px;
 	display: flex;
@@ -29,13 +29,14 @@
 	width: 100%;
 	text-align: center;
 	margin-top: 24px;
-	margin-bottom: 8px;
+	margin-bottom: 12px;
 }
 .role_profile h5 {
 	margin-bottom: 12px;
 }
 .role_profile div {
 	width: 90%;
+	max-width: 300px;
 	display: grid;
 	grid-template-columns: 20% 80%;
 	text-align: left;
@@ -53,6 +54,7 @@
 }
 .role_profile small:nth-child(2) {
 	text-align: right;
+	margin-top: 7px;
 }
 .my_profile button {
 	width: 100%;
