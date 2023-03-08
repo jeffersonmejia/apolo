@@ -48,6 +48,7 @@
 }
 .dark :is(table, tr, td, th, caption) {
 	border: var(--dark-border);
+	color: var(--dark-text);
 }
 .dark caption {
 	border-bottom: none;

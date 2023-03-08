@@ -1,10 +1,13 @@
-import { Modal } from "../modal";
 import styles from "./index.module.css";
-
+import { Modal } from "../modal";
+import { DarkModeContext } from "@/context/dark_mode";
+import { useContext } from "react";
 export function UserProfile({ handleClick }) {
+	const { isDarkMode } = useContext(DarkModeContext);
+	const theme = !isDarkMode ? styles.light : styles.dark;
 	return (
 		<Modal>
-			<div className={styles.my_profile}>
+			<div className={`${styles.my_profile} ${theme}`}>
 				<figure>
 					<img src="profile.jpg" alt="" />
 					<figcaption>

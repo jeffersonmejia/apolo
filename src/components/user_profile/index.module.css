@@ -1,14 +1,15 @@
 .my_profile {
 	width: 80%;
 	max-width: 400px;
-	background-color: var(--card-bg);
 	border-radius: var(--border-radius);
 	padding: 32px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-
+.my_profile button {
+	color: var(--btn-fg);
+}
 .my_profile figure {
 	display: flex;
 	flex-direction: column;
@@ -58,4 +59,15 @@
 	max-width: 250px;
 	margin-top: 4px;
 	margin-bottom: 4px;
+}
+.dark {
+	background-color: var(--dark-bg);
+	color: var(--dark-text);
+}
+
+.dark h3 {
+	color: var(--dark-title);
+}
+.dark button {
+	background-color: var(--dark-btn);
 }

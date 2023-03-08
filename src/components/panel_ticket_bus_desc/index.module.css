@@ -3,31 +3,36 @@
 	color: var(--legend-color);
 	font-size: 0.9rem;
 }
-
-.avaliable::before {
-	content: "";
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	background-color: var(--seat-bg);
-	transform: translate(-14px, 5px);
-	border-radius: 2px;
+.dark {
+	color: var(--dark-text);
 }
-.unavaliable::before {
+.dark .avaliable::before {
 	content: "";
 	position: absolute;
 	width: 10px;
 	height: 10px;
-	background-color: var(--seat-unavaliable);
-	transform: translate(-14px, 5px);
 	border-radius: 2px;
+	margin-left: -16px;
+	margin-top: 6px;
+	background-color: var(--dark-avaliable-seat);
 }
-.reserved::before {
+.dark .unavaliable::before {
 	content: "";
 	position: absolute;
 	width: 10px;
 	height: 10px;
-	background-color: var(--seat-reserved);
-	transform: translate(-15px, 6px);
 	border-radius: 2px;
+	margin-left: -16px;
+	margin-top: 6px;
+	background-color: var(--dark-unavaliable-seat);
+}
+.dark .reserved::before {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 2px;
+	margin-left: -16px;
+	margin-top: 6px;
+	background-color: var(--dark-reserved-seat);
 }

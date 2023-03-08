@@ -5,8 +5,9 @@ export function ChangeTravelRows({ travel, setModal }) {
 		}, 400);
 	};
 	const { itinerary, bus, date, hour, travel_id } = travel;
+	console.log(travel_id);
 	return (
-		<tr key={travel_id} id={travel_id}>
+		<tr id={travel_id}>
 			<td>{itinerary}</td>
 			<td>{bus}</td>
 			<td>{date}</td>

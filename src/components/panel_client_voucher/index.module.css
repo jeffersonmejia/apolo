@@ -26,6 +26,7 @@
 }
 .dark :is(table, td, tr, th, caption) {
 	border: var(--dark-border);
+	color: var(--dark-text);
 }
 
 .dark caption {

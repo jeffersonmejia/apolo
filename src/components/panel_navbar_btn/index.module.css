@@ -1,0 +1,42 @@
+.navButtons {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	margin-left: auto;
+	margin-right: 16px;
+	color: var(--legend-color);
+}
+.navButtons span {
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
+.navButtons span {
+	border-radius: 50%;
+	padding: 8px;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	transition-property: background-color;
+	transition: 0.3s ease-in-out;
+}
+.navButtons span:hover {
+	background-color: var(--navbtn-hover);
+}
+.navButtons span:active {
+	background-color: var(--navbtn-active);
+}
+
+.light span {
+	background-color: var(--light-navbar-btn);
+}
+.light span:hover {
+	background-color: var(--light-navbar-btn-hover);
+}
+
+.dark span {
+	background-color: var(--dark-card);
+	color: var(--dark-text);
+}
+.dark > span:hover {
+	background-color: var(--dark-navbar-btn-hover);
+}

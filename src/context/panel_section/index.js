@@ -3,38 +3,39 @@ import { createContext, useState } from "react";
 const PanelSectionContext = createContext();
 
 const PanelSectionProvider = ({ children }) => {
-	const [isTicketActive, setTicketActive] = useState(true);
-	const [isPackageActive, setPackageActive] = useState(false);
-	const [isReportActive, setReportActive] = useState(false);
+	const [isTicket, setTicket] = useState(true);
+	const [isPackage, setPackage] = useState(false);
+	const [isReport, setReport] = useState(false);
 
-	const handleTicketActive = () => {
-		if (isTicketActive) return;
-		setTicketActive(true);
-		setPackageActive(false);
-		setReportActive(false);
-	};
-
-	const handlePackageActive = () => {
-		if (isPackageActive) return;
-		setPackageActive(true);
-		setTicketActive(false);
-		setReportActive(false);
-	};
-
-	const handleReportActive = () => {
-		if (isReportActive) return;
-		setReportActive(true);
-		setTicketActive(false);
-		setPackageActive(false);
+	const handleSection = ({ currentTarget }) => {
+		let { value } = currentTarget;
+		switch (value) {
+			case 0: {
+				setTicket(true);
+				if (isPackage) setPackage(false);
+				if (isReport) setReport(false);
+				break;
+			}
+			case 1: {
+				setPackage(true);
+				if (isTicket) setTicket(false);
+				if (isReport) setReport(false);
+				break;
+			}
+			case 2: {
+				setReport(true);
+				if (isTicket) setTicket(false);
+				if (isPackage) setPackage(false);
+				break;
+			}
+		}
 	};
 
 	const data = {
-		isTicketActive,
-		isPackageActive,
-		isReportActive,
-		handleTicketActive,
-		handlePackageActive,
-		handleReportActive,
+		handleSection,
+		isTicket,
+		isPackage,
+		isReport,
 	};
 
 	return (

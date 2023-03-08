@@ -14,7 +14,7 @@ export function ChangeTravelTable({ setModal, travels }) {
 			</thead>
 			<tbody>
 				{travels.map((travel) => (
-					<ChangeTravelRows travel={travel} setModal={setModal} />
+					<ChangeTravelRows key={travel.travel_id} travel={travel} setModal={setModal} />
 				))}
 			</tbody>
 		</table>

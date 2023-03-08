@@ -10,7 +10,7 @@ const SigninProvider = ({ children }) => {
 	const [error, setError] = useState(null);
 	let contextState = {};
 
-	const handleAuth = (e) => {
+	const handleAuth = () => {
 		const getTravels = async () => {
 			try {
 				const res = await fetch(ticket_travel);
@@ -34,10 +34,11 @@ const SigninProvider = ({ children }) => {
 					setError({ status: 0, statusText: "Servidor no disponible" });
 				}
 				setData(null);
+			} finally {
+				setSignin(true);
 			}
 		};
 		getTravels();
-		setSignin(true);
 	};
 	contextState = {
 		...contextState,

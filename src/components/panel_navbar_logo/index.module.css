@@ -1,0 +1,9 @@
+.dark {
+	cursor: pointer;
+	color: var(--dark-title);
+}
+@media screen and (min-width: 600px) {
+	.burger {
+		display: none;
+	}
+}

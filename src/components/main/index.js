@@ -18,23 +18,27 @@ export default function Main() {
 	const { isDarkMode, setDarkMode } = useContext(DarkModeContext);
 	const { isSignin, data, error } = useContext(SigninContext);
 	const { isAsideActive, setAsideActive } = useContext(PanelAsideContext);
-	const { isTicketActive, isPackageActive, isReportActive } =
-		useContext(PanelSectionContext);
+	const { isTicket, isPackage, isReport } = useContext(PanelSectionContext);
+	const handleResize = () => {
+		if (window.innerWidth >= 600) {
+			setAsideActive(true);
+		} else {
+			setAsideActive(false);
+		}
+	};
 	useEffect(() => {
 		setDarkMode(Boolean(JSON.parse(localStorage.getItem("dark"))));
-		const handleResize = () => {
-			if (window.innerWidth >= 600) {
-				setAsideActive(true);
-			} else {
-				setAsideActive(false);
-			}
-		};
+		handleResize();
+	}, []);
+
+	useEffect(() => {
 		window.addEventListener("resize", handleResize);
 
 		return () => {
 			window.removeEventListener("resize", handleResize);
+			document.removeEventListener("DOMContentLoaded", handleResize);
 		};
-	}, []);
+	}, [window.innerWidth, data]);
 	return (
 		<>
 			<PanelNavbar />
@@ -46,11 +50,11 @@ export default function Main() {
 					}`}
 				>
 					{isAsideActive && <PanelAside />}
-					{data && isTicketActive && <PanelTicket />}
-					{!data && isTicketActive && <SystemSupport />}
-					{isPackageActive && <PanelPackage />}
-					{!isReportActive && <PanelResumen />}
-					{isReportActive && <PanelReport></PanelReport>}
+					{data && isTicket && <PanelTicket />}
+					{!data && isTicket && <SystemSupport />}
+					{isPackage && <PanelPackage />}
+					{!isReport && <PanelResumen />}
+					{isReport && <PanelReport></PanelReport>}
 				</main>
 			)}
 		</>

@@ -5,24 +5,22 @@
 }
 
 .seats span {
-	background-color: var(--seat-bg);
-	color: var(--seat-fg);
 	font-weight: bold;
 	border-radius: var(--border-radius);
 	text-align: center;
 	padding: 4px 0;
 	cursor: pointer;
 }
-.seats span:hover {
-	background-color: var(--seat-hover);
+
+.dark span {
+	background-color: var(--dark-avaliable-seat);
+	color: var(--dark-available-seat-fg);
 }
-.seats span:nth-child(3n + 2) {
-	background-color: var(--seat-unavaliable);
-	color: var(--seat-unavaliable-fg);
-	cursor: pointer;
+.dark span:nth-child(3n + 6) {
+	background-color: var(--dark-unavaliable-seat);
+	color: var(--dark-unavaliable-seat-fg);
 }
-.seats span:nth-child(4n + 1) {
-	background-color: var(--seat-reserved);
-	color: var(--seat-reserved-fg);
-	cursor: pointer;
+.dark span:nth-child(2n + 8) {
+	background-color: var(--dark-reserved-seat);
+	color: var(--dark-reserved-seat-fg);
 }
