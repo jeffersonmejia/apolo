@@ -12,7 +12,6 @@ import { PanelAside } from "../panel_aside";
 import { PanelResumen } from "../panel_resumen";
 import { PanelReport } from "../panel_report";
 import SystemSupport from "../system_support";
-import { Loader } from "../loader";
 
 export default function Main() {
 	const { isDarkMode, setDarkMode } = useContext(DarkModeContext);
@@ -39,16 +38,16 @@ export default function Main() {
 			document.removeEventListener("DOMContentLoaded", handleResize);
 		};
 	}, [window.innerWidth, data]);
+
+	const theme = !isDarkMode ? styles.light : styles.dark;
+	const support = error ? styles.error : "";
+	const ticket_section = isTicket ? styles.ticket : "";
 	return (
 		<>
 			<PanelNavbar />
 			{!isSignin && <Signin />}
 			{isSignin && (
-				<main
-					className={`${styles.main} ${!isDarkMode ? styles.light : styles.dark} ${
-						error ? styles.main_expanded : ""
-					}`}
-				>
+				<main className={`${styles.main} ${theme} ${support} ${ticket_section}`}>
 					{isAsideActive && <PanelAside />}
 					{data && isTicket && <PanelTicket />}
 					{!data && isTicket && <SystemSupport />}

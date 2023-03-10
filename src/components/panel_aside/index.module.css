@@ -1,12 +1,23 @@
 .aside {
-	margin-bottom: 16px;
 	height: 100%;
-	width: 100%;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: var(--navbar-height);
+	z-index: 997;
+	background-color: var(--modal-bg);
 }
 .aside ul {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
+	width: 70%;
+	padding-top: 12px;
+	padding-left: 16px;
+	padding-right: 16px;
+	max-width: 260px;
+	height: 100vh;
 }
 .aside li {
 	list-style: none;
@@ -35,6 +46,9 @@ li.create {
 .create:active {
 	transform: scale(0.9);
 }
+.dark ul {
+	background-color: var(--dark-bg);
+}
 .dark li {
 	color: var(--dark-aside-items-fg);
 }
@@ -51,11 +65,20 @@ li.active {
 }
 @media screen and (min-width: 600px) {
 	.aside {
-		flex-basis: 36%;
-		max-width: 160px;
+		width: 100%;
+		position: initial;
 		margin: 0;
-		margin-right: 12px;
-		height: 100vh;
-		position: fixed;
+	}
+	.aside ul {
+		width: 100%;
+		max-width: none;
+	}
+}
+@media screen and (min-width: 1250px) {
+	.aside {
+		background-color: transparent;
+	}
+	.aside ul {
+		height: auto;
 	}
 }

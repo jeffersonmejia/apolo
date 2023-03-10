@@ -59,9 +59,10 @@
 	.client {
 		width: 100%;
 		margin: 0;
+		height: fit-content;
 		padding-top: 32px;
 		padding-bottom: 28px;
-		margin-left: 20px;
+		margin-top: 5rem;
 	}
 	.dark input {
 		background-color: var(--dark-bg);
@@ -72,5 +73,11 @@
 	}
 	.dark {
 		box-shadow: var(--dark-shadow);
+	}
+}
+@media screen and (min-width: 1300px) {
+	.client {
+		margin-top: 0;
+		margin-left: 6px;
 	}
 }

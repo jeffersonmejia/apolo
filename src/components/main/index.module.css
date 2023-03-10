@@ -1,37 +1,34 @@
 .main {
-	padding: var(--navbar-height) 16px 0 16px;
+	padding-top: var(--navbar-height);
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	gap: 16px;
 }
+
 .dark {
 	background-color: var(--dark-bg);
 }
 .light {
 	background-color: var(--light-bg);
 }
+
 @media screen and (min-width: 600px) {
-	.main {
-		flex-direction: row;
+	.ticket {
+		display: grid;
+		grid-template-columns: 250px auto;
+		gap: 0;
 	}
 	.error_travel {
 		width: 100%;
 		margin-left: 190px;
 	}
 }
-
-@media screen and (min-width: 850px) {
-	.main {
-		height: 100%;
-	}
-}
-@media screen and (min-width: 1280px) {
-	.main {
+@media screen and (min-width: 1300px) {
+	.ticket {
+		grid-template-columns: 200px 2fr 1.1fr;
+		gap: 12px;
 		height: 100vh;
-		flex-wrap: nowrap;
-	}
-	.main_expanded {
-		flex-wrap: wrap;
+		padding-right: 16px;
 	}
 }

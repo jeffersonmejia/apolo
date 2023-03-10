@@ -15,7 +15,7 @@
 	row-gap: 16px;
 	margin: auto;
 	width: 100%;
-	max-width: 280px;
+	max-width: 340px;
 	animation: opacity 0.3s ease-in-out;
 	font-size: 0.9rem;
 }
@@ -32,9 +32,43 @@
 	cursor: pointer;
 	transition: color 0.3s ease-in-out;
 }
+
+.seats {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(44px, auto));
+	gap: 12px;
+	width: 100%;
+	grid-column: 1/-1;
+	max-width: 340px;
+}
+.seats span {
+	background-color: hsl(235, 11%, 26%);
+	color: #fff;
+}
+.seats :not(:is(span.unavailable, span.reserved)) {
+	box-shadow: 1px 1px 10px rgb(48, 48, 48);
+}
+
+.seats span {
+	font-weight: bold;
+	border-radius: var(--border-radius);
+	text-align: center;
+	padding: 4px 0;
+	cursor: pointer;
+}
 .dark small {
 	color: var(--dark-text);
 }
+
+.dark .unavailable {
+	background-color: var(--dark-unavaliable-seat);
+	color: var(--dark-unavaliable-seat-fg);
+}
+.dark .reserved {
+	background-color: var(--dark-reserved-seat);
+	color: var(--dark-reserved-seat-fg);
+}
+
 @media screen and (min-width: 600px) {
 	.bus > div:first-child {
 		flex-direction: row;
@@ -47,5 +81,16 @@
 		width: 100%;
 		margin: 0;
 		margin-left: 12px;
+		border-radius: var(--border-radius);
+	}
+	.dark {
+		background-color: var(--dark-card);
+		padding: 24px 40px;
+	}
+}
+@media screen and (min-width: 1000px) {
+	.bus {
+		margin-left: 0;
+		padding: 32px;
 	}
 }

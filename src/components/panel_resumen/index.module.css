@@ -94,3 +94,15 @@
 		width: 100%;
 	}
 }
+@media screen and (min-width: 1280px) {
+	.resume {
+		max-width: none;
+		width: 100%;
+		padding: 32px;
+		height: fit-content;
+		border-radius: var(--border-radius);
+	}
+	.dark {
+		background-color: var(--dark-card);
+	}
+}
