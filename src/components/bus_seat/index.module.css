@@ -1,0 +1,8 @@
+.dark.unavailable {
+	background-color: var(--dark-unavaliable-seat);
+	color: var(--dark-unavaliable-seat-fg);
+}
+.dark.reserved {
+	background-color: var(--dark-reserved-seat);
+	color: var(--dark-reserved-seat-fg);
+}

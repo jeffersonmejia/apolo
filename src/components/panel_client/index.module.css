@@ -7,7 +7,7 @@
 	}
 }
 .client {
-	width: 100%;
+	width: 90%;
 	flex-basis: 100%;
 	max-width: 370px;
 	margin: auto;
@@ -33,6 +33,7 @@
 .dark legend {
 	color: var(--dark-title);
 }
+
 .dark form {
 	border: none;
 }
@@ -55,6 +56,9 @@
 .dark button + small:hover {
 	color: var(--dark-btn-secondary);
 }
+.dark input {
+	background-color: var(--dark-bg);
+}
 @media screen and (min-width: 600px) {
 	.client {
 		width: 100%;
@@ -62,10 +66,6 @@
 		height: fit-content;
 		padding-top: 32px;
 		padding-bottom: 28px;
-		margin-top: 5rem;
-	}
-	.dark input {
-		background-color: var(--dark-bg);
 	}
 	.client legend {
 		font-weight: bold;
@@ -73,6 +73,11 @@
 	}
 	.dark {
 		box-shadow: var(--dark-shadow);
+	}
+}
+@media screen and (min-width: 996px) {
+	.client {
+		margin-top: 5rem;
 	}
 }
 @media screen and (min-width: 1300px) {

@@ -3,6 +3,10 @@ import TicketDescription from "../ticket_description";
 import { DarkModeContext } from "@/context/dark_mode";
 import { useContext, useEffect, useState } from "react";
 import { SigninContext } from "@/context/signin";
+import BusSeat from "../bus_seat";
+const STATUS_AVAILABLE = 0;
+const STATUS_UNAVAILABLE = 1;
+const STATUS_RESERVED = 2;
 
 export function PanelTicketBus() {
 	const { isDarkMode } = useContext(DarkModeContext);
@@ -11,6 +15,7 @@ export function PanelTicketBus() {
 	const [seatAvailable, setSeatAvailable] = useState([]);
 	const [seatUnavailable, setSeatUnavailable] = useState([]);
 	const [totalSeats, setTotalSeats] = useState([]);
+	const [status, setStatus] = useState([]);
 
 	useEffect(() => {
 		if (totalSeats.length === 0) {
@@ -27,29 +32,33 @@ export function PanelTicketBus() {
 		}
 	}, []);
 
+	const changeStatus = (current) => setStatus(current);
+	const reserve = () => changeStatus(STATUS_RESERVED);
+	const handleStatus = ({ currentTarget }) => {
+		const { className } = currentTarget;
+		console.log(className);
+		if (STATUS_RESERVED) {
+		}
+	};
+	const theme = !isDarkMode ? styles.light : styles.dark;
+
 	const getStatus = (everySeat) => {
 		let unavailable = seatUnavailable.some((seat) => seat === everySeat);
 		let reserved = seatReserved.some((seat) => seat === everySeat);
-		if (unavailable) return styles.unavailable;
-		if (reserved) return styles.reserved;
+		if (unavailable) return 1;
+		if (reserved) return 2;
 	};
-
-	const theme = !isDarkMode ? styles.light : styles.dark;
 	return (
 		<div className={`${styles.bus} ${theme}`}>
 			<div>
-				<TicketDescription status={1} />
-				<TicketDescription status={2} />
+				<TicketDescription status={STATUS_UNAVAILABLE} />
+				<TicketDescription status={STATUS_RESERVED} />
 			</div>
 			<div className={styles.seats}>
 				{totalSeats.length > 0 &&
-					totalSeats.map((el) => (
-						<span className={getStatus(el)} key={el}>
-							{el}
-						</span>
-					))}
+					totalSeats.map((el) => <BusSeat el={el} state={getStatus(el)} key={el} />)}
 			</div>
-			<small>Reservar asiento</small>
+			<small onClick={reserve}>Reservar asiento</small>
 		</div>
 	);
 }
