@@ -4,7 +4,8 @@ import { DarkModeContext } from "@/context/dark_mode";
 import { useContext, useEffect, useState } from "react";
 import { SigninContext } from "@/context/signin";
 import BusSeat from "../bus_seat";
-const STATUS_AVAILABLE = 0;
+import { ChangeSeat } from "../change_seat";
+
 const STATUS_UNAVAILABLE = 1;
 const STATUS_RESERVED = 2;
 
@@ -14,8 +15,12 @@ export function PanelTicketBus() {
 	const [seatReserved, setSeatReserved] = useState([]);
 	const [seatAvailable, setSeatAvailable] = useState([]);
 	const [seatUnavailable, setSeatUnavailable] = useState([]);
+	const [seatToChange, setSeatToChange] = useState(-1);
+
 	const [totalSeats, setTotalSeats] = useState([]);
-	const [status, setStatus] = useState([]);
+	const [isModal, setModal] = useState(false);
+	const [changeSeat, setChangeSeat] = useState(-1);
+	const [changeClient, setChangeClient] = useState("--");
 
 	useEffect(() => {
 		if (totalSeats.length === 0) {
@@ -29,25 +34,19 @@ export function PanelTicketBus() {
 			setSeatAvailable(available);
 			setSeatUnavailable(unavailable);
 			setSeatReserved(reserved);
+			console.log("ticket rendered");
 		}
 	}, []);
-
-	const changeStatus = (current) => setStatus(current);
-	const reserve = () => changeStatus(STATUS_RESERVED);
-	const handleStatus = ({ currentTarget }) => {
-		const { className } = currentTarget;
-		console.log(className);
-		if (STATUS_RESERVED) {
-		}
-	};
 	const theme = !isDarkMode ? styles.light : styles.dark;
-
 	const getStatus = (everySeat) => {
 		let unavailable = seatUnavailable.some((seat) => seat === everySeat);
 		let reserved = seatReserved.some((seat) => seat === everySeat);
 		if (unavailable) return 1;
 		if (reserved) return 2;
 	};
+	console.log(changeSeat, seatToChange);
+	console.log(changeSeat, seatToChange);
+
 	return (
 		<div className={`${styles.bus} ${theme}`}>
 			<div>
@@ -56,9 +55,32 @@ export function PanelTicketBus() {
 			</div>
 			<div className={styles.seats}>
 				{totalSeats.length > 0 &&
-					totalSeats.map((el) => <BusSeat el={el} state={getStatus(el)} key={el} />)}
+					totalSeats.map((el) => {
+						if (changeSeat !== seatToChange) {
+							console.log("hi");
+						}
+						return (
+							<BusSeat
+								el={el}
+								state={getStatus(el)}
+								key={el}
+								setModal={setModal}
+								setChangeSeat={setChangeSeat}
+								changeSeat={changeSeat}
+								seatToChange={seatToChange}
+							/>
+						);
+					})}
 			</div>
-			<small onClick={reserve}>Reservar asiento</small>
+			{isModal && (
+				<ChangeSeat
+					setModal={setModal}
+					seat={changeSeat}
+					client={changeClient}
+					setChangeSeat={setChangeSeat}
+					setSeatToChange={setSeatToChange}
+				/>
+			)}
 		</div>
 	);
 }
