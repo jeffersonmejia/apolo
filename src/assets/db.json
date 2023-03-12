@@ -16,9 +16,9 @@
 				"selled": "10",
 				"reserved": "5",
 				"cancelled": "10",
-				"collected": "$30.00",
-				"saved": "$20.00",
-				"total": "$10.00",
+				"collected": "30.00",
+				"saved": "20.00",
+				"total": "10.00",
 				"total_seats": "35"
 			},
 			"created": [

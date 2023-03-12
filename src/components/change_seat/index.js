@@ -4,10 +4,11 @@ import styles from "./index.module.css";
 import { DarkModeContext } from "@/context/dark_mode";
 import { useContext, useState } from "react";
 
-export function ChangeSeat({ setModal, seat, client, setSeatToChange }) {
+export function ChangeSeat({ setModal, seat, client, setSeatToChange, totalSeats }) {
 	const { isDarkMode } = useContext(DarkModeContext);
 	const [isLoading, setLoading] = useState(false);
 	const [seatTyped, setSeatTyped] = useState(-1);
+	const [isValidSeat, setIsValidSeat] = useState(true);
 
 	const theme = !isDarkMode ? styles.light : styles.dark;
 	const cancelOperation = () => setModal(false);
@@ -21,7 +22,13 @@ export function ChangeSeat({ setModal, seat, client, setSeatToChange }) {
 	};
 	const handleChange = ({ currentTarget }) => {
 		const { value } = currentTarget;
-		setSeatTyped(parseInt(value));
+		const numberValue = parseInt(value);
+		if (numberValue < 1 || numberValue > totalSeats) {
+			setIsValidSeat(false);
+		} else {
+			setIsValidSeat(true);
+			setSeatTyped(parseInt(numberValue));
+		}
 	};
 
 	return (
@@ -40,6 +47,7 @@ export function ChangeSeat({ setModal, seat, client, setSeatToChange }) {
 							onChange={handleChange}
 						/>
 					</fieldset>
+					{!isValidSeat && <small className={styles.error}>El asiento es inválido</small>}
 					<div>
 						<LoaderButton
 							defaultBtn="Cambiar asiento"

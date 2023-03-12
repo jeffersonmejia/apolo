@@ -16,15 +16,79 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	gap: 24px;
 	text-align: right;
 	animation: opacity 0.3s ease-in-out;
 	margin-bottom: 24px;
-}
-.resume button {
 	width: 90%;
 	margin: auto;
+	border-radius: var(--border-radius);
+	padding: 24px 28px;
+	margin-bottom: 20px;
+	background-color: var(--dark-card);
 }
+.resume h1 {
+	color: var(--dark-text);
+	font-size: 1rem;
+	text-transform: uppercase;
+	text-align: center;
+}
+.bus_detail {
+	width: fit-content;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	font-size: 0.8rem;
+	place-items: center;
+	grid-column: 1/-1;
+	margin-top: 6px;
+	margin-bottom: 8px;
+}
+.bus_detail small {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+
+.bus_detail span {
+	font-size: 1.2rem;
+}
+.detail {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	color: var(--dark-text);
+	gap: 12px;
+	margin-top: 4px;
+	margin-bottom: 16px;
+}
+.detail h5 {
+	grid-column: 1/-1;
+	text-align: left;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+.detail span {
+	font-size: 1.2rem;
+}
+.detail div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--dark-bg);
+	border-radius: var(--border-radius);
+	padding: 12px 6px;
+	font-size: 0.9rem;
+}
+.detail div:nth-child(2),
+.detail div:last-child {
+	grid-column: 1/-1;
+}
+
+.dark small {
+	color: var(--dark-text);
+}
+
 .resumenTable {
 	width: 90%;
 	margin: auto;
@@ -42,7 +106,18 @@
 .resumenTable caption {
 	padding: 4px;
 }
-
+.group_btn {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+}
+.group_btn small {
+	margin: auto;
+	text-align: center;
+	cursor: pointer;
+}
 .dark :is(table, caption) {
 	background-color: var(--dark-card);
 }
@@ -53,21 +128,16 @@
 .dark caption {
 	border-bottom: none;
 }
+
 @media screen and (min-width: 600px) {
 	.resume {
-		width: 80%;
+		width: 90%;
 		margin: auto;
 		width: 100%;
 		max-width: 500px;
 		grid-column: 2/-1;
 		margin-top: 32px;
 		margin-bottom: 20px;
-	}
-	.resumenTable,
-	.resume button {
-		width: 90%;
-		max-width: 400px;
-		max-width: none;
 	}
 }
 @media screen and (min-width: 850px) {
@@ -97,8 +167,6 @@
 		padding: 32px;
 		height: fit-content;
 		border-radius: var(--border-radius);
-		grid-column: 3/-1;
-		margin: 0;
 	}
 	.resumenTable {
 		width: 100%;
@@ -110,5 +178,16 @@
 @media screen and (min-width: 1300px) {
 	.resume {
 		grid-column: 3/-1;
+		margin: 0;
+		margin-right: auto;
+		margin-top: 8px;
+	}
+
+	.detail {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.detail div:nth-child(2),
+	.detail div:last-child {
+		grid-column: auto;
 	}
 }

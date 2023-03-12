@@ -3,6 +3,7 @@
 	max-width: 400px;
 	border-radius: var(--border-radius);
 	padding: 28px 32px;
+	color: var(--dark-text);
 }
 .change_seat form {
 	padding: 0;
@@ -21,17 +22,34 @@
 .change_seat fieldset:nth-child(2) {
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 0;
 }
-.change_seat div:nth-child(3) {
+small.error {
+	margin: 8px 0;
+	color: var(--dark-danger);
+}
+.change_seat fieldset + div {
+	margin-top: 12px;
+}
+.change_seat div:last-child {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
-	margin-top: 2px;
+	align-items: center;
+	gap: 8px;
 }
 .change_seat button {
 	width: 100%;
 }
-
+.change_seat small:last-child {
+	cursor: pointer;
+}
 .dark {
 	background-color: var(--dark-bg);
+}
+.dark input {
+	background-color: var(--dark-card);
+	color: var(--dark-input-fg);
+}
+.dark .error {
+	color: var(--dark-danger);
 }

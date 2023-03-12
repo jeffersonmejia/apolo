@@ -7,7 +7,7 @@ import { GroupBtn } from "../group_btn";
 import { ChangeTravel } from "../change_travel";
 import { Loader } from "../loader";
 import { DarkModeContext } from "@/context/dark_mode";
-
+import { LoaderButton } from "../loaderButton";
 export function PanelResumen() {
 	const { data } = useContext(SigninContext);
 	const { isTicketActive } = useContext(PanelSectionContext);
@@ -28,54 +28,65 @@ export function PanelResumen() {
 	};
 	return (
 		<div className={`${styles.resume} ${!isDarkMode ? styles.light : styles.dark}`}>
-			{isLoader && <Loader message="Cerrando viaje..." />}
 			{travelData && (
 				<>
-					{!isLoader && (
-						<>
-							<table className={styles.resumenTable}>
-								<PanelResumeData
-									caption="Información del viaje"
-									title_1="Número de bus"
-									content_1={travelData.current.bus}
-									title_2="Viaje actual"
-									content_2={travelData.current.itinerary}
-									title_3="Salida"
-									content_3={travelData.current.departure}
-								/>
-							</table>
-							<table className={styles.resumenTable}>
-								<PanelResumeData
-									caption={isTicketActive ? "Boletería" : "Encomiendas"}
-									title_1="Vendidos/as"
-									content_1={travelData.current.selled}
-									title_2="Anulados/as"
-									content_2={travelData.current.cancelled}
-									title_3="Disponibles"
-									content_3="--"
-								/>
-							</table>
-							<table className={styles.resumenTable}>
-								<PanelResumeData
-									caption="Ventas"
-									title_1="Recaudado"
-									content_1={travelData.current.collected}
-									title_2="Ahorrado"
-									content_2={travelData.current.saved}
-									title_3="Total"
-									content_3={travelData.current.total}
-								/>
-							</table>
-							<GroupBtn
-								btn_1="Cerrar viaje"
-								btn_2="Cambiar viaje"
-								MyClick={handleClick}
-							/>
-						</>
-					)}
-					{isModalOpen && <ChangeTravel setModal={setModal} listTravel={data} />}
+					<h1>{travelData.current.itinerary}</h1>
+					<div className={styles.bus_detail}>
+						<small>
+							<span class="material-symbols-outlined">directions_bus</span>
+							<p>Paul Mejía - {travelData.current.bus}</p>
+						</small>
+						<small>
+							<span class="material-symbols-outlined">departure_board</span>
+							<p>{travelData.current.departure}</p>
+						</small>
+					</div>
+					<div className={styles.detail}>
+						<h5>
+							<span class="material-symbols-outlined">receipt_long</span>
+							<p>Boletos</p>
+						</h5>
+						<div>
+							<h5> Vendidos</h5>
+							<small>{travelData.current.selled}</small>
+						</div>
+						<div>
+							<h5>Reservados</h5>
+							<small>{travelData.current.reserved}</small>
+						</div>
+						<div>
+							<h5>Anulados</h5>
+							<small>{travelData.current.cancelled}</small>
+						</div>
+						<h5>
+							<span class="material-symbols-outlined">payments</span>
+							<p>Ventas</p>
+						</h5>
+						<div>
+							<h5>Ingresos</h5>
+							<small>${travelData.current.collected}</small>
+						</div>
+						<div>
+							<h5>Ahorros</h5>
+							<small>${travelData.current.saved}</small>
+						</div>
+						<div>
+							<h5>Recaudado</h5>
+							<small>${travelData.current.total}</small>
+						</div>
+					</div>
+					<div className={styles.group_btn}>
+						<LoaderButton
+							MyClick={handleClick}
+							isLoading={isLoader}
+							defaultBtn="Cerrar viaje"
+							loading="Cerrando..."
+						/>
+						<small onClick={handleClick}>Gestionar</small>
+					</div>
 				</>
 			)}
+			{isModalOpen && <ChangeTravel setModal={setModal} listTravel={data} />}
 		</div>
 	);
 }

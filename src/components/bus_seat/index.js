@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { DarkModeContext } from "@/context/dark_mode";
+import { SigninContext } from "@/context/signin";
 
 function BusSeat({ el, state, setChangeSeat, setModal, changeSeat, seatToChange }) {
 	const [styleState, setStyleState] = useState(null);
@@ -19,7 +20,6 @@ function BusSeat({ el, state, setChangeSeat, setModal, changeSeat, seatToChange 
 	}, []);
 	useEffect(() => {
 		if (changeSeat !== -1 && changeSeat === el) {
-			console.log("change seat ->  finded");
 			setStyleState(null);
 			setCurrentState(0);
 		}
@@ -28,23 +28,28 @@ function BusSeat({ el, state, setChangeSeat, setModal, changeSeat, seatToChange 
 			setCurrentState(1);
 		}
 	}, [seatToChange]);
-	const handleClick = ({ currentTarget }) => {
-		if (currentState === 0) {
-			setCurrentState(2);
-			setStyleState(styles.reserved);
-		}
-		if (currentState === 1) {
-			const { textContent } = currentTarget;
-			const seatClicked = parseInt(textContent);
-			setChangeSeat(seatClicked);
-			setModal(true);
-		}
-		if (currentState === 2) {
-			setCurrentState(0);
-			setStyleState(null);
-		}
-	};
+
+	const handleClick = useCallback(
+		({ currentTarget }) => {
+			if (currentState === 0) {
+				setCurrentState(2);
+				setStyleState(styles.reserved);
+			}
+			if (currentState === 1) {
+				const { textContent } = currentTarget;
+				const seatClicked = parseInt(textContent);
+				setChangeSeat(seatClicked);
+				setModal(true);
+			}
+			if (currentState === 2) {
+				setCurrentState(0);
+				setStyleState(null);
+			}
+		},
+		[currentState]
+	);
 	const theme = !isDarkMode ? styles.light : styles.dark;
+
 	return (
 		<span className={`${styleState} ${theme}`} onClick={handleClick}>
 			{el}

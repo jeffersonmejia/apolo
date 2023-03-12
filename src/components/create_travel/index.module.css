@@ -31,7 +31,7 @@
 }
 .dark :is(input, select) {
 	background-color: var(--dark-bg);
-	color: var(--dark-input-fg);
+	color: var(--dark-text);
 }
 .dark select {
 	border: none;

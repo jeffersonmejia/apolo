@@ -23,7 +23,7 @@ export function PanelAside() {
 					<li className={isTicket ? styles.active : ""} onClick={handleSection} value={0}>
 						Boletería
 					</li>
-					<li
+					{/* <li
 						className={isPackage ? styles.active : ""}
 						onClick={handleSection}
 						value={1}
@@ -32,7 +32,7 @@ export function PanelAside() {
 					</li>
 					<li className={isReport ? styles.active : ""} onClick={handleSection} value={2}>
 						Reportes
-					</li>
+					</li> */}
 				</ul>
 			</aside>
 			<CreateTravel />

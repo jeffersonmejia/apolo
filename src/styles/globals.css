@@ -46,6 +46,7 @@
 	--dark-unavaliable-seat-fg: rgba(250, 133, 0);
 	--dark-reserved-seat: rgba(233, 250, 0, 0.192);
 	--dark-reserved-seat-fg: rgba(233, 250, 0, 1);
+	--dark-danger: #d2504a;
 
 	--height-btn: 40px;
 	--btn-fg: #fff;

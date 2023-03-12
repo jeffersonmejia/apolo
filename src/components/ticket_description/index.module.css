@@ -1,29 +1,32 @@
+.busDescription {
+	grid-column: 1/-1;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	padding-bottom: 6px;
+	gap: 4px;
+	margin-bottom: 8px;
+}
 .busDescription span {
 	margin-left: 26px;
 	color: var(--legend-color);
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 }
+
 .dark {
 	color: var(--dark-text);
 }
-.dark .avaliable::before {
-	content: "";
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	border-radius: 2px;
-	margin-left: -16px;
-	margin-top: 6px;
-	background-color: var(--dark-avaliable-seat);
+.dark .available {
+	display: none;
 }
-.dark .unavaliable::before {
+.dark .unavailable::before {
 	content: "";
 	position: absolute;
 	width: 10px;
 	height: 10px;
 	border-radius: 2px;
 	margin-left: -16px;
-	margin-top: 6px;
+	margin-top: 5px;
 	background-color: var(--dark-unavaliable-seat);
 }
 .dark .reserved::before {
@@ -33,6 +36,15 @@
 	height: 10px;
 	border-radius: 2px;
 	margin-left: -16px;
-	margin-top: 6px;
+	margin-top: 5px;
 	background-color: var(--dark-reserved-seat);
+}
+@media screen and (min-width: 600px) {
+	.busDescription {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		padding: 0;
+		place-items: center;
+		gap: 0;
+	}
 }
