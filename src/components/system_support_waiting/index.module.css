@@ -5,6 +5,7 @@
 	justify-content: center;
 	gap: 12px;
 	height: 80vh;
+
 	border-radius: var(--border-radius);
 }
 .note {
@@ -40,6 +41,7 @@
 }
 @media screen and (min-width: 800px) {
 	.pending {
-		padding: 0;
+		width: 100%;
+		padding: 40px;
 	}
 }

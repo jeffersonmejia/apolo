@@ -30,7 +30,7 @@ export function PanelResumen() {
 		<div className={`${styles.resume} ${!isDarkMode ? styles.light : styles.dark}`}>
 			{travelData && (
 				<>
-					<h1>{travelData.current.itinerary}</h1>
+					<h3>{travelData.current.itinerary}</h3>
 					<div className={styles.bus_detail}>
 						<small>
 							<span class="material-symbols-outlined">directions_bus</span>

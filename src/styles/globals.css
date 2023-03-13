@@ -37,7 +37,7 @@
 	--dark-support-pending: orange;
 	--dark-support-solving: green;
 	--dark-aside-item-on: rgba(43, 88, 133, 0.5);
-	--dark-aside-item-fg: white;
+	--dark-aside-item-fg: rgb(170, 170, 170);
 	--dark-aside-items-fg: rgb(141, 140, 140);
 	--dark-aside-item-hover: rgba(43, 88, 133, 0.5);
 	--dark-avaliable-seat: rgba(0, 250, 217, 0.192);

@@ -1,19 +1,22 @@
 import { useContext, useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { DarkModeContext } from "@/context/dark_mode";
+import { SigninContext } from "@/context/signin";
 
 const MINUTES_IN_SECONDS = 60;
 
 export function SystemSupportWaiting({ setPending }) {
-	const [count, setCount] = useState(MINUTES_IN_SECONDS * 6);
-
+	const [count, setCount] = useState(MINUTES_IN_SECONDS * 1);
+	const { handleAuth } = useContext(SigninContext);
 	const { isDarkMode } = useContext(DarkModeContext);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
+			handleAuth();
 			setCount((prevCount) => {
 				if (prevCount <= 0) {
 					clearInterval(interval);
+					setPending(false);
 					return 0;
 				}
 				return prevCount - 1;

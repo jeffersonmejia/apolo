@@ -5,8 +5,8 @@ const TravelTicketContext = createContext();
 
 function TravelTicketProvider({ children }) {
 	const { data } = useContext(SigninContext);
-	const { current } = data;
-	const { travel_id } = current;
+	const { current } = data || {};
+	const { travel_id } = current || {};
 	return (
 		<TravelTicketContext.Provider value={travel_id}>
 			{children}

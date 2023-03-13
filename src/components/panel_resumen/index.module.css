@@ -26,10 +26,8 @@
 	margin-bottom: 20px;
 	background-color: var(--dark-card);
 }
-.resume h1 {
+.resume h3 {
 	color: var(--dark-text);
-	font-size: 1rem;
-	text-transform: uppercase;
 	text-align: center;
 }
 .bus_detail {
@@ -89,23 +87,6 @@
 	color: var(--dark-text);
 }
 
-.resumenTable {
-	width: 90%;
-	margin: auto;
-	font-size: 0.85rem;
-}
-.resumenTable th {
-	padding: 2px 8px;
-	width: 50%;
-}
-.resumenTable td {
-	padding: 2px;
-	padding-left: 6px;
-	padding-right: 6px;
-}
-.resumenTable caption {
-	padding: 4px;
-}
 .group_btn {
 	width: 100%;
 	display: flex;

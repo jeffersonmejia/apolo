@@ -16,12 +16,11 @@
 	margin: 0;
 	display: inline-block;
 }
-
 .loaderButton i {
 	position: absolute;
-	margin-left: -122px;
 	width: 14px;
 	height: 14px;
+	margin-right: 120px;
 	border-radius: 50%;
 	border: 2px solid white;
 	border-top-color: transparent;

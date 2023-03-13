@@ -55,7 +55,7 @@ export default function Main() {
 						{data && isTicket && <PanelTicket />}
 						{!data && isTicket && <SystemSupport />}
 						{isPackage && <PanelPackage />}
-						{!isReport && <PanelResumen />}
+						{!isReport && data && <PanelResumen />}
 						{isReport && <PanelReport></PanelReport>}
 					</main>
 				</TravelTicketProvider>

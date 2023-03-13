@@ -31,7 +31,7 @@
 	background-color: var(--dark-card);
 }
 .dark legend {
-	color: var(--dark-title);
+	color: var(--dark-text);
 }
 
 .dark form {
@@ -39,7 +39,7 @@
 }
 .dark select {
 	background-color: var(--dark-bg);
-	color: var(--dark-input-fg);
+	color: var(--dark-text);
 	border: none;
 }
 .dark input {
