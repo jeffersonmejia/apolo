@@ -82,7 +82,7 @@ export function PanelResumen() {
 							defaultBtn="Cerrar viaje"
 							loading="Cerrando..."
 						/>
-						<small onClick={handleClick}>Gestionar</small>
+						<small onClick={handleClick}>Gestionar viajes</small>
 					</div>
 				</>
 			)}

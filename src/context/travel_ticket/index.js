@@ -8,7 +8,7 @@ function TravelTicketProvider({ children }) {
 	const { current } = data || {};
 	const { travel_id } = current || {};
 	return (
-		<TravelTicketContext.Provider value={travel_id}>
+		<TravelTicketContext.Provider value={parseInt(travel_id)}>
 			{children}
 		</TravelTicketContext.Provider>
 	);

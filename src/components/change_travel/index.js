@@ -8,7 +8,6 @@ export function ChangeTravel({ setModal, listTravel }) {
 	const [travels] = useState(listTravel.created);
 	const { isDarkMode } = useContext(DarkModeContext);
 	const theme = !isDarkMode ? styles.light : styles.dark;
-	const handleClick = () => setModal(false);
 	return (
 		<Modal>
 			<div className={`${styles.listTravel} ${theme}`}>
@@ -19,7 +18,6 @@ export function ChangeTravel({ setModal, listTravel }) {
 				{travels.length > 0 && (
 					<ChangeTravelTable setModal={setModal} travels={travels} />
 				)}
-				<button onClick={handleClick}>Cerrar</button>
 			</div>
 		</Modal>
 	);

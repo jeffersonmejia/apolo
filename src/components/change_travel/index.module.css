@@ -1,22 +1,37 @@
 .listTravel {
-	width: 90%;
 	max-width: 700px;
 	border-radius: var(--border-radius);
 	padding: 32px;
 	overflow: hidden;
+}
+.listTravel fieldset {
+	gap: 0;
+}
+.listTravel label {
+	text-align: left;
+	font-size: 0.8rem;
+	margin: 0;
+}
+.listTravel label {
+	margin-bottom: 4px;
+}
+.listTravel input[type="date"] ~ label {
+	margin-top: 12px;
 }
 .listTravel button {
 	display: block;
 	width: 100%;
 	max-width: 250px;
 	margin-top: 20px;
-	margin-bottom: 12px;
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.listTravel table:nth-child(1) {
+	margin-bottom: 24px;
+}
 .listTravel table {
 	width: 100%;
-	margin-top: 12px;
 }
 .listTravel caption {
 	padding: 6px 0;
@@ -60,6 +75,22 @@
 	color: var(--btn-fg);
 }
 .dark :is(tr, td, th, caption) {
+	color: var(--dark-text);
+	border: var(--dark-border);
+}
+.dark caption {
+	border-bottom: none;
+	width: 100%;
+}
+.dark :is(caption, table) {
+	background-color: var(--dark-card);
+}
+.dark input {
+	background-color: var(--dark-input);
+	color: var(--dark-input-fg);
+	color: var(--dark-text);
+}
+.dark label {
 	color: var(--dark-text);
 }
 @media screen and (min-width: 600px) {

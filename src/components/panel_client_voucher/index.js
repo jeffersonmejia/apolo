@@ -20,7 +20,7 @@ export function PanelClientVoucher({ setModal }) {
 					<table>
 						<caption>Datos del cliente</caption>
 						<tr>
-							<th>Cliente</th>
+							<th>Nombres</th>
 							<td>Jefferson Mejia</td>
 						</tr>
 						<tr>
