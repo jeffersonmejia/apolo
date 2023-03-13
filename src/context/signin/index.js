@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import services from "@/services";
 
 const SigninContext = createContext();
@@ -9,7 +9,6 @@ const SigninProvider = ({ children }) => {
 	const [data, setData] = useState(null);
 	const [error, setError] = useState(null);
 	let contextState = {};
-
 	const handleAuth = () => {
 		const getTravels = async () => {
 			try {

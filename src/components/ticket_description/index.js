@@ -14,7 +14,6 @@ function TicketDescription({ status }) {
 			setListStatus(list);
 		}
 	}, []);
-	console.log(listStatus);
 	return (
 		<div className={`${styles.busDescription} ${theme}`}>
 			{listStatus &&

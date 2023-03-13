@@ -12,12 +12,14 @@ import { PanelAside } from "../panel_aside";
 import { PanelResumen } from "../panel_resumen";
 import { PanelReport } from "../panel_report";
 import SystemSupport from "../system_support";
+import { TravelTicketProvider } from "@/context/travel_ticket";
 
 export default function Main() {
 	const { isDarkMode, setDarkMode } = useContext(DarkModeContext);
 	const { isSignin, data, error } = useContext(SigninContext);
 	const { isAsideActive, setAsideActive } = useContext(PanelAsideContext);
 	const { isTicket, isPackage, isReport } = useContext(PanelSectionContext);
+
 	const handleResize = () => {
 		if (window.innerWidth >= 600) {
 			setAsideActive(true);
@@ -47,14 +49,16 @@ export default function Main() {
 			<PanelNavbar />
 			{!isSignin && <Signin />}
 			{isSignin && (
-				<main className={`${styles.main} ${theme} ${support} ${ticket_section}`}>
-					{isAsideActive && <PanelAside />}
-					{data && isTicket && <PanelTicket />}
-					{!data && isTicket && <SystemSupport />}
-					{isPackage && <PanelPackage />}
-					{!isReport && <PanelResumen />}
-					{isReport && <PanelReport></PanelReport>}
-				</main>
+				<TravelTicketProvider>
+					<main className={`${styles.main} ${theme} ${support} ${ticket_section}`}>
+						{isAsideActive && <PanelAside />}
+						{data && isTicket && <PanelTicket />}
+						{!data && isTicket && <SystemSupport />}
+						{isPackage && <PanelPackage />}
+						{!isReport && <PanelResumen />}
+						{isReport && <PanelReport></PanelReport>}
+					</main>
+				</TravelTicketProvider>
 			)}
 		</>
 	);

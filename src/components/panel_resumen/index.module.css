@@ -113,20 +113,13 @@
 	align-items: center;
 	gap: 6px;
 }
+.group_btn button {
+	width: 100%;
+}
 .group_btn small {
 	margin: auto;
 	text-align: center;
 	cursor: pointer;
-}
-.dark :is(table, caption) {
-	background-color: var(--dark-card);
-}
-.dark :is(table, tr, td, th, caption) {
-	border: var(--dark-border);
-	color: var(--dark-text);
-}
-.dark caption {
-	border-bottom: none;
 }
 
 @media screen and (min-width: 600px) {
@@ -138,6 +131,13 @@
 		grid-column: 2/-1;
 		margin-top: 32px;
 		margin-bottom: 20px;
+	}
+	.detail {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.detail div:nth-child(2),
+	.detail div:last-child {
+		grid-column: auto;
 	}
 }
 @media screen and (min-width: 850px) {
@@ -181,13 +181,5 @@
 		margin: 0;
 		margin-right: auto;
 		margin-top: 8px;
-	}
-
-	.detail {
-		grid-template-columns: repeat(3, 1fr);
-	}
-	.detail div:nth-child(2),
-	.detail div:last-child {
-		grid-column: auto;
 	}
 }
