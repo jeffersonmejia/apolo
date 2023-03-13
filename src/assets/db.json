@@ -11,6 +11,7 @@
 			"current": {
 				"travel_id": "1",
 				"bus": "1",
+				"driver": "Paul Mejía",
 				"itinerary": "Santo Domingo - Manta",
 				"departure": "07:00",
 				"selled": "10",
@@ -25,23 +26,26 @@
 				{
 					"travel_id": "1",
 					"itinerary": "Santo Domingo - Manta",
-					"date": "04/03/2023",
+					"date": "2026-03-24",
 					"hour": "19:00",
-					"bus": "1"
+					"bus": "1",
+					"driver": "Paul Mejía"
 				},
 				{
 					"travel_id": "2",
 					"itinerary": "Manta - Coca",
-					"date": "05/03/2023",
+					"date": "2023-03-22",
 					"hour": "18:30",
-					"bus": "78"
+					"bus": "78",
+					"driver": "Mary Jackson"
 				},
 				{
 					"travel_id": "3",
 					"itinerary": "Quito - Manta",
-					"date": "15/03/2023",
+					"date": "2023-03-21",
 					"hour": "22:00",
-					"bus": "25"
+					"bus": "25",
+					"driver": "Thomas Eli"
 				}
 			],
 			"seats": {

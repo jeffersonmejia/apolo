@@ -31,6 +31,7 @@ export function CreateTravel() {
 		useContext(CreateTravelContext);
 	const { isDarkMode } = useContext(DarkModeContext);
 	const theme = !isDarkMode ? styles.light : styles.dark;
+
 	return (
 		<>
 			{isModal && (
@@ -41,8 +42,8 @@ export function CreateTravel() {
 								<label>Fecha</label>
 								<input type="date" defaultValue={getCurrentDate()} />
 							</div>
-							<select defaultValue={1}>
-								<option value={0}>Selecciona una jornada</option>
+							<select defaultValue={getDefaultSchedule()}>
+								<option value={1}>Selecciona una jornada</option>
 								<option value={1}>Matutina</option>
 								<option value={2}>Vespertina</option>
 								<option value={3}>Nocturna</option>

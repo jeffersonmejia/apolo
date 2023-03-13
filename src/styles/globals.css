@@ -40,12 +40,15 @@
 	--dark-aside-item-fg: rgb(170, 170, 170);
 	--dark-aside-items-fg: rgb(141, 140, 140);
 	--dark-aside-item-hover: rgba(43, 88, 133, 0.5);
-	--dark-avaliable-seat: rgba(0, 250, 217, 0.192);
-	--dark-available-seat-fg: rgba(0, 250, 217, 1);
+
+	--dark-available-seat: hsl(235, 11%, 30%);
+	--dark-available-seat-fg: #fff;
 	--dark-unavaliable-seat: rgba(250, 133, 0, 0.192);
 	--dark-unavaliable-seat-fg: rgba(250, 133, 0);
-	--dark-reserved-seat: rgba(233, 250, 0, 0.192);
-	--dark-reserved-seat-fg: rgba(233, 250, 0, 1);
+	--dark-reserved-seat: hsl(235, 11%, 28%);
+	--dark-reserved-seat-fg: hsl(235, 11%, 44%);
+	--dark-selected-seat: rgba(233, 250, 0, 0.192);
+	--dark-selected-seat-fg: rgba(233, 250, 0, 1);
 	--dark-danger: #d2504a;
 
 	--height-btn: 40px;

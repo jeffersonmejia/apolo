@@ -33,8 +33,8 @@
 	max-width: 340px;
 }
 .seats span {
-	background-color: hsl(235, 11%, 26%);
-	color: #fff;
+	background-color: var(--dark-available-seat);
+	color: var(--dark-available-seat-fg);
 	font-weight: bold;
 	border-radius: var(--border-radius);
 	text-align: center;

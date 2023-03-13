@@ -48,6 +48,15 @@ function BusSeat({ el, state, setChangeSeat, setModal, changeSeat, seatToChange 
 				setCurrentState(0);
 				setStyleState(null);
 			}
+		} else {
+			if (currentState === 0) {
+				setCurrentState(4);
+				setStyleState(styles.selected);
+			}
+			if (currentState === 4) {
+				setCurrentState(0);
+				setStyleState(null);
+			}
 		}
 	};
 	const theme = !isDarkMode ? styles.light : styles.dark;

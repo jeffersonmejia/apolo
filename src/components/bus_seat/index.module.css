@@ -11,3 +11,7 @@
 	background-color: var(--dark-reserved-seat);
 	color: var(--dark-reserved-seat-fg);
 }
+.dark.selected {
+	background-color: var(--dark-selected-seat);
+	color: var(--dark-selected-seat-fg);
+}

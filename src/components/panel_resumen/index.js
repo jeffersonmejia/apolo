@@ -34,7 +34,9 @@ export function PanelResumen() {
 					<div className={styles.bus_detail}>
 						<small>
 							<span class="material-symbols-outlined">directions_bus</span>
-							<p>Paul Mejía - {travelData.current.bus}</p>
+							<p>
+								{travelData.current.driver}({travelData.current.bus})
+							</p>
 						</small>
 						<small>
 							<span class="material-symbols-outlined">departure_board</span>

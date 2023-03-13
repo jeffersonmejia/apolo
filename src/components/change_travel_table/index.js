@@ -27,9 +27,9 @@ export function ChangeTravelTable({ setModal, travels }) {
 							<h3>Editar viaje</h3>
 						</legend>
 						<label>Fecha</label>
-						<input type="date" />
+						<input type="date" defaultValue={travels[0].date} />
 						<label>Hora</label>
-						<input type="time" />
+						<input type="time" defaultValue={travels[0].hour} />
 						<label>Bus</label>
 						<input
 							type="text"
@@ -37,7 +37,11 @@ export function ChangeTravelTable({ setModal, travels }) {
 							defaultValue={travels[0].bus}
 						/>
 						<label>Chofer</label>
-						<input type="text" placeholder="Ingresa el chofer" />
+						<input
+							type="text"
+							placeholder="Ingresa el chofer"
+							defaultValue={travels[0].driver}
+						/>
 					</fieldset>
 				</form>
 			)}
